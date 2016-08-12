@@ -1,0 +1,95 @@
+<!--
+semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
+Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+	support@aoindustries.com
+	7262 Bull Pen Cir
+	Mobile, AL 36695
+
+This file is part of semanticcms-theme-documentation.
+
+semanticcms-theme-documentation is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-theme-documentation is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--
+A theme designed for technical documentation.
+
+Arguments:
+	arg.view  The current view that should be displayed.
+	arg.page  The page that should be displayed.
+-->
+<jsp:root
+	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
+	version="2.1"
+>
+	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" contentType="text/xml" />
+	<jsp:output omit-xml-declaration="true" />
+	<ao:html doctype="html5">
+		<c:set var="view" value="${arg.view}" />
+		<c:set var="page" value="${arg.page}" />
+		<c:set var="pageRef" value="${page.pageRef}" />
+		<head>
+			<ao:meta charset="${pageContext.response.characterEncoding}" />
+			<ao:meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+			<!-- Mobile support -->
+			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
+			<ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
+			<!-- Authors -->
+			<ao:include page="copyright.inc.jspx" arg.copyright="${p:getViewCopyright(view, page)}" />
+			<ao:include page="authors.inc.jspx" arg.authors="${p:getViewAuthors(view, page)}" />
+			<title><ao:out value="${view.getTitle(page)}" /></title>
+			<c:set var="description" value="${view.getDescription(page)}" />
+			<c:if test="${!empty description}">
+				<ao:meta name="description" content="${description}" />
+			</c:if>
+			<c:set var="keywords" value="${view.getKeywords(page)}" />
+			<c:if test="${!empty keywords}">
+				<ao:meta name="keywords" content="${keywords}" />
+			</c:if>
+			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
+				<ao:script src="/lib/html5.js" />
+			<jsp:text>&lt;![endif]--&gt;</jsp:text>
+			<ao:link href="/styles/html5.css" rel="stylesheet" type="text/css" />
+			<ao:link href="/styles/page.css" rel="stylesheet" type="text/css" />
+			<ao:link href="/styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
+			<c:forEach var="cssLink" items="${view.cssLinks}">
+				<ao:link href="${cssLink}" rel="stylesheet" type="text/css" />
+			</c:forEach>
+			<ao:script src="/lib/jquery-1.10.2.min.js" />
+			<ao:include page="/lib/dagre-d3/head.inc.jsp" />
+			<ao:include page="/lib/docs/head.inc.jsp" />
+			<ao:include page="/lib/docs/update-nav.inc.jsp" arg.page="${page}" />
+		</head>
+		<body>
+			<div id="pageContainer">
+				<ao:include
+					page="/lib/docs/page-top-area.inc.jsp"
+					arg.book="${pageRef.book}"
+					arg.path="${pageRef.path}"
+					arg.view="${view.isDefault() ? pageRef.path : pageRef.path.concat('?view=').concat(p:encodeUrlParam(view.name))}"
+					arg.page="${page}"
+					arg.active="${view.name}"
+				/>
+				<main id="pageMainArea">
+					<ao:include page="/lib/docs/page-dag.inc.jsp" arg.page="${page}" arg.view="${view}" />
+					<p:doView view="${view}" page="${page}" />
+					<div id="pagePadBottom"></div>
+				</main>
+			</div>
+		</body>
+	</ao:html>
+</jsp:root>
