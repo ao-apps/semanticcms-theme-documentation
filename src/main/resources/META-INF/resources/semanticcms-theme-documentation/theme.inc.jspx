@@ -73,6 +73,9 @@ Arguments:
 			<ao:include page="/lib/dagre-d3/head.inc.jsp" />
 			<ao:include page="/lib/docs/head.inc.jsp" />
 			<ao:include page="/lib/docs/update-nav.inc.jsp" arg.page="${page}" />
+			<c:if test="${!view.getAllowRobots(page)}">
+				<ao:meta name="robots" content="noindex, nofollow" />
+			</c:if>
 		</head>
 		<body>
 			<div id="pageContainer">
