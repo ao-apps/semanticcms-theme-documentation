@@ -51,7 +51,7 @@ Arguments:
 			<!-- Authors -->
 			<ao:include page="copyright.inc.jspx" arg.copyright="${p:getViewCopyright(view, page)}" />
 			<ao:include page="authors.inc.jspx" arg.authors="${p:getViewAuthors(view, page)}" />
-			<title><ao:out value="${view.getTitle(page)}" /></title>
+			<title><ao:out value="${p:getViewTitle(view, page)}" /></title>
 			<c:set var="description" value="${view.getDescription(page)}" />
 			<c:if test="${!empty description}">
 				<ao:meta name="description" content="${description}" />
