@@ -59,7 +59,7 @@ Arguments:
 			<ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
 			<ao:link href="/styles/navigation.css" rel="stylesheet" type="text/css" />
 			<ao:script src="navigation.js" />
-			<ao:script src="/lib/jquery-1.10.2.min.js" />
+			<ao:script src="/webjars/jquery/2.2.4/jquery.min.js" />
 			<!-- No search index left navigation frame -->
 			<ao:meta name="robots" content="noindex, nofollow" />
 		</head>

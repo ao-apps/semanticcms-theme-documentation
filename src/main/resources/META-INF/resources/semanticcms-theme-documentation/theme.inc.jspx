@@ -80,7 +80,7 @@ Arguments:
 			<c:forEach var="cssLink" items="${view.cssLinks}">
 				<ao:link href="${cssLink}" rel="stylesheet" type="text/css" />
 			</c:forEach>
-			<ao:script src="/lib/jquery-1.10.2.min.js" />
+			<ao:script src="/webjars/jquery/2.2.4/jquery.min.js" />
 			<ao:include page="/lib/dagre-d3/head.inc.jsp" />
 			<ao:include page="/lib/docs/head.inc.jsp" />
 			<ao:include page="/lib/docs/update-nav.inc.jsp" arg.page="${page}" />
