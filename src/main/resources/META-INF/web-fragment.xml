@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
+Copyright (C) 2016  AO Industries, Inc.
+	support@aoindustries.com
+	7262 Bull Pen Cir
+	Mobile, AL 36695
+
+This file is part of semanticcms-theme-documentation.
+
+semanticcms-theme-documentation is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-theme-documentation is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<web-fragment xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-fragment_3_0.xsd"
+  version="3.0"
+  metadata-complete="false">
+	<name>semanticcms-theme-documentation</name>
+    <display-name>SemanticCMS Theme Documentation</display-name>
+	<description>SemanticCMS theme tailored for technical documentation.</description>
+	<!-- Error pages -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/semanticcms-theme-documentation/error-pages/404.inc.jspx</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/semanticcms-theme-documentation/error-pages/500.inc.jspx</location>
+	</error-page>
+	<error-page>
+		<error-code>503</error-code>
+		<location>/semanticcms-theme-documentation/error-pages/503.inc.jspx</location>
+	</error-page>
+</web-fragment>
