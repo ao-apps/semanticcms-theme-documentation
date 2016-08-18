@@ -78,30 +78,20 @@ Arguments:
 					</div>
 				</c:if>
 
-				<!-- Special pages links. -->
-				<div id="navigationSpecialPages">
-					<ul>
-						<li><ao:a target="contentFrame" href="${servletPath}" param.view="tree">Tree</ao:a></li>
-						<c:if test="${p:hasChild(contentRoot)}">
-							<li><ao:a target="contentFrame" href="${servletPath}" param.view="all">View All</ao:a></li>
-						</c:if>
-					</ul>
-				</div>
-
 				<c:set var="views" value="${applicationScope.semanticCMS.views}" />
 
-				<!-- VARIABLE views -->
+				<!-- FIXED views -->
 				<c:set var="hasApplicableView" value="false" />
 				<c:forEach var="view" items="${views}">
-					<c:if test="${!hasApplicableView and view.group=='VARIABLE' and p:isViewApplicable(view, contentRoot)}">
+					<c:if test="${!hasApplicableView and view.group=='FIXED' and view.appliesGlobally and p:isViewApplicable(view, contentRoot)}">
 						<c:set var="hasApplicableView" value="true" />
 					</c:if>
 				</c:forEach>
 				<c:if test="${hasApplicableView}">
-					<div id="navigationElementTypes">
+					<div id="navigationSpecialPages">
 						<ul>
 							<c:forEach var="view" items="${views}">
-								<c:if test="${view.group=='VARIABLE' and p:isViewApplicable(view, contentRoot)}">
+								<c:if test="${view.group=='FIXED' and view.appliesGlobally and p:isViewApplicable(view, contentRoot)}">
 									<!-- Note: entire frame is nofollow -->
 									<li><ao:a
 										target="contentFrame"
@@ -113,6 +103,31 @@ Arguments:
 						</ul>
 					</div>
 				</c:if>
+
+				<!-- VARIABLE views -->
+				<c:set var="hasApplicableView" value="false" />
+				<c:forEach var="view" items="${views}">
+					<c:if test="${!hasApplicableView and view.group=='VARIABLE' and view.appliesGlobally and p:isViewApplicable(view, contentRoot)}">
+						<c:set var="hasApplicableView" value="true" />
+					</c:if>
+				</c:forEach>
+				<c:if test="${hasApplicableView}">
+					<div id="navigationElementTypes">
+						<ul>
+							<c:forEach var="view" items="${views}">
+								<c:if test="${view.group=='VARIABLE' and view.appliesGlobally and p:isViewApplicable(view, contentRoot)}">
+									<!-- Note: entire frame is nofollow -->
+									<li><ao:a
+										target="contentFrame"
+										href="${servletPath}"
+										param.view="${view.isDefault() ? null : view.name}"
+									><ao:out value="${view}" /></ao:a></li>
+								</c:if>
+							</c:forEach>
+						</ul>
+					</div>
+				</c:if>
+
 				<!-- Capture all pages recursively without headers (for fast traversal) -->
 				<nav id="navigationTree" class="ygtv-highlight">
 					<p:navigationTree yuiConfig="true" target="contentFrame" root="${contentRoot}" />
