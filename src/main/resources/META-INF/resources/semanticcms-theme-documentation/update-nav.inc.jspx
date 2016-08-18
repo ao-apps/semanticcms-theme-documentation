@@ -1,0 +1,64 @@
+<!--
+semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
+Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+	support@aoindustries.com
+	7262 Bull Pen Cir
+	Mobile, AL 36695
+
+This file is part of semanticcms-theme-documentation.
+
+semanticcms-theme-documentation is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-theme-documentation is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--
+Script to update the navigation view on the left when in frames.
+
+Arguments:
+	arg.page  The page that should be displayed.
+-->
+<jsp:root
+	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
+	version="2.1"
+>
+	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" contentType="text/xml" />
+	<c:if test="${!header['X-com-aoindustries-web-page-exporting'] || requestScope['template.skipFocus'] != true}">
+		<ao:script>
+			$(function() {
+				<!-- Scripting not allowed between pages when static files loaded from filesystem -->
+				<c:if test="${!header['X-com-aoindustries-web-page-exporting']}">
+					if(window.parent !== window) {
+						var frames = window.parent.frames;
+						if(frames.length==2 &amp;&amp; frames[1]==window) {
+							var navigation = frames[0].semanticcms_theme_documentation_navigation;
+							if(navigation !== undefined) {
+								navigation.highlightPage(<ao:out value="${p:encodeHexData(arg.page.pageRef)}" />);
+							}
+						}
+					}
+				</c:if>
+				<c:if test="${requestScope['template.skipFocus'] != true}">
+					setTimeout(
+						function() {
+							document.getElementById("pageMainArea").focus();
+						},
+						0
+					);
+				</c:if>
+			});
+		</ao:script>
+	</c:if>
+</jsp:root>
