@@ -1,0 +1,73 @@
+/*
+ * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
+ * Copyright (C) 2015, 2016  AO Industries, Inc.
+ *     support@aoindustries.com
+ *     7262 Bull Pen Cir
+ *     Mobile, AL 36695
+ *
+ * This file is part of semanticcms-theme-documentation.
+ *
+ * semanticcms-theme-documentation is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * semanticcms-theme-documentation is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Teach older browsers HTML5. */
+
+/* From http://www.w3schools.com/tags/tag_article.asp */
+article {
+	display: block;
+}
+
+/* From http://www.w3schools.com/tags/tag_aside.asp */
+aside {
+	display: block;
+}
+
+/* From http://www.w3schools.com/tags/tag_figure.asp */
+figure {
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+/* From http://www.w3schools.com/tags/tag_figcaption.asp */
+figcaption {
+	display: block;
+}
+
+/* From http://www.w3schools.com/tags/tag_footer.asp */
+footer {
+	display: block;
+}
+
+/* From http://www.w3schools.com/tags/tag_header.asp */
+header {
+	display: block;
+}
+
+/* From http://www.sitepoint.com/html5-main-element/ */
+main {
+	display: block;
+}
+
+/* From http://www.w3schools.com/tags/tag_nav.asp */
+nav {
+	display: block;
+}
+
+/* http://www.w3schools.com/tags/tag_section.asp */
+section {
+	display: block;
+}

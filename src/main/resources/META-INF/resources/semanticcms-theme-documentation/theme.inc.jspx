@@ -74,7 +74,7 @@ Arguments:
 			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
 				<ao:script src="/webjars/html5shiv/3.7.3/html5shiv.min.js" />
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
-			<ao:link href="/styles/html5.css" rel="stylesheet" type="text/css" />
+			<ao:link href="styles/html5.css" rel="stylesheet" type="text/css" />
 			<ao:link href="/styles/page.css" rel="stylesheet" type="text/css" />
 			<ao:link href="/styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
 			<c:forEach var="cssLink" items="${view.cssLinks}">

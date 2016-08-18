@@ -55,7 +55,7 @@ Arguments:
 			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
 				<ao:script src="/webjars/html5shiv/3.7.3/html5shiv.min.js" />
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
-			<ao:link href="/styles/html5.css" rel="stylesheet" type="text/css" />
+			<ao:link href="styles/html5.css" rel="stylesheet" type="text/css" />
 			<ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
 			<ao:link href="/styles/navigation.css" rel="stylesheet" type="text/css" />
 			<ao:script src="navigation.js" />
