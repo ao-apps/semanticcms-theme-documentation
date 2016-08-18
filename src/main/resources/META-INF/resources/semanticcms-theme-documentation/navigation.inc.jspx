@@ -30,7 +30,6 @@ Arguments:
 <jsp:root
 	xmlns:ao="http://aoindustries.com/ao-taglib"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:file="https://semanticcms.com/semanticcms-file-taglib"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
 	version="2.1"
@@ -89,33 +88,31 @@ Arguments:
 					</ul>
 				</div>
 
-				<!-- Per-element-type links. -->
-				<div id="navigationElementTypes">
-					<ul>
-						<c:if test="${p:hasElement(contentRoot, 'com.aoindustries.docs.Asset', true)}">
-							<li><ao:a target="contentFrame" href="${servletPath}" param.view="assets">Assets</ao:a></li>
-						</c:if>
-						<c:if test="${p:hasElement(contentRoot, 'com.pragmatickm.contact.model.Contact', true)}">
-							<li><ao:a target="contentFrame" href="${servletPath}" param.view="contacts">Contacts</ao:a></li>
-						</c:if>
-						<c:if test="${p:hasElement(contentRoot, 'com.semanticcms.dia.model.Dia', true)}">
-							<li><ao:a target="contentFrame" href="${servletPath}" param.view="diagrams">Diagrams</ao:a></li>
-						</c:if>
-						<c:if test="${file:hasFile(contentRoot, true)}">
-							<li><ao:a target="contentFrame" href="${servletPath}" param.view="files">Files</ao:a></li>
-						</c:if>
-						<c:if test="${p:hasElement(contentRoot, 'com.pragmatickm.password.model.Password', true)}">
-							<li><ao:a target="contentFrame" href="${servletPath}" param.view="passwords">Passwords</ao:a></li>
-						</c:if>
-						<c:if test="${p:hasElement(contentRoot, 'com.pragmatickm.procedure.model.Procedure', true)}">
-							<li><ao:a target="contentFrame" href="${servletPath}" param.view="procedures">Procedures</ao:a></li>
-						</c:if>
-						<c:if test="${p:hasElement(contentRoot, 'com.pragmatickm.task.model.Task', true)}">
-							<li><ao:a target="contentFrame" href="${servletPath}" param.view="tasks">Tasks</ao:a></li>
-							<li><ao:a target="contentFrame" href="${servletPath}" param.view="what-to-do">What To Do</ao:a></li>
-						</c:if>
-					</ul>
-				</div>
+				<c:set var="views" value="${applicationScope.semanticCMS.views}" />
+
+				<!-- VARIABLE views -->
+				<c:set var="hasApplicableView" value="false" />
+				<c:forEach var="view" items="${views}">
+					<c:if test="${!hasApplicableView and view.group=='VARIABLE' and p:isViewApplicable(view, contentRoot)}">
+						<c:set var="hasApplicableView" value="true" />
+					</c:if>
+				</c:forEach>
+				<c:if test="${hasApplicableView}">
+					<div id="navigationElementTypes">
+						<ul>
+							<c:forEach var="view" items="${views}">
+								<c:if test="${view.group=='VARIABLE' and p:isViewApplicable(view, contentRoot)}">
+									<!-- Note: entire frame is nofollow -->
+									<li><ao:a
+										target="contentFrame"
+										href="${servletPath}"
+										param.view="${view.isDefault() ? null : view.name}"
+									><ao:out value="${view}" /></ao:a></li>
+								</c:if>
+							</c:forEach>
+						</ul>
+					</div>
+				</c:if>
 				<!-- Capture all pages recursively without headers (for fast traversal) -->
 				<nav id="navigationTree" class="ygtv-highlight">
 					<p:navigationTree yuiConfig="true" target="contentFrame" root="${contentRoot}" />
