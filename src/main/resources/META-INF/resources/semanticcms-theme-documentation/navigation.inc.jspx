@@ -122,14 +122,14 @@ Arguments:
 				</nav>
 			</main>
 			<ao:script>
-				navigation.tree = new YAHOO.widget.TreeView("navigationTree");
-				// navigation.tree.singleNodeHighlight = true; 
-				navigation.tree.subscribe("clickEvent", navigation.treeClickEvent);
-				navigation.tree.subscribe("enterKeyPressed", navigation.treeEnterKeyPressed);
-				navigation.tree.render();
+				semanticcms_theme_documentation_navigation.tree = new YAHOO.widget.TreeView("navigationTree");
+				// semanticcms_theme_documentation_navigation.tree.singleNodeHighlight = true; 
+				semanticcms_theme_documentation_navigation.tree.subscribe("clickEvent", semanticcms_theme_documentation_navigation.treeClickEvent);
+				semanticcms_theme_documentation_navigation.tree.subscribe("enterKeyPressed", semanticcms_theme_documentation_navigation.treeEnterKeyPressed);
+				semanticcms_theme_documentation_navigation.tree.render();
 
 				$(function() {
-					navigation.highlightPage(<ao:out value="${p:encodeHexData(arg.page.pageRef)}" />);
+					semanticcms_theme_documentation_navigation.highlightPage(<ao:out value="${p:encodeHexData(arg.page.pageRef)}" />);
 				});
 			</ao:script>
 		</body>

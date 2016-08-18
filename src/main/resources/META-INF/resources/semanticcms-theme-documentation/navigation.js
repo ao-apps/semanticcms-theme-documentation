@@ -20,10 +20,10 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses/>.
  */
-navigation = {
+semanticcms_theme_documentation_navigation = {
 	/**
 	 * The TreeView object.
-	 * This is set in navigation.jsp
+	 * This is set in navigation.jspx
 	 */
 	tree : null,
 
@@ -39,7 +39,7 @@ navigation = {
 		if(highlightNode === traverseNode) traverseNode.highlight();
 		else traverseNode.unhighlight();
 		for(index in traverseNode.children) {
-			navigation._highlightNode(highlightNode, traverseNode.children[index]);
+			semanticcms_theme_documentation_navigation._highlightNode(highlightNode, traverseNode.children[index]);
 		}
 	},
 
@@ -48,7 +48,7 @@ navigation = {
 	 * Unhighlights all other nodes.
 	 */
 	highlightNode : function(node) {
-		navigation._highlightNode(node, navigation.tree.getRoot());
+		semanticcms_theme_documentation_navigation._highlightNode(node, semanticcms_theme_documentation_navigation.tree.getRoot());
 	},
 
 	/**
@@ -72,13 +72,13 @@ navigation = {
 	 * Recursive component of highlightNode.
 	 */
 	_getNodeIndex : function(node, traverseNode) {
-		navigation._getNodeIndexCounter++;
+		semanticcms_theme_documentation_navigation._getNodeIndexCounter++;
 		if(node === traverseNode) {
-			navigation._getNodeIndexPos = navigation._getNodeIndexCounter;
+			semanticcms_theme_documentation_navigation._getNodeIndexPos = semanticcms_theme_documentation_navigation._getNodeIndexCounter;
 		} else {
 			for(index in traverseNode.children) {
-				navigation._getNodeIndex(node, traverseNode.children[index]);
-				if(navigation._getNodeIndexPos !== -1) break;
+				semanticcms_theme_documentation_navigation._getNodeIndex(node, traverseNode.children[index]);
+				if(semanticcms_theme_documentation_navigation._getNodeIndexPos !== -1) break;
 			}
 		}
 	},
@@ -87,12 +87,12 @@ navigation = {
 	 * Gets the index of a node or <code>-1</code> if not found.
 	 */
 	getNodeIndex : function(node) {
-		navigation._getNodeIndexCounter = -1;
-		navigation._getNodeIndexPos = -1;
+		semanticcms_theme_documentation_navigation._getNodeIndexCounter = -1;
+		semanticcms_theme_documentation_navigation._getNodeIndexPos = -1;
 		if(node !== undefined && node !== null) {
-			navigation._getNodeIndex(node, navigation.tree.getRoot());
+			semanticcms_theme_documentation_navigation._getNodeIndex(node, semanticcms_theme_documentation_navigation.tree.getRoot());
 		}
-		return navigation._getNodeIndexPos;
+		return semanticcms_theme_documentation_navigation._getNodeIndexPos;
 	},
 
 	/**
@@ -101,22 +101,22 @@ navigation = {
 	expandNode : function(node) {
 		node.expand();
 		var parent = node.parent;
-		if(parent !== navigation.tree.getRoot()) navigation.expandNode(parent);
+		if(parent !== semanticcms_theme_documentation_navigation.tree.getRoot()) semanticcms_theme_documentation_navigation.expandNode(parent);
 	},
 
 	/**
 	 * Recursive component of highlightPage.
 	 */
 	_highlightPage : function(encodedPagePath, traverseNode, nodesHighlighted) {
-		if(encodedPagePath === navigation.getEncodedPagePath(traverseNode)) {
+		if(encodedPagePath === semanticcms_theme_documentation_navigation.getEncodedPagePath(traverseNode)) {
 			traverseNode.highlight();
-			navigation.expandNode(traverseNode);
+			semanticcms_theme_documentation_navigation.expandNode(traverseNode);
 			nodesHighlighted.push(traverseNode);
 		} else {
 			traverseNode.unhighlight();
 		}
 		for(index in traverseNode.children) {
-			navigation._highlightPage(encodedPagePath, traverseNode.children[index], nodesHighlighted);
+			semanticcms_theme_documentation_navigation._highlightPage(encodedPagePath, traverseNode.children[index], nodesHighlighted);
 		}
 	},
 
@@ -126,19 +126,19 @@ navigation = {
 	 */
 	highlightPage : function(encodedPagePath) {
 		if(
-			navigation.nodeLastSelected === null
-			|| navigation.getEncodedPagePath(navigation.nodeLastSelected) !== encodedPagePath
+			semanticcms_theme_documentation_navigation.nodeLastSelected === null
+			|| semanticcms_theme_documentation_navigation.getEncodedPagePath(semanticcms_theme_documentation_navigation.nodeLastSelected) !== encodedPagePath
 		) {
-			var lastSelectedIndex = navigation.getNodeIndex(navigation.nodeLastSelected);
-			navigation.tree.collapseAll();
+			var lastSelectedIndex = semanticcms_theme_documentation_navigation.getNodeIndex(semanticcms_theme_documentation_navigation.nodeLastSelected);
+			semanticcms_theme_documentation_navigation.tree.collapseAll();
 			var nodesHighlighted = new Array();
-			navigation._highlightPage(encodedPagePath, navigation.tree.getRoot(), nodesHighlighted);
+			semanticcms_theme_documentation_navigation._highlightPage(encodedPagePath, semanticcms_theme_documentation_navigation.tree.getRoot(), nodesHighlighted);
 			// Focus to the node closest to the last one selected
 			var closestNode = null;
 			var closestDistance = null;
 			for(index in nodesHighlighted) {
 				var node = nodesHighlighted[index];
-				var nodeDistance = Math.abs(lastSelectedIndex - navigation.getNodeIndex(node));
+				var nodeDistance = Math.abs(lastSelectedIndex - semanticcms_theme_documentation_navigation.getNodeIndex(node));
 				if(closestNode === null || nodeDistance < closestDistance) {
 					closestNode = node;
 					closestDistance = nodeDistance;
@@ -146,7 +146,7 @@ navigation = {
 			}
 			if(closestNode !== null) {
 				closestNode.focus();
-				navigation.nodeLastSelected = closestNode;
+				semanticcms_theme_documentation_navigation.nodeLastSelected = closestNode;
 			}
 		}
 	},
@@ -155,15 +155,15 @@ navigation = {
 	 * Called when a node is clicked.
 	 */
 	treeClickEvent: function(args) {
-		navigation.nodeLastSelected = args.node;
-		navigation.highlightNode(args.node);
+		semanticcms_theme_documentation_navigation.nodeLastSelected = args.node;
+		semanticcms_theme_documentation_navigation.highlightNode(args.node);
 	},
 
 	/**
 	 * Called when enter is pressed.
 	 */
 	treeEnterKeyPressed: function(node) {
-		navigation.nodeLastSelected = node;
-		navigation.highlightNode(node);
+		semanticcms_theme_documentation_navigation.nodeLastSelected = node;
+		semanticcms_theme_documentation_navigation.highlightNode(node);
 	}
 };
