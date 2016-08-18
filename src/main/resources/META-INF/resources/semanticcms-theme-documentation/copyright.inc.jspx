@@ -34,7 +34,6 @@ Arguments:
 	version="2.1"
 >
 	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
-	<jsp:output omit-xml-declaration="true" />
 	<c:set var="copyright" value="${arg.copyright}" />
 	<c:if test="${!empty copyright}">
 		<!-- See https://wiki.whatwg.org/wiki/MetaExtensions -->
