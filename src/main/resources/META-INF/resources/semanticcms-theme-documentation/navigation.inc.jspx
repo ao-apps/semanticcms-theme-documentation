@@ -56,7 +56,7 @@ Arguments:
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
 			<ao:link href="styles/html5.css" rel="stylesheet" type="text/css" />
 			<ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
-			<ao:link href="/styles/navigation.css" rel="stylesheet" type="text/css" />
+			<ao:link href="styles/navigation.css" rel="stylesheet" type="text/css" />
 			<ao:script src="navigation.js" />
 			<ao:script src="/webjars/jquery/2.2.4/jquery.min.js" />
 			<!-- No search index left navigation frame -->
