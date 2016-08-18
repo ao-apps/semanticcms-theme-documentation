@@ -1,0 +1,47 @@
+<!--
+semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
+Copyright (C) 2013, 2014, 2016  AO Industries, Inc.
+	support@aoindustries.com
+	7262 Bull Pen Cir
+	Mobile, AL 36695
+
+This file is part of semanticcms-theme-documentation.
+
+semanticcms-theme-documentation is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-theme-documentation is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--
+	Configures YUI with TreeView.  This is to be called within the <head> of the HTML page.
+
+	@see  http://developer.yahoo.com/yui/treeview/#start
+-->
+<jsp:root
+	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	version="2.1"
+>
+	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" contentType="text/xml" />
+	<c:if test="${!requestScope['/semanticcms-theme-documentation/jslib/yui-2.9.0/head.inc.jspx/included']}">
+		<c:set scope="request" var="/semanticcms-theme-documentation/jslib/yui-2.9.0/head.inc.jspx/included" value="true" />
+		<ao:link type="text/css" rel="stylesheet" href="build/treeview/assets/skins/sam/treeview.css" />
+		<!--<ao:link type="text/css" rel="stylesheet" href="build/calendar/assets/skins/sam/calendar.css" />-->
+		<ao:link type="text/css" rel="stylesheet" href="examples/treeview/assets/css/folders/tree.css" />
+		<ao:script src="build/yahoo-dom-event/yahoo-dom-event.js" />
+		<ao:script src="build/animation/animation-min.js" />
+		<!--<ao:script src="build/calendar/calendar-min.js" />-->
+		<ao:script src="build/json/json-min.js" />
+		<ao:script src="build/treeview/treeview-min.js" />
+	</c:if>
+</jsp:root>
