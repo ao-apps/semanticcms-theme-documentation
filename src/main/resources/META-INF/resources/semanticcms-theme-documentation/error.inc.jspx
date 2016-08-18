@@ -1,0 +1,165 @@
+<!--
+semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
+Copyright (C) 2015, 2016  AO Industries, Inc.
+	support@aoindustries.com
+	7262 Bull Pen Cir
+	Mobile, AL 36695
+
+This file is part of semanticcms-theme-documentation.
+
+semanticcms-theme-documentation is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-theme-documentation is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--
+Shared handler forwarded to by all the individual error handlers.
+
+Arguments:
+	arg.code     The error code
+	arg.message  The human readable error message
+-->
+<jsp:root
+	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
+	version="2.1"
+>
+	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
+	<jsp:directive.page isErrorPage="true" />
+
+	<c:set var="code" value="${arg.code}" />
+	<jsp:scriptlet><![CDATA[
+		// Set the error status
+		if(!response.isCommitted()) {
+			Object code = pageContext.getAttribute("code");
+			if(code != null) response.setStatus(Integer.parseInt(code.toString()));
+		}
+
+		// Find the request URL in context-relative form
+		String requestUri = (String)request.getAttribute("javax.servlet.error.request_uri");
+		String contextPath = request.getContextPath();
+		int cpLen = contextPath.length();
+		String pagePath;
+		if(cpLen > 0) {
+			assert requestUri.startsWith(contextPath);
+			pagePath = requestUri.substring(cpLen);
+		} else {
+			pagePath = requestUri;
+		}
+		pageContext.setAttribute("pagePath", pagePath);
+
+		// Determine if in a development mode
+		boolean isDev = com.semanticcms.core.servlet.OpenFile.isAllowed(getServletContext(), request);
+		pageContext.setAttribute("isDev", isDev);
+	]]></jsp:scriptlet>
+	<ao:html doctype="html5">
+		<!-- Find the book that best matches the incoming request -->
+		<c:set var="book" value="" />
+		<!-- Try to find book for request -->
+		<c:catch>
+			<c:set var="book" value="${p:getBook(pagePath)}" />
+		</c:catch>
+		<!-- Try to find root book -->
+		<c:if test="${empty book and !empty applicationScope.semanticCMS}">
+			<c:catch>
+				<c:set var="book" value="${applicationScope.semanticCMS.rootBook}" />
+			</c:catch>
+		</c:if>
+		<head>
+			<ao:meta charset="${pageContext.response.characterEncoding}" />
+			<ao:meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+			<!-- Mobile support -->
+			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
+			<ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
+			<c:choose>
+				<c:when test="${empty book}">
+					<title><ao:out value="${arg.message}" /></title>
+				</c:when>
+				<c:otherwise>
+					<!-- Authors -->
+					<ao:include page="copyright.inc.jspx" arg.copyright="${book.copyright}" />
+					<ao:include page="authors.inc.jspx" arg.authors="${book.authors}" />
+					<title><ao:out value="${arg.message}" /> - <ao:out value="${book.title}" /></title>
+				</c:otherwise>
+			</c:choose>
+			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
+				<ao:script src="/lib/html5.js" />
+			<jsp:text>&lt;![endif]--&gt;</jsp:text>
+			<ao:link href="/styles/html5.css" rel="stylesheet" type="text/css" />
+			<ao:link href="/styles/page.css" rel="stylesheet" type="text/css" />
+			<ao:link href="/styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
+			<ao:script src="/webjars/jquery/2.2.4/jquery.min.js" />
+			<ao:include page="/lib/docs/head.inc.jsp" />
+		</head>
+		<body>
+			<div id="pageContainer">
+				<c:if test="${!empty book}">
+					<ao:include
+						page="/lib/docs/page-top-area.inc.jsp"
+						arg.book="${book}"
+						arg.path="${contentRoot}"
+						arg.view="${contentRoot}"
+					/>
+				</c:if>
+				<main id="pageMainArea">
+					<h1><ao:out value="${arg.message}" /></h1>
+					<p>
+						An error has occurred in processing your request.
+					</p>
+					<c:if test="${isDev}">
+						<table class="thinTable">
+							<tbody>
+								<tr>
+									<th>Request URI</th>
+									<td><ao:out value="${requestScope['javax.servlet.error.request_uri']}" /></td>
+								</tr>
+								<tr>
+									<th>Servlet Name</th>
+									<td><ao:out value="${requestScope['javax.servlet.error.servlet_name']}" /></td>
+								</tr>
+								<tr>
+									<th>Status Code</th>
+									<td><ao:out value="${requestScope['javax.servlet.error.status_code']}" /></td>
+								</tr>
+								<c:set var="errorMessage" value="${requestScope['javax.servlet.error.message']}" />
+								<c:if test="${!empty errorMessage}">
+									<tr>
+										<th>Error Message</th>
+										<td><ao:out value="${errorMessage}" /></td>
+									</tr>
+								</c:if>
+								<c:set var="exceptionType" value="${requestScope['javax.servlet.error.exception_type']}" />
+								<c:if test="${!empty exceptionType}">
+									<tr>
+										<th>Exception Type</th>
+										<td><ao:out value="${exceptionType}" /></td>
+									</tr>
+								</c:if>
+								<c:set var="exception" value="${requestScope['javax.servlet.error.exception']}" />
+								<c:if test="${!empty exception}">
+									<tr>
+										<th>Exception</th>
+										<td><pre><ao:getStackTraces scope="page" name="exception" /></pre></td>
+									</tr>
+								</c:if>
+							</tbody>
+						</table>
+					</c:if>
+					<div id="pagePadBottom"></div>
+				</main>
+			</div>
+		</body>
+	</ao:html>
+</jsp:root>
