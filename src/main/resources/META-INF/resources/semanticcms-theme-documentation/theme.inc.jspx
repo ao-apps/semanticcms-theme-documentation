@@ -36,10 +36,21 @@ Arguments:
 	version="2.1"
 >
 	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" contentType="text/xml" />
-	<jsp:output omit-xml-declaration="true" />
+	<c:set var="page" value="${arg.page}" />
+
+	<!-- Dispatch to frameset -->
+	<c:if test="${param.frames}">
+		<ao:forward page="frameset.inc.jspx" arg.page="${page}" />
+	</c:if>
+
+	<!-- Dispatch to navigation -->
+	<c:if test="${param.navigation}">
+		<ao:forward page="navigation.inc.jspx" arg.page="${page}" />
+	</c:if>
+
+	<!-- Display the current view and page -->
 	<ao:html doctype="html5">
 		<c:set var="view" value="${arg.view}" />
-		<c:set var="page" value="${arg.page}" />
 		<c:set var="pageRef" value="${page.pageRef}" />
 		<head>
 			<ao:meta charset="${pageContext.response.characterEncoding}" />
