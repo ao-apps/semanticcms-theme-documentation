@@ -81,7 +81,8 @@ Arguments:
 				<ao:link href="${cssLink}" rel="stylesheet" type="text/css" />
 			</c:forEach>
 			<ao:script src="/webjars/jquery/2.2.4/jquery.min.js" />
-			<ao:include page="/lib/dagre-d3/head.inc.jsp" />
+			<ao:include page="/lib/d3/head.inc.jsp" />
+			<ao:script src="/webjars/dagre-d3/0.4.10/dagre-d3.min.js" />
 			<ao:include page="/lib/docs/head.inc.jsp" />
 			<ao:include page="/lib/docs/update-nav.inc.jsp" arg.page="${page}" />
 			<c:if test="${!view.getAllowRobots(page)}">
