@@ -65,7 +65,7 @@ Arguments:
 		<body class="yui-skin-sam">
 			<main>
 				<div id="navigationLogo">
-					<ao:a target="contentFrame" href="${servletPath}" param.view="what-to-do"><ao:img src="${book.pathPrefix}${book.logoSrc}" width="${book.logoWidth}" height="${book.logoHeight}" alt="${book.logoAlt}" /></ao:a>
+					<ao:a target="contentFrame" href="${servletPath}" param.view="what-to-do"><ao:img src="${book.pathPrefix}${book.param.logoSrc}" width="${book.param.logoWidth}" height="${book.param.logoHeight}" alt="${book.param.logoAlt}" /></ao:a>
 				</div>
 				<c:if test="${!header['X-com-aoindustries-web-page-exporting']}">
 					<div id="navigationSearch">

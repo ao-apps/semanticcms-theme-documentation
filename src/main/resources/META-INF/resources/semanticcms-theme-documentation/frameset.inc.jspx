@@ -56,7 +56,7 @@ Arguments:
 			<!-- No search index framesets -->
 			<ao:meta name="robots" content="noindex, nofollow" />
 		</head>
-		<frameset cols="${fn:escapeXml(book.navigationFrameWidth)},*">
+		<frameset cols="${fn:escapeXml(book.param.navigationFrameWidth)},*">
 			<c:set var="navigationSrc" value="${pageContext.request.contextPath}${pageRef}?navigation=true" />
 			<frame id="navigationFrame" name="navigationFrame" src="${fn:escapeXml(ao:encodeURL(navigationSrc))}" />
 			<c:set var="contentSrc" value="${pageContext.request.contextPath}${pageRef}" />
