@@ -32,7 +32,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
 >
-	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" contentType="text/xml" />
+	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
 	<c:if test="${!requestScope['/semanticcms-theme-documentation/jslib/yui-2.9.0/head.inc.jspx/included']}">
 		<c:set scope="request" var="/semanticcms-theme-documentation/jslib/yui-2.9.0/head.inc.jspx/included" value="true" />
 		<ao:link type="text/css" rel="stylesheet" href="build/treeview/assets/skins/sam/treeview.css" />

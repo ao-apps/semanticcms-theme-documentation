@@ -34,7 +34,7 @@ Arguments:
 	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
 	version="2.1"
 >
-	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" contentType="text/xml" />
+	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
 	<c:set var="contentRoot" value="${p:captureContentRoot('meta')}" />
 	<c:set var="pageRef" value="${contentRoot.pageRef}" />
 	<c:set var="book" value="${pageRef.book}" />
