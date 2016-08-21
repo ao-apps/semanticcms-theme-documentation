@@ -46,10 +46,6 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<tag>HEAD</tag>
 	</scm>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 	<build>
 		<plugins>
 			<plugin>
