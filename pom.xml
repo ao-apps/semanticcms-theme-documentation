@@ -39,15 +39,6 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	<url>https://semanticcms.com/docs/semanticcms-theme-documentation/</url>
 	<description>SemanticCMS theme tailored for technical documentation.</description>
 
-	<developers>
-		<developer>
-			<name>AO Industries, Inc.</name>
-			<email>support@aoindustries.com</email>
-			<organization>AO Industries, Inc.</organization>
-			<organizationUrl>https://www.aoindustries.com/</organizationUrl>
-		</developer>
-	</developers>
-
 	<scm>
 		<connection>scm:git:git://github.com/aoindustries/semanticcms-theme-documentation.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/semanticcms-theme-documentation.git</developerConnection>
