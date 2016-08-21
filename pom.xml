@@ -91,17 +91,17 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-core-model</artifactId>
-			<version>1.3</version>
+			<version>1.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-core-servlet</artifactId>
-			<version>1.3</version>
+			<version>1.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-core-taglib</artifactId>
-			<version>1.2</version>
+			<version>1.3</version>
 		</dependency>
 	</dependencies>
 </project>
