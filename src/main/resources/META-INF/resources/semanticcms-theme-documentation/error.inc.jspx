@@ -60,7 +60,22 @@ Arguments:
 		pageContext.setAttribute("pagePath", pagePath);
 
 		// Determine if in a development mode
-		boolean isDev = com.semanticcms.openfile.servlet.OpenFile.isAllowed(getServletContext(), request);
+		// Using reflection to avoid hard dependency on semanticcms-openfile-servlet.
+		// TODO: A better centrally defined "devMode" or other profile mechanism.
+		boolean isDev = true;
+		try {
+			Class<?> openFileClass = Class.forName("com.semanticcms.openfile.servlet.OpenFile");
+			java.lang.reflect.Method isAllowedMethod = openFileClass.getMethod("isAllowed", ServletContext.class, ServletRequest.class);
+			isDev = (Boolean)isAllowedMethod.invoke(null, getServletContext(), request);
+		} catch(ClassNotFoundException e) {
+			isDev = false;
+		} catch(NoSuchMethodException e) {
+			throw new ServletException(e);
+		} catch(IllegalAccessException e) {
+			throw new ServletException(e);
+		} catch(java.lang.reflect.InvocationTargetException e) {
+			throw new ServletException(e);
+		}
 		pageContext.setAttribute("isDev", isDev);
 	]]></jsp:scriptlet>
 	<ao:html doctype="html5">
