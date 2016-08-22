@@ -60,7 +60,7 @@ Arguments:
 		pageContext.setAttribute("pagePath", pagePath);
 
 		// Determine if in a development mode
-		boolean isDev = com.semanticcms.core.servlet.OpenFile.isAllowed(getServletContext(), request);
+		boolean isDev = com.semanticcms.openfile.servlet.OpenFile.isAllowed(getServletContext(), request);
 		pageContext.setAttribute("isDev", isDev);
 	]]></jsp:scriptlet>
 	<ao:html doctype="html5">
