@@ -116,7 +116,10 @@ Arguments:
 			<ao:link href="/styles/page.css" rel="stylesheet" type="text/css" />
 			<ao:link href="/styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
 			<ao:script src="/webjars/jquery/2.2.4/jquery.min.js" />
-			<ao:include page="/lib/docs/head.inc.jsp" />
+			<!-- Application-wide head includes -->
+			<c:forEach var="headInclude" items="${applicationScope.semanticCMS.headIncludes}">
+				<ao:include page="${headInclude}" />
+			</c:forEach>
 		</head>
 		<body>
 			<div id="pageContainer">
