@@ -61,7 +61,10 @@ Arguments:
 							href="${arg.book.pathPrefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
 							rel="${view.getAllowRobots(page) ? null : 'nofollow'}"
-						><ao:out value="${view}" /></ao:a>
+						>
+							<ao:params values="${p:getViewLinkParams(view, page)}" />
+							<ao:out value="${view}" />
+						</ao:a>
 					</c:if>
 				</c:forEach>
 
@@ -87,7 +90,10 @@ Arguments:
 							href="${arg.book.pathPrefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
 							rel="${view.getAllowRobots(page) ? null : 'nofollow'}"
-						><ao:out value="${view}" /></ao:a>
+						>
+							<ao:params values="${p:getViewLinkParams(view, page)}" />
+							<ao:out value="${view}" />
+						</ao:a>
 					</c:if>
 				</c:forEach>
 
@@ -104,7 +110,10 @@ Arguments:
 							href="${arg.book.pathPrefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
 							rel="${view.getAllowRobots(page) ? null : 'nofollow'}"
-						><ao:out value="${view}" /></ao:a>
+						>
+							<ao:params values="${p:getViewLinkParams(view, page)}" />
+							<ao:out value="${view}" />
+						</ao:a>
 					</c:if>
 				</c:forEach>
 			</div>
