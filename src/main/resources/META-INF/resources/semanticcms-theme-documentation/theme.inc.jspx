@@ -89,9 +89,6 @@ Arguments:
 			<c:forEach var="script" items="${p:mergeGlobalAndViewScripts(view)}">
 				<ao:script src="${script.value}" />
 			</c:forEach>
-			<!-- TODO: Move to new page-graph package -->
-			<ao:script src="/webjars/d3js/3.5.17/d3.min.js" />
-			<ao:script src="/webjars/dagre-d3/0.4.10/dagre-d3.min.js" />
 			<!-- Application-wide head includes -->
 			<c:forEach var="headInclude" items="${applicationScope.semanticCMS.headIncludes}">
 				<ao:include page="${headInclude}" />
@@ -112,7 +109,7 @@ Arguments:
 					arg.active="${view.name}"
 				/>
 				<main id="pageMainArea">
-					<ao:include page="/lib/docs/page-dag.inc.jsp" arg.page="${page}" arg.view="${view}" />
+					<ao:include page="/semanticcms-pagegraph/pagegraph.inc.jsp" arg.page="${page}" arg.view="${view}" />
 					<p:doView view="${view}" page="${page}" />
 					<div id="pagePadBottom"></div>
 				</main>
