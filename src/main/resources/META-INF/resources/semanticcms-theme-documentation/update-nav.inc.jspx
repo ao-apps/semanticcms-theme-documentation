@@ -35,11 +35,11 @@ Arguments:
 	version="2.1"
 >
 	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
-	<c:if test="${!header['X-com-semanticcms-core-exporting'] || requestScope['template.skipFocus'] != true}">
+	<c:if test="${!p:isExporting() || requestScope['template.skipFocus'] != true}">
 		<ao:script>
 			$(function() {
 				<!-- Scripting not allowed between pages when static files loaded from filesystem -->
-				<c:if test="${!header['X-com-semanticcms-core-exporting']}">
+				<c:if test="${!p:isExporting()}">
 					if(window.parent !== window) {
 						var frames = window.parent.frames;
 						if(frames.length==2 &amp;&amp; frames[1]==window) {

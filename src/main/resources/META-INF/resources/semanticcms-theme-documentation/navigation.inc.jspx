@@ -67,7 +67,7 @@ Arguments:
 				<div id="navigationLogo">
 					<ao:a target="contentFrame" href="${servletPath}" param.view="what-to-do"><ao:img src="${book.pathPrefix}${book.param.logoSrc}" width="${book.param.logoWidth}" height="${book.param.logoHeight}" alt="${book.param.logoAlt}" /></ao:a>
 				</div>
-				<c:if test="${!header['X-com-semanticcms-core-exporting']}">
+				<c:if test="${!p:isExporting()}">
 					<div id="navigationSearch">
 						<ao:form target="contentFrame" action="search.jsp" style="display:inline">
 							<div>
