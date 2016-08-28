@@ -100,7 +100,7 @@ Arguments:
 		<body>
 			<div id="pageContainer">
 				<ao:include
-					page="/lib/docs/page-top-area.inc.jspx"
+					page="page-top-area.inc.jspx"
 					arg.book="${pageRef.book}"
 					arg.path="${pageRef.path}"
 					arg.view="${view.isDefault() ? pageRef.path : pageRef.path.concat('?view=').concat(p:encodeUrlParam(view.name))}"

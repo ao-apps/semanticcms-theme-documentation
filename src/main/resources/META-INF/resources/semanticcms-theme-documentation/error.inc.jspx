@@ -125,7 +125,7 @@ Arguments:
 			<div id="pageContainer">
 				<c:if test="${!empty book}">
 					<ao:include
-						page="/lib/docs/page-top-area.inc.jspx"
+						page="page-top-area.inc.jspx"
 						arg.book="${book}"
 						arg.path="${contentRoot}"
 						arg.view="${contentRoot}"

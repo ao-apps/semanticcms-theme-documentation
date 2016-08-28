@@ -1,0 +1,119 @@
+<!--
+semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
+Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+	support@aoindustries.com
+	7262 Bull Pen Cir
+	Mobile, AL 36695
+
+This file is part of semanticcms-theme-documentation.
+
+semanticcms-theme-documentation is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-theme-documentation is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--
+The page top links div.
+
+Arguments:
+	arg.book     The book of the current page
+	arg.path     The book-relative path to the current page (without any view parameter)
+	arg.view     The book-relative path to the current view (with view parameter)
+	arg.page     The option page, if this is a view of a specific page
+	arg.active   The optional active link, matching view name.
+-->
+<jsp:root
+	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:file="https://semanticcms.com/semanticcms-file-taglib"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
+	version="2.1"
+>
+	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
+	<nav id="pageTopArea">
+		<!-- Is it OK to put h1 inside nav, this was div before? -->
+		<h1 id="pageHeader"><ao:out value="${arg.book.param.pageHeader}" /></h1>
+		<c:if test="${!empty arg.page}">
+			<c:set var="page" value="${arg.page}" />
+			<div id="pageTopLinks1">
+				<c:set var="views" value="${applicationScope.semanticCMS.views}" />
+
+				<!-- FIRST views -->
+				<c:forEach var="view" items="${views}">
+					<c:if test="${view.group=='FIRST' and p:isViewApplicable(view, page)}">
+						<c:set var="linkCssClass" value="${p:getViewLinkCssClass(view)}" />
+						<c:if test="${arg.active==view.name}">
+							<c:set var="linkCssClass" value="${empty linkCssClass ? 'pageTopLinkActive' : linkCssClass.concat(' pageTopLinkActive')}" />
+						</c:if>
+						<ao:a
+							id="${view.linkId}"
+							class="${linkCssClass}"
+							href="${arg.book.pathPrefix}${arg.path}"
+							param.view="${view.isDefault() ? null : view.name}"
+							rel="${view.getAllowRobots(page) ? null : 'nofollow'}"
+						><ao:out value="${view}" /></ao:a>
+					</c:if>
+				</c:forEach>
+
+				<!-- TODO: Make "Edit" its own view and make a loop around all view groups
+				           Also remove dependency on file taglib when done. -->
+				<c:if test="${!p:isExporting()}">
+					<c:set var="pageSrc" value="${page.src}" />
+					<c:if test="${!empty pageSrc}">
+						<file:file book="${pageSrc.bookName}" path="${pageSrc.path}">Edit</file:file>
+					</c:if>
+				</c:if>
+
+				<!-- FIXED views -->
+				<c:forEach var="view" items="${views}">
+					<c:if test="${view.group=='FIXED' and p:isViewApplicable(view, page)}">
+						<c:set var="linkCssClass" value="${p:getViewLinkCssClass(view)}" />
+						<c:if test="${arg.active==view.name}">
+							<c:set var="linkCssClass" value="${empty linkCssClass ? 'pageTopLinkActive' : linkCssClass.concat(' pageTopLinkActive')}" />
+						</c:if>
+						<ao:a
+							id="${view.linkId}"
+							class="${linkCssClass}"
+							href="${arg.book.pathPrefix}${arg.path}"
+							param.view="${view.isDefault() ? null : view.name}"
+							rel="${view.getAllowRobots(page) ? null : 'nofollow'}"
+						><ao:out value="${view}" /></ao:a>
+					</c:if>
+				</c:forEach>
+
+				<!-- VARIABLE views -->
+				<c:forEach var="view" items="${views}">
+					<c:if test="${view.group=='VARIABLE' and p:isViewApplicable(view, page)}">
+						<c:set var="linkCssClass" value="${p:getViewLinkCssClass(view)}" />
+						<c:if test="${arg.active==view.name}">
+							<c:set var="linkCssClass" value="${empty linkCssClass ? 'pageTopLinkActive' : linkCssClass.concat(' pageTopLinkActive')}" />
+						</c:if>
+						<ao:a
+							id="${view.linkId}"
+							class="${linkCssClass}"
+							href="${arg.book.pathPrefix}${arg.path}"
+							param.view="${view.isDefault() ? null : view.name}"
+							rel="${view.getAllowRobots(page) ? null : 'nofollow'}"
+						><ao:out value="${view}" /></ao:a>
+					</c:if>
+				</c:forEach>
+			</div>
+		</c:if>
+		<div id="pageTopLinks2">
+			<ao:a target="_top" rel="nofollow" href="${arg.book.pathPrefix}${arg.view}" param.frames="true">Frames</ao:a>
+			<ao:a target="_top" rel="nofollow" href="${arg.book.pathPrefix}${arg.view}">No Frames</ao:a>
+		</div>
+		<!-- div to push parent element below floated -->
+		<div id="pageTopLinksEnd"></div>
+	</nav>
+</jsp:root>
