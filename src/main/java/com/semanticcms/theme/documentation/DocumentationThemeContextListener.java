@@ -27,12 +27,14 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-@WebListener("Registers the \"" + DocumentationTheme.THEME_NAME + "\" theme in SemanticCMS.")
+@WebListener("Registers the \"" + DocumentationTheme.THEME_NAME + "\" theme and required scripts in SemanticCMS.")
 public class DocumentationThemeContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		SemanticCMS.getInstance(event.getServletContext()).addTheme(new DocumentationTheme());
+		SemanticCMS semanticCMS = SemanticCMS.getInstance(event.getServletContext());
+		semanticCMS.addScript("jquery", "/webjars/jquery/2.2.4/jquery.min.js");
+		semanticCMS.addTheme(new DocumentationTheme());
 	}
 
 	@Override
