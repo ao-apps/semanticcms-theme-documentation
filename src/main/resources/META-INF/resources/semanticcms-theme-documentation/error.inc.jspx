@@ -104,15 +104,15 @@ Arguments:
 				</c:when>
 				<c:otherwise>
 					<!-- Authors -->
-					<ao:include page="copyright.inc.jspx" arg.copyright="${book.copyright}" />
-					<ao:include page="authors.inc.jspx" arg.authors="${book.authors}" />
+					<ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${book.copyright}" />
+					<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
 					<title><ao:out value="${arg.message}" /> - <ao:out value="${book.title}" /></title>
 				</c:otherwise>
 			</c:choose>
 			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
 				<ao:script src="/webjars/html5shiv/3.7.3/html5shiv.min.js" />
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
-			<ao:link href="styles/html5.css" rel="stylesheet" type="text/css" />
+			<ao:link href="/semanticcms-core-theme-base/styles/html5.css" rel="stylesheet" type="text/css" />
 			<ao:link href="styles/page.css" rel="stylesheet" type="text/css" />
 			<!-- TODO: Remove this once all out of docs-taglib -->
 			<ao:link href="/styles/page.css" rel="stylesheet" type="text/css" />

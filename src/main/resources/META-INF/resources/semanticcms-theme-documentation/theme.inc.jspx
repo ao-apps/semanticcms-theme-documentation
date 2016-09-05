@@ -60,8 +60,8 @@ Arguments:
 			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
 			<ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
 			<!-- Authors -->
-			<ao:include page="copyright.inc.jspx" arg.copyright="${p:getViewCopyright(view, page)}" />
-			<ao:include page="authors.inc.jspx" arg.authors="${p:getViewAuthors(view, page)}" />
+			<ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${p:getViewCopyright(view, page)}" />
+			<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${p:getViewAuthors(view, page)}" />
 			<title><ao:out value="${p:getViewTitle(view, page)}" /></title>
 			<c:set var="description" value="${view.getDescription(page)}" />
 			<c:if test="${!empty description}">
@@ -74,7 +74,7 @@ Arguments:
 			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
 				<ao:script src="/webjars/html5shiv/3.7.3/html5shiv.min.js" />
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
-			<ao:link href="styles/html5.css" rel="stylesheet" type="text/css" />
+			<ao:link href="/semanticcms-core-theme-base/styles/html5.css" rel="stylesheet" type="text/css" />
 			<ao:link href="styles/page.css" rel="stylesheet" type="text/css" />
 			<!-- TODO: Remove this once all out of docs-taglib -->
 			<ao:link href="/styles/page.css" rel="stylesheet" type="text/css" />
