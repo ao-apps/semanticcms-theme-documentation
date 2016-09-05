@@ -35,7 +35,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	<version>1.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>SemanticCMS Documentation Theme</name>
+	<name>SemanticCMS Theme Documentation</name>
 	<url>https://semanticcms.com/docs/semanticcms-theme-documentation/</url>
 	<description>SemanticCMS theme tailored for technical documentation.</description>
 
