@@ -98,7 +98,7 @@ Arguments:
 				<ao:include page="${headInclude}" />
 			</c:forEach>
 			<ao:include page="update-nav.inc.jspx" arg.page="${page}" />
-			<c:if test="${!view.getAllowRobots(page)}">
+			<c:if test="${!p:getViewAllowRobots(view, page)}">
 				<ao:meta name="robots" content="noindex, nofollow" />
 			</c:if>
 		</head>

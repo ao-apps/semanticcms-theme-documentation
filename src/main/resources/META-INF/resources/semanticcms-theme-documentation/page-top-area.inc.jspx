@@ -60,7 +60,7 @@ Arguments:
 							class="${linkCssClass}"
 							href="${arg.book.pathPrefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
-							rel="${view.getAllowRobots(page) ? null : 'nofollow'}"
+							rel="${p:getViewAllowRobots(view, page) ? null : 'nofollow'}"
 						>
 							<ao:params values="${p:getViewLinkParams(view, page)}" />
 							<ao:out value="${view}" />
@@ -89,7 +89,7 @@ Arguments:
 							class="${linkCssClass}"
 							href="${arg.book.pathPrefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
-							rel="${view.getAllowRobots(page) ? null : 'nofollow'}"
+							rel="${p:getViewAllowRobots(view, page) ? null : 'nofollow'}"
 						>
 							<ao:params values="${p:getViewLinkParams(view, page)}" />
 							<ao:out value="${view}" />
@@ -109,7 +109,7 @@ Arguments:
 							class="${linkCssClass}"
 							href="${arg.book.pathPrefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
-							rel="${view.getAllowRobots(page) ? null : 'nofollow'}"
+							rel="${p:getViewAllowRobots(view, page) ? null : 'nofollow'}"
 						>
 							<ao:params values="${p:getViewLinkParams(view, page)}" />
 							<ao:out value="${view}" />
