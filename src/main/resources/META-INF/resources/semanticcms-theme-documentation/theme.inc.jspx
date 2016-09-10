@@ -115,7 +115,7 @@ Arguments:
 				<main id="pageMainArea">
 					<ao:include page="/semanticcms-pagegraph/pagegraph.inc.jsp" arg.page="${page}" arg.view="${view}" />
 					<p:doView view="${view}" page="${page}" />
-					<div id="pagePadBottom"></div>
+					<div id="pagePadBottom"><!-- Avoid self-closing tag in jspx --></div>
 				</main>
 			</div>
 		</body>

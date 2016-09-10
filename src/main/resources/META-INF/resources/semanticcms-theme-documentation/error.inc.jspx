@@ -180,7 +180,7 @@ Arguments:
 							</tbody>
 						</table>
 					</c:if>
-					<div id="pagePadBottom"></div>
+					<div id="pagePadBottom"><!-- Avoid self-closing tag in jspx --></div>
 				</main>
 			</div>
 		</body>

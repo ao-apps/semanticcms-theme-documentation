@@ -123,6 +123,6 @@ Arguments:
 			<ao:a target="_top" rel="nofollow" href="${arg.book.pathPrefix}${arg.view}">No Frames</ao:a>
 		</div>
 		<!-- div to push parent element below floated -->
-		<div id="pageTopLinksEnd"></div>
+		<div id="pageTopLinksEnd"><!-- Avoid self-closing tag in jspx --></div>
 	</nav>
 </jsp:root>
