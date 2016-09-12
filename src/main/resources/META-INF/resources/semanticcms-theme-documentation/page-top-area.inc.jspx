@@ -34,9 +34,9 @@ Arguments:
 <jsp:root
 	xmlns:ao="http://aoindustries.com/ao-taglib"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:file="https://semanticcms.com/semanticcms-file-taglib"
+	xmlns:core="https://semanticcms.com/core/taglib/"
+	xmlns:file="https://semanticcms.com/file/taglib/"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
 	version="2.1"
 >
 	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
@@ -50,8 +50,8 @@ Arguments:
 
 				<!-- FIRST views -->
 				<c:forEach var="view" items="${views}">
-					<c:if test="${view.group=='FIRST' and p:isViewApplicable(view, page)}">
-						<c:set var="linkCssClass" value="${p:getViewLinkCssClass(view)}" />
+					<c:if test="${view.group=='FIRST' and core:isViewApplicable(view, page)}">
+						<c:set var="linkCssClass" value="${core:getViewLinkCssClass(view)}" />
 						<c:if test="${arg.active==view.name}">
 							<c:set var="linkCssClass" value="${empty linkCssClass ? 'pageTopLinkActive' : linkCssClass.concat(' pageTopLinkActive')}" />
 						</c:if>
@@ -60,9 +60,9 @@ Arguments:
 							class="${linkCssClass}"
 							href="${arg.book.pathPrefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
-							rel="${p:getViewAllowRobots(view, page) ? null : 'nofollow'}"
+							rel="${core:getViewAllowRobots(view, page) ? null : 'nofollow'}"
 						>
-							<ao:params values="${p:getViewLinkParams(view, page)}" />
+							<ao:params values="${core:getViewLinkParams(view, page)}" />
 							<ao:out value="${view}" />
 						</ao:a>
 					</c:if>
@@ -70,7 +70,7 @@ Arguments:
 
 				<!-- TODO: Make "Edit" its own view and make a loop around all view groups
 				           Also remove dependency on file taglib when done. -->
-				<c:if test="${!p:isExporting()}">
+				<c:if test="${!core:isExporting()}">
 					<c:set var="pageSrc" value="${page.src}" />
 					<c:if test="${!empty pageSrc}">
 						<file:file book="${pageSrc.bookName}" path="${pageSrc.path}">Edit</file:file>
@@ -79,8 +79,8 @@ Arguments:
 
 				<!-- FIXED views -->
 				<c:forEach var="view" items="${views}">
-					<c:if test="${view.group=='FIXED' and p:isViewApplicable(view, page)}">
-						<c:set var="linkCssClass" value="${p:getViewLinkCssClass(view)}" />
+					<c:if test="${view.group=='FIXED' and core:isViewApplicable(view, page)}">
+						<c:set var="linkCssClass" value="${core:getViewLinkCssClass(view)}" />
 						<c:if test="${arg.active==view.name}">
 							<c:set var="linkCssClass" value="${empty linkCssClass ? 'pageTopLinkActive' : linkCssClass.concat(' pageTopLinkActive')}" />
 						</c:if>
@@ -89,9 +89,9 @@ Arguments:
 							class="${linkCssClass}"
 							href="${arg.book.pathPrefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
-							rel="${p:getViewAllowRobots(view, page) ? null : 'nofollow'}"
+							rel="${core:getViewAllowRobots(view, page) ? null : 'nofollow'}"
 						>
-							<ao:params values="${p:getViewLinkParams(view, page)}" />
+							<ao:params values="${core:getViewLinkParams(view, page)}" />
 							<ao:out value="${view}" />
 						</ao:a>
 					</c:if>
@@ -99,8 +99,8 @@ Arguments:
 
 				<!-- VARIABLE views -->
 				<c:forEach var="view" items="${views}">
-					<c:if test="${view.group=='VARIABLE' and p:isViewApplicable(view, page)}">
-						<c:set var="linkCssClass" value="${p:getViewLinkCssClass(view)}" />
+					<c:if test="${view.group=='VARIABLE' and core:isViewApplicable(view, page)}">
+						<c:set var="linkCssClass" value="${core:getViewLinkCssClass(view)}" />
 						<c:if test="${arg.active==view.name}">
 							<c:set var="linkCssClass" value="${empty linkCssClass ? 'pageTopLinkActive' : linkCssClass.concat(' pageTopLinkActive')}" />
 						</c:if>
@@ -109,9 +109,9 @@ Arguments:
 							class="${linkCssClass}"
 							href="${arg.book.pathPrefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
-							rel="${p:getViewAllowRobots(view, page) ? null : 'nofollow'}"
+							rel="${core:getViewAllowRobots(view, page) ? null : 'nofollow'}"
 						>
-							<ao:params values="${p:getViewLinkParams(view, page)}" />
+							<ao:params values="${core:getViewLinkParams(view, page)}" />
 							<ao:out value="${view}" />
 						</ao:a>
 					</c:if>

@@ -30,9 +30,9 @@ Arguments:
 <jsp:root
 	xmlns:ao="http://aoindustries.com/ao-taglib"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:core="https://semanticcms.com/core/taglib/"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
 	version="2.1"
 >
 	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
@@ -61,7 +61,7 @@ Arguments:
 			<frame id="navigationFrame" name="navigationFrame" src="${fn:escapeXml(ao:encodeURL(navigationSrc))}" />
 			<c:set var="contentSrc" value="${pageContext.request.contextPath}${pageRef}" />
 			<c:if test="${!empty param.view}">
-				<c:set var="contentSrc" value="${contentSrc}?view=${p:encodeUrlParam(param.view)}" />
+				<c:set var="contentSrc" value="${contentSrc}?view=${core:encodeUrlParam(param.view)}" />
 			</c:if>
 			<frame id="contentFrame" name="contentFrame" src="${fn:escapeXml(ao:encodeURL(contentSrc))}" />
 		</frameset>
