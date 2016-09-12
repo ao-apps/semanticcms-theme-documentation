@@ -38,6 +38,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	<name>SemanticCMS Theme Documentation</name>
 	<url>https://semanticcms.com/theme-documentation/</url>
 	<description>SemanticCMS theme tailored for technical documentation.</description>
+	<inceptionYear>2013</inceptionYear>
 
 	<scm>
 		<connection>scm:git:git://github.com/aoindustries/semanticcms-theme-documentation.git</connection>
