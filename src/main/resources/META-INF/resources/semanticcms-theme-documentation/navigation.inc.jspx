@@ -106,7 +106,7 @@ Arguments:
 
 				<!-- Capture all pages recursively without headers (for fast traversal) -->
 				<nav id="navigationTree" class="ygtv-highlight">
-					<core:navigationTree yuiConfig="true" target="contentFrame" root="${contentRoot}" />
+					<core:navigationTree yuiConfig="true" target="contentFrame" root="#{contentRoot}" />
 				</nav>
 			</main>
 			<ao:script>
