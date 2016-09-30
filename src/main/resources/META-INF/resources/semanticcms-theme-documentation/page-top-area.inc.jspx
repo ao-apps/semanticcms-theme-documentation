@@ -39,7 +39,7 @@ Arguments:
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
 >
-	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
+	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<nav id="pageTopArea">
 		<!-- Is it OK to put h1 inside nav, this was div before? -->
 		<h1 id="pageHeader"><ao:out value="${arg.book.param.pageHeader}" /></h1>

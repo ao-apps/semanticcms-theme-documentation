@@ -32,7 +32,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
 >
-	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
+	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<ao:link type="text/css" rel="stylesheet" href="build/treeview/assets/skins/sam/treeview.css" />
 	<!--<ao:link type="text/css" rel="stylesheet" href="build/calendar/assets/skins/sam/calendar.css" />-->
 	<ao:link type="text/css" rel="stylesheet" href="examples/treeview/assets/css/folders/tree.css" />

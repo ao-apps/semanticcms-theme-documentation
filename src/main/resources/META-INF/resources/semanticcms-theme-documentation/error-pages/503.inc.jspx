@@ -25,7 +25,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	version="2.1"
 	xmlns:ao="http://aoindustries.com/ao-taglib"
 >
-	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
+	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<jsp:directive.page isErrorPage="true" />
 
 	<ao:forward page="/semanticcms-theme-documentation/error.inc.jspx" arg.code="503" arg.message="503 Service Unavailable" />
