@@ -28,7 +28,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
   version="3.0"
   metadata-complete="false">
 	<name>semanticcms-theme-documentation</name>
+	<!-- Causes: The display name was defined in multiple fragments with different value
     <display-name>SemanticCMS Theme Documentation</display-name>
+	-->
 	<description>SemanticCMS theme tailored for technical documentation.</description>
 	<!-- Error pages -->
 	<error-page>
