@@ -7,6 +7,9 @@
 * [Maven Central Repository](http://search.maven.org/#search|gav|1|g:%22com.semanticcms%22%20AND%20a:%22semanticcms-theme-documentation%22)
 * [GitHub](https://github.com/aoindustries/semanticcms-theme-documentation)
 
+## Modules
+* [SemanticCMS Theme Documentation Style](https://semanticcms.com/theme-documentation/style/)
+
 ## Contact Us
 For questions or support, please [contact us](https://www.aoindustries.com/contact):
 
