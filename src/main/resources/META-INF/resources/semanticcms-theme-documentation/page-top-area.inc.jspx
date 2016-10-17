@@ -70,7 +70,7 @@ Arguments:
 
 				<!-- TODO: Make "Edit" its own view and make a loop around all view groups
 				           Also remove dependency on file taglib when done. -->
-				<c:if test="${!core:isExporting()}">
+				<c:if test="${!core:isExporting() and file:isOpenFileAllowed()}">
 					<c:set var="pageSrc" value="${page.src}" />
 					<c:if test="${!empty pageSrc}">
 						<file:file book="#{pageSrc.bookName}" path="#{pageSrc.path}">Edit</file:file>
