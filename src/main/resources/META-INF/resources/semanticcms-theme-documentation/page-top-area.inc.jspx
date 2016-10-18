@@ -42,7 +42,10 @@ Arguments:
 	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<nav id="pageTopArea">
 		<!-- Is it OK to put h1 inside nav, this was div before? -->
-		<h1 id="pageHeader"><ao:out value="${arg.book.param.pageHeader}" /></h1>
+		<c:set var="pageHeader" value="${arg.book.param.pageHeader}" />
+		<c:if test="${!empty pageHeader}">
+			<h1 id="pageHeader"><ao:out value="${pageHeader}" /></h1>
+		</c:if>
 		<c:if test="${!empty arg.page}">
 			<c:set var="page" value="${arg.page}" />
 			<div id="pageTopLinks1">
