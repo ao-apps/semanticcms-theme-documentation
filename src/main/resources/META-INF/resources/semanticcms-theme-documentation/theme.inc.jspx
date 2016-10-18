@@ -54,6 +54,7 @@ Arguments:
 		<c:set var="pageRef" value="${page.pageRef}" />
 		<head>
 			<ao:meta charset="${pageContext.response.characterEncoding}" />
+			<core:doComponents view="${view}" page="${page}" position="HEAD_START" />
 			<ao:meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 			<!-- Mobile support -->
 			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -101,6 +102,7 @@ Arguments:
 			<c:if test="${!core:getViewAllowRobots(view, page)}">
 				<ao:meta name="robots" content="noindex, nofollow" />
 			</c:if>
+			<core:doComponents view="${view}" page="${page}" position="HEAD_END" reverse="true" />
 		</head>
 		<body>
 			<core:doComponents view="${view}" page="${page}" position="BODY_START" />
