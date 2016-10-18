@@ -103,6 +103,7 @@ Arguments:
 			</c:if>
 		</head>
 		<body>
+			<core:doComponents view="${view}" page="${page}" position="BODY_START" />
 			<div id="pageContainer">
 				<ao:include
 					page="page-top-area.inc.jspx"
@@ -118,6 +119,7 @@ Arguments:
 					<div id="pagePadBottom"><!-- Avoid self-closing tag in jspx --></div>
 				</main>
 			</div>
+			<core:doComponents view="${view}" page="${page}" position="BODY_END" reverse="true" />
 		</body>
 	</ao:html>
 </jsp:root>
