@@ -1,5 +1,5 @@
 # [<img src="ao-logo.png" alt="AO Logo" width="35" height="40">](https://www.aoindustries.com/) [SemanticCMS](https://semanticcms.com/) / [Theme Documentation](https://semanticcms.com/theme-documentation/)
-[SemanticCMS](https://semanticcms.com/) theme tailored for technical documentation.
+[SemanticCMS theme tailored for technical documentation](https://semanticcms.com/theme-documentation/).
 
 ## Project Links
 * [Project Home](https://semanticcms.com/theme-documentation/)
@@ -8,6 +8,7 @@
 * [GitHub](https://github.com/aoindustries/semanticcms-theme-documentation)
 
 ## Modules
+* [SemanticCMS Theme Documentation Book](https://semanticcms.com/theme-documentation/book/)
 * [SemanticCMS Theme Documentation Style](https://semanticcms.com/theme-documentation/style/)
 
 ## Contact Us
