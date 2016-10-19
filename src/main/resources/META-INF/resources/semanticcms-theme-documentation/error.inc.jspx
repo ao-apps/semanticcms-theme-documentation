@@ -93,6 +93,7 @@ Arguments:
 		</c:if>
 		<head>
 			<ao:meta charset="${pageContext.response.characterEncoding}" />
+			<core:doComponents view="${null}" page="${null}" position="HEAD_START" />
 			<ao:meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 			<!-- Mobile support -->
 			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -124,8 +125,10 @@ Arguments:
 			<c:forEach var="headInclude" items="${applicationScope.semanticCMS.headIncludes}">
 				<ao:include page="${headInclude}" />
 			</c:forEach>
+			<core:doComponents view="${null}" page="${null}" position="HEAD_END" reverse="true" />
 		</head>
 		<body>
+			<core:doComponents view="${null}" page="${null}" position="BODY_START" />
 			<div id="pageContainer">
 				<c:if test="${!empty book}">
 					<ao:include
@@ -183,6 +186,7 @@ Arguments:
 					<div id="pagePadBottom"><!-- Avoid self-closing tag in jspx --></div>
 				</main>
 			</div>
+			<core:doComponents view="${null}" page="${null}" position="BODY_END" reverse="true" />
 		</body>
 	</ao:html>
 </jsp:root>
