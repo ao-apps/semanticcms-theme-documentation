@@ -122,8 +122,10 @@ Arguments:
 			</div>
 		</c:if>
 		<div id="pageTopLinks2">
+			<jsp:text>&lt;!--googleoff: all&gt;</jsp:text>
 			<ao:a target="_top" rel="nofollow" href="${arg.book.pathPrefix}${arg.view}" param.frames="true">Frames</ao:a>
 			<ao:a target="_top" rel="nofollow" href="${arg.book.pathPrefix}${arg.view}">No Frames</ao:a>
+			<jsp:text>&lt;!--googleon: all&gt;</jsp:text>
 		</div>
 		<!-- div to push parent element below floated -->
 		<div id="pageTopLinksEnd"><!-- Avoid self-closing tag in jspx --></div>
