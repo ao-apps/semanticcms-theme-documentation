@@ -8,7 +8,6 @@
 * [GitHub](https://github.com/aoindustries/semanticcms-theme-documentation)
 
 ## Modules
-* [SemanticCMS Theme Documentation Book](https://semanticcms.com/theme-documentation/book/)
 * [SemanticCMS Theme Documentation Style](https://semanticcms.com/theme-documentation/style/)
 
 ## Contact Us
