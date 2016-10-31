@@ -1,0 +1,201 @@
+<!--
+semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
+Copyright (C) 2016  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
+
+This file is part of semanticcms-theme-documentation.
+
+semanticcms-theme-documentation is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-theme-documentation is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses />.
+-->
+<jsp:root
+	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:changelog="https://semanticcms.com/changelog/taglib/"
+	xmlns:core="https://semanticcms.com/core/taglib/"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	version="2.1"
+>
+	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
+	<!-- TODO: https://schema.org/TechArticle on this page -->
+	<core:page
+		title="@{project.name} Changelog"
+		shortTitle="Changelog"
+		tocLevels="1"
+		datePublished="2016-10-31T02:51:43-0500"
+	>
+		<!-- The current snapshot, unreleased version -->
+		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT')}">
+			<changelog:release
+				projectName="@{project.name}"
+				version="@{project.version}"
+				groupId="@{project.groupId}"
+				artifactId="@{project.artifactId}"
+				scmUrl="@{project.scm.url}"
+			>
+				<ul>
+					<li>Added googleoff / googleon around the frames links.</li>
+					<li>New <ao:a href="https://www.aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a> POM to simplify <code>pom.xml</code> files.</li>
+					<li>Project documentation moved to per-project book in <core:link book="/" page="/index.jspx" /> format.</li>
+					<li>Added changelog as top-level project link.</li>
+				</ul>
+			</changelog:release>
+		</c:if>
+
+		<changelog:release
+			projectName="@{project.name}"
+			version="1.6.0"
+			dateCreated="2016-10-20T19:36:00-0500"
+			groupId="@{project.groupId}"
+			artifactId="@{project.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Improved Javadoc formatting.</li>
+				<li>Improved README formatting.</li>
+				<li>Theme style is now considered a submodule of theme.</li>
+				<li>Only showing Edit link when local editing is allowed.</li>
+				<li>Added component registry.</li>
+				<li>Skipping pageHeader h1 when no pageHeader set.</li>
+				<li>Including Google Analytics in error pages, too.</li>
+			</ul>
+		</changelog:release>
+
+		<changelog:release
+			projectName="@{project.name}"
+			version="1.5.1"
+			dateCreated="2016-10-11T20:52:00-0500"
+			groupId="@{project.groupId}"
+			artifactId="@{project.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>display-name defined in web-fragment.xml was causing "The display name was defined in multiple fragments with different value"</li>
+				<li>Using latest releases of dependencies.</li>
+			</ul>
+		</changelog:release>
+
+		<changelog:release
+			projectName="@{project.name}"
+			version="1.5.0"
+			dateCreated="2016-10-04T23:12:00-0500"
+			groupId="@{project.groupId}"
+			artifactId="@{project.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Improved Javadoc formatting.</li>
+				<li>Core taglib now supports deferred expressions.</li>
+				<li>book and path now support deferred expressions.</li>
+				<li>Using ao:choose, ao:when, and ao:otherwise implementations for deferred expressions.</li>
+			</ul>
+		</changelog:release>
+
+		<changelog:release
+			projectName="@{project.name}"
+			version="1.4"
+			dateCreated="2016-09-11T17:26:00-0500"
+			groupId="@{project.groupId}"
+			artifactId="@{project.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Use dependencyManagement instead of dependency for junit.</li>
+				<li>Created base theme to simplify development of additional themes.</li>
+				<li>Now supporting per-page allowRobots setting.</li>
+				<li>Avoiding self-closing tag in jspx.</li>
+				<li>Views now provide general purpose links, not just specifically CSS links.</li>
+			</ul>
+		</changelog:release>
+
+		<changelog:release
+			projectName="@{project.name}"
+			version="1.3"
+			dateCreated="2016-09-03T11:11:00-0500"
+			groupId="@{project.groupId}"
+			artifactId="@{project.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Improved Maven configuration for Java EE 6 dependencies.</li>
+			</ul>
+		</changelog:release>
+
+		<changelog:release
+			projectName="@{project.name}"
+			version="1.2"
+			dateCreated="2016-08-28T20:57:00-0500"
+			groupId="@{project.groupId}"
+			artifactId="@{project.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Fixed package name to moved file.</li>
+				<li>Fixed error page finding dev mode.</li>
+				<li>Added headInclude registry.</li>
+				<li>Removed unnecessary "included" check.</li>
+				<li>Using EL function isExporting() instead of direct access to header.</li>
+				<li>Moved automatic Git to separate packages.</li>
+				<li>Added global and per-view script registry.</li>
+				<li>Views may now use parameters.</li>
+				<li>Moved page graph to own package.</li>
+				<li>Moved page styles from docs-taglib to theme.</li>
+			</ul>
+		</changelog:release>
+
+		<changelog:release
+			projectName="@{project.name}"
+			version="1.1"
+			dateCreated="2016-08-21T18:33:00-0500"
+			groupId="@{project.groupId}"
+			artifactId="@{project.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Implementation-specific book attributes changed to parameters.</li>
+				<li>Created parent pom for all SemanticCMS components.</li>
+			</ul>
+		</changelog:release>
+
+		<changelog:release
+			projectName="@{project.name}"
+			version="1.0"
+			dateCreated="2016-08-19T16:47:00-0500"
+			groupId="@{project.groupId}"
+			artifactId="@{project.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Project moved to GitHub and Maven.</li>
+				<li>May now exclude robots from specific views.</li>
+				<li>Moved frameset implementation into theme.</li>
+				<li>Renaming JavaScript objects to avoid likely name conflicts.</li>
+				<li>Added YUI dependency for frameset tree.</li>
+				<li>Using jQuery from WebJars.</li>
+				<li>Using Dagre D3 from WebJars.</li>
+				<li>Using D3 from WebJars.</li>
+				<li>Error pages moved to theme.</li>
+				<li>Using HTML5Shiv from WebJars.</li>
+				<li>Teach old browsers how to style CSS.</li>
+				<li>Moving more scripts into theme where belong.</li>
+				<li>Navigation based on centrally registered views more.</li>
+				<li>Added required CSS files and images, making sure all images licensed correctly in the process.</li>
+				<li>CSS links may now be registered for global use.</li>
+				<li>Default style moved to separate package.</li>
+			</ul>
+		</changelog:release>
+	</core:page>
+</jsp:root>
