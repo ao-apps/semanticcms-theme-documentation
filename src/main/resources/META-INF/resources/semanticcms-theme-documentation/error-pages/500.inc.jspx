@@ -23,7 +23,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 <jsp:root
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
-	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:ao="https://aoindustries.com/ao-taglib/"
 >
 	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<jsp:directive.page isErrorPage="true" />

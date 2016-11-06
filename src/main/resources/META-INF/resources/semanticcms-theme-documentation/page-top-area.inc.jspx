@@ -32,7 +32,7 @@ Arguments:
 	arg.active   The optional active link, matching view name.
 -->
 <jsp:root
-	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:ao="https://aoindustries.com/ao-taglib/"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:core="https://semanticcms.com/core/taglib/"
 	xmlns:file="https://semanticcms.com/file/taglib/"

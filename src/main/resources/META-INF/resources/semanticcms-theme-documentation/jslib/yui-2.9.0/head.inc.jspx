@@ -27,7 +27,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	@see  http://developer.yahoo.com/yui/treeview/#start
 -->
 <jsp:root
-	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:ao="https://aoindustries.com/ao-taglib/"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
