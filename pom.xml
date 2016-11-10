@@ -36,7 +36,6 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	<packaging>jar</packaging>
 
 	<properties>
-		<bookPath>/theme-documentation</bookPath>
 		<shortTitle>Theme Documentation</shortTitle>
 		<description.html><![CDATA[<a target="_top" href="https://semanticcms.com/">SemanticCMS</a> theme tailored for technical documentation.]]></description.html>
 		<javadoc.modules><![CDATA[<div style="float:left; margin: 0 1em">
@@ -48,7 +47,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	</properties>
 
 	<name>SemanticCMS Theme Documentation</name>
-	<url>https://semanticcms.com${bookPath}/</url><!-- Can't inherit due to multi-module -->
+	<url>https://semanticcms.com/theme-documentation/</url>
 	<description>SemanticCMS theme tailored for technical documentation.</description>
 	<inceptionYear>2013</inceptionYear>
 
