@@ -151,7 +151,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-core-servlet</artifactId>
-			<version>1.10.0</version>
+			<version>1.10.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
@@ -173,7 +173,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-openfile-servlet</artifactId>
-			<version>1.5.2</version>
+			<version>1.5.3-SNAPSHOT</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
