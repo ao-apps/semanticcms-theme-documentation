@@ -167,7 +167,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-file-taglib</artifactId>
-			<version>1.5.2</version>
+			<version>1.5.3-SNAPSHOT</version>
 		</dependency>
 		<!-- TODO: Once central "devMode" defined, remove this optional dependency -->
 		<dependency>
