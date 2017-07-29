@@ -116,7 +116,8 @@ Arguments:
 				semanticcms_theme_documentation_navigation.tree.subscribe("clickEvent", semanticcms_theme_documentation_navigation.treeClickEvent);
 				semanticcms_theme_documentation_navigation.tree.subscribe("enterKeyPressed", semanticcms_theme_documentation_navigation.treeEnterKeyPressed);
 				semanticcms_theme_documentation_navigation.tree.render();
-
+				// TODO: The tree is double-encoding things
+				//       See https://aoindustries.com/ao-taglib/ao.tld/tags?navigation=true
 				$(function() {
 					semanticcms_theme_documentation_navigation.highlightPage(<ao:out value="${core:encodeHexData(arg.page.pageRef)}" />);
 				});
