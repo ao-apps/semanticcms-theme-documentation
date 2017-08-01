@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2017-07-20T14:37:18-0500"
+		dateModified="2017-08-01T16:59:52-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -177,7 +177,11 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<li>Fixed error page finding dev mode.</li>
 				<li>Added headInclude registry.</li>
 				<li>Removed unnecessary "included" check.</li>
-				<li>Using EL function isExporting() instead of direct access to header.</li>
+				<li>
+					Using <ao:a href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a> function
+					function <core:link book="/core/taglib" page="/semanticcms-core.tld/function-isExporting" />
+					instead of direct access to header.
+				</li>
 				<li>Moved automatic Git to separate packages.</li>
 				<li>Added global and per-view script registry.</li>
 				<li>Views may now use parameters.</li>
