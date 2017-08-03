@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2015, 2016  AO Industries, Inc.
+Copyright (C) 2015, 2016, 2017  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -84,10 +84,10 @@ Arguments:
 		<c:set var="book" value="" />
 		<!-- Try to find book for request -->
 		<c:catch>
-			<c:set var="book" value="${core:getBook(pagePath)}" />
+			<c:set var="book" value="${core:getPublishedBook(pagePath)}" />
 		</c:catch>
 		<!-- Try to find root book -->
-		<c:if test="${empty book and !empty applicationScope.semanticCMS}">
+		<c:if test="${(empty book or !book.accessible) and !empty applicationScope.semanticCMS}">
 			<c:catch>
 				<c:set var="book" value="${applicationScope.semanticCMS.rootBook}" />
 			</c:catch>
@@ -101,7 +101,7 @@ Arguments:
 			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
 			<ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
 			<ao:choose>
-				<ao:when test="#{empty book}">
+				<ao:when test="#{empty book or !book.accessible}">
 					<title><ao:out value="${arg.message}" /></title>
 				</ao:when>
 				<ao:otherwise>
@@ -131,7 +131,7 @@ Arguments:
 		<body>
 			<core:doComponents view="${null}" page="${null}" position="BODY_START" />
 			<div id="pageContainer">
-				<c:if test="${!empty book}">
+				<c:if test="${!empty book and book.accessible}">
 					<ao:include
 						page="page-top-area.inc.jspx"
 						arg.book="${book}"
