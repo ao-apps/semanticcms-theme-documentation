@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2017-08-02T20:33:11-0500"
+		dateModified="2017-08-03T11:05:22-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -182,7 +182,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<li>Added headInclude registry.</li>
 				<li>Removed unnecessary "included" check.</li>
 				<li>
-					Using <ao:a href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a> function
+					Using <ao:a rel="nofollow" href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a> function
 					function <core:link book="/core/taglib" page="/semanticcms-core.tld/function-isExporting" />
 					instead of direct access to header.
 				</li>
