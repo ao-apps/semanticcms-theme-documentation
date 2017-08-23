@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2013, 2014, 2015, 2016, 2017  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -62,7 +62,7 @@ Arguments:
 						<ao:a
 							id="${view.linkId}"
 							class="${linkCssClass}"
-							href="${arg.book.pathPrefix}${arg.path}"
+							href="${arg.book.bookRef.prefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
 							rel="${core:getViewAllowRobots(view, page) ? null : 'nofollow'}"
 						>
@@ -91,7 +91,7 @@ Arguments:
 						<ao:a
 							id="${view.linkId}"
 							class="${linkCssClass}"
-							href="${arg.book.pathPrefix}${arg.path}"
+							href="${arg.book.bookRef.prefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
 							rel="${core:getViewAllowRobots(view, page) ? null : 'nofollow'}"
 						>
@@ -111,7 +111,7 @@ Arguments:
 						<ao:a
 							id="${view.linkId}"
 							class="${linkCssClass}"
-							href="${arg.book.pathPrefix}${arg.path}"
+							href="${arg.book.bookRef.prefix}${arg.path}"
 							param.view="${view.isDefault() ? null : view.name}"
 							rel="${core:getViewAllowRobots(view, page) ? null : 'nofollow'}"
 						>
@@ -126,8 +126,8 @@ Arguments:
 			<jsp:text><!-- Newline required before googleon, doing on googleoff just to be clear and safe -->
 &lt;!--googleoff: all--&gt;
 </jsp:text>
-			<ao:a target="_top" rel="nofollow" href="${arg.book.pathPrefix}${arg.view}" param.frames="true">Frames</ao:a>
-			<ao:a target="_top" rel="nofollow" href="${arg.book.pathPrefix}${arg.view}">No Frames</ao:a>
+			<ao:a target="_top" rel="nofollow" href="${arg.book.bookRef.prefix}${arg.view}" param.frames="true">Frames</ao:a>
+			<ao:a target="_top" rel="nofollow" href="${arg.book.bookRef.prefix}${arg.view}">No Frames</ao:a>
 			<jsp:text><!--Newline required before googleon -->
 &lt;!--googleon: all--&gt;
 </jsp:text>

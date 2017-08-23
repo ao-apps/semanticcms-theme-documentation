@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2013, 2014, 2015, 2016, 2017  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -66,7 +66,7 @@ Arguments:
 		<body class="yui-skin-sam">
 			<main>
 				<div id="navigationLogo">
-					<ao:a target="contentFrame" href="${servletPath}" param.view="what-to-do"><ao:img src="${book.pathPrefix}${book.param.logoSrc}" width="${book.param.logoWidth}" height="${book.param.logoHeight}" alt="${book.param.logoAlt}" /></ao:a>
+					<ao:a target="contentFrame" href="${servletPath}" param.view="what-to-do"><ao:img src="${book.bookRef.prefix}${book.param.logoSrc}" width="${book.param.logoWidth}" height="${book.param.logoHeight}" alt="${book.param.logoAlt}" /></ao:a>
 				</div>
 				<c:if test="${!core:isExporting()}">
 					<div id="navigationSearch">
