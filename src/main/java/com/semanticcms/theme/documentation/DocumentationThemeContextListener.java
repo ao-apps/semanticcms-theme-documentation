@@ -1,6 +1,6 @@
 /*
  * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
- * Copyright (C) 2016  AO Industries, Inc.
+ * Copyright (C) 2016, 2017  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,19 +22,19 @@
  */
 package com.semanticcms.theme.documentation;
 
-import com.semanticcms.core.servlet.SemanticCMS;
+import com.semanticcms.core.renderer.html.HtmlRenderer;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-@WebListener("Registers the \"" + DocumentationTheme.THEME_NAME + "\" theme and required scripts in SemanticCMS.")
+@WebListener("Registers the \"" + DocumentationTheme.THEME_NAME + "\" theme and required scripts in HtmlRenderer.")
 public class DocumentationThemeContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		SemanticCMS semanticCMS = SemanticCMS.getInstance(event.getServletContext());
-		semanticCMS.addScript("jquery", "/webjars/jquery/2.2.4/jquery.min.js");
-		semanticCMS.addTheme(new DocumentationTheme());
+		HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(event.getServletContext());
+		htmlRenderer.addScript("jquery", "/webjars/jquery/2.2.4/jquery.min.js");
+		htmlRenderer.addTheme(new DocumentationTheme());
 	}
 
 	@Override
