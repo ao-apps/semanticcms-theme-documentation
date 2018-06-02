@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2013, 2014, 2015, 2016, 2018  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -84,7 +84,7 @@ Arguments:
 			<!-- TODO: Remove this once all out of docs-taglib -->
 			<ao:link href="/styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
 			<!-- Application-wide CSS -->
-			<c:forEach var="cssLink" items="${applicationScope.semanticCMS.cssLinks}">
+			<c:forEach var="cssLink" items="${applicationScope.htmlRenderer.cssLinks}">
 				<ao:link href="${cssLink}" rel="stylesheet" type="text/css" />
 			</c:forEach>
 			<!-- Per-view links -->
@@ -96,7 +96,7 @@ Arguments:
 				<ao:script src="${script.value}" />
 			</c:forEach>
 			<!-- Application-wide head includes -->
-			<c:forEach var="headInclude" items="${applicationScope.semanticCMS.headIncludes}">
+			<c:forEach var="headInclude" items="${applicationScope.htmlRenderer.headIncludes}">
 				<ao:include page="${headInclude}" />
 			</c:forEach>
 			<ao:include page="update-nav.inc.jspx" arg.page="${page}" />
