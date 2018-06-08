@@ -22,6 +22,7 @@
  */
 package com.semanticcms.theme.documentation;
 
+import com.aoindustries.net.pathspace.Prefix;
 import com.semanticcms.core.controller.SemanticCMS;
 import com.semanticcms.core.controller.ServletSpace;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
@@ -46,85 +47,85 @@ public class DocumentationThemeContextListener implements ServletContextListener
 		ServletSpace.Action.PassThroughAction passThrough = ServletSpace.Action.PassThroughAction.getInstance();
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf(DocumentationTheme.PREFIX + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf(DocumentationTheme.PREFIX + Prefix.WILDCARD_SUFFIX),
 				notFound
 			)
 		);
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf(DocumentationTheme.PREFIX + "/navigation.js"),
+				Prefix.valueOf(DocumentationTheme.PREFIX + "/navigation.js"),
 				passThrough
 			)
 		);
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf(DocumentationTheme.PREFIX + "/error-pages" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf(DocumentationTheme.PREFIX + "/error-pages" + Prefix.WILDCARD_SUFFIX),
 				notFound
 			)
 		);
 		// TODO: Implement with a matcher *.jsp to not found instead of this nested multi-level stuff?
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf(DocumentationTheme.PREFIX + "/jslib/yui-" + DocumentationTheme.YUI_VERSION + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf(DocumentationTheme.PREFIX + "/jslib/yui-" + DocumentationTheme.YUI_VERSION + Prefix.WILDCARD_SUFFIX),
 				notFound
 			)
 		);
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf(DocumentationTheme.PREFIX + "/jslib/yui-" + DocumentationTheme.YUI_VERSION + ServletSpace.Prefix.BOUNDED_MULTILEVEL + ServletSpace.Prefix.UNBOUNDED_MULTILEVEL),
+				Prefix.valueOf(DocumentationTheme.PREFIX + "/jslib/yui-" + DocumentationTheme.YUI_VERSION + Prefix.WILDCARD_SUFFIX + Prefix.UNBOUNDED_SUFFIX),
 				passThrough
 			)
 		);
 		// TODO: Versions from filtered .xml with maven properties
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf("/webjars/html5shiv/3.7.3" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf("/webjars/html5shiv/3.7.3" + Prefix.WILDCARD_SUFFIX),
 				passThrough
 			)
 		);
 		// TODO: Versions from filtered .xml with maven properties
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf("/webjars/jquery/2.2.4" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf("/webjars/jquery/2.2.4" + Prefix.WILDCARD_SUFFIX),
 				passThrough
 			)
 		);
 		// TODO: Move to semanticcms-pagegraph (or own project?)
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf("/webjars/d3js/3.5.17" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf("/webjars/d3js/3.5.17" + Prefix.WILDCARD_SUFFIX),
 				passThrough
 			)
 		);
 		// TODO: Move to docs-taglib:
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf("/images" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf("/images" + Prefix.WILDCARD_SUFFIX),
 				passThrough
 			)
 		);
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf("/images/list-item/16x16" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf("/images/list-item/16x16" + Prefix.WILDCARD_SUFFIX),
 				passThrough
 			)
 		);
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf("/images/styles" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf("/images/styles" + Prefix.WILDCARD_SUFFIX),
 				passThrough
 			)
 		);
 		// TODO: Move to -styles project
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf(DocumentationTheme.PREFIX + "/images" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf(DocumentationTheme.PREFIX + "/images" + Prefix.WILDCARD_SUFFIX),
 				passThrough
 			)
 		);
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf(DocumentationTheme.PREFIX + "/styles" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf(DocumentationTheme.PREFIX + "/styles" + Prefix.WILDCARD_SUFFIX),
 				passThrough
 			)
 		);
