@@ -41,12 +41,12 @@ Arguments:
 
 	<!-- Dispatch to frameset -->
 	<c:if test="${param.frames}">
-		<ao:forward page="frameset.inc.jspx" arg.page="${page}" />
+		<ao:forward page="frameset.jspx" arg.page="${page}" />
 	</c:if>
 
 	<!-- Dispatch to navigation -->
 	<c:if test="${param.navigation}">
-		<ao:forward page="navigation.inc.jspx" arg.page="${page}" />
+		<ao:forward page="navigation.jspx" arg.page="${page}" />
 	</c:if>
 
 	<!-- Display the current view and page -->

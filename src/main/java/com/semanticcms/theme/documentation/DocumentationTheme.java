@@ -44,8 +44,9 @@ public class DocumentationTheme extends Theme {
 
 	static final String PREFIX = "/semanticcms-theme-documentation";
 
-	private static final String JSPX_TARGET = PREFIX + "/theme.inc.jspx";
+	private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
 
+	// TODO: Version from filtered .xml with maven properties
 	static final String YUI_VERSION = "2.9.0";
 
 	@Override

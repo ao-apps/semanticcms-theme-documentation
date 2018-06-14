@@ -22,10 +22,27 @@
  */
 package com.semanticcms.theme.documentation;
 
+// To test firewall component styles, this class uses aggressive static includes
+// to maximize Domain-Specific Language (DSL) feel with native Java code.
+import static com.aoindustries.net.Path.SEPARATOR_CHAR;
 import com.aoindustries.net.pathspace.Prefix;
-import com.semanticcms.core.controller.SemanticCMS;
-import com.semanticcms.core.controller.ServletSpace;
+import static com.aoindustries.net.pathspace.Prefix.GREEDY_SUFFIX;
+import static com.aoindustries.net.pathspace.Prefix.WILDCARD_SUFFIX;
+import static com.aoindustries.net.pathspace.Prefix.valueOf;
+import com.aoindustries.servlet.firewall.pathspace.FirewallComponent;
+import com.aoindustries.servlet.firewall.pathspace.FirewallPathSpace;
+import com.aoindustries.servlet.firewall.pathspace.Rules.pathMatch.path;
+import static com.aoindustries.servlet.firewall.rules.Rules.chain.doFilter;
+import static com.aoindustries.servlet.firewall.rules.Rules.request.dispatcherType.isError;
+import static com.aoindustries.servlet.firewall.rules.Rules.request.dispatcherType.isForward;
+import static com.aoindustries.servlet.firewall.rules.Rules.request.dispatcherType.isInclude;
+import static com.aoindustries.servlet.firewall.rules.Rules.request.dispatcherType.isRequest;
+import static com.aoindustries.servlet.firewall.rules.Rules.request.method.GET;
+import static com.aoindustries.servlet.firewall.rules.Rules.request.method.constrain;
+import static com.aoindustries.servlet.firewall.rules.Rules.response.sendError.FORBIDDEN;
+import static com.aoindustries.servlet.firewall.rules.Rules.response.sendError.NOT_FOUND;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
+import static com.semanticcms.theme.documentation.DocumentationTheme.PREFIX;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -38,95 +55,112 @@ public class DocumentationThemeContextListener implements ServletContextListener
 	public void contextInitialized(ServletContextEvent event) {
 		ServletContext servletContext = event.getServletContext();
 		HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
+		// TODO: Get version from MavenProperties, other places, too (even inside jsps)
 		htmlRenderer.addScript("jquery", "/webjars/jquery/2.2.4/jquery.min.js");
 		htmlRenderer.addTheme(new DocumentationTheme());
 		// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
 		// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
-		SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
-		ServletSpace.Action.NotFoundAction notFound = ServletSpace.Action.NotFoundAction.getInstance();
-		ServletSpace.Action.PassThroughAction passThrough = ServletSpace.Action.PassThroughAction.getInstance();
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf(DocumentationTheme.PREFIX + Prefix.WILDCARD_SUFFIX),
-				notFound
-			)
-		);
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf(DocumentationTheme.PREFIX + "/navigation.js"),
-				passThrough
-			)
-		);
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf(DocumentationTheme.PREFIX + "/error-pages" + Prefix.WILDCARD_SUFFIX),
-				notFound
-			)
-		);
-		// TODO: Implement with a matcher *.jsp to not found instead of this nested multi-level stuff?
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf(DocumentationTheme.PREFIX + "/jslib/yui-" + DocumentationTheme.YUI_VERSION + Prefix.WILDCARD_SUFFIX),
-				notFound
-			)
-		);
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf(DocumentationTheme.PREFIX + "/jslib/yui-" + DocumentationTheme.YUI_VERSION + Prefix.WILDCARD_SUFFIX + Prefix.UNBOUNDED_SUFFIX),
-				passThrough
-			)
-		);
-		// TODO: Versions from filtered .xml with maven properties
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf("/webjars/html5shiv/3.7.3" + Prefix.WILDCARD_SUFFIX),
-				passThrough
-			)
-		);
-		// TODO: Versions from filtered .xml with maven properties
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf("/webjars/jquery/2.2.4" + Prefix.WILDCARD_SUFFIX),
-				passThrough
-			)
-		);
-		// TODO: Move to semanticcms-pagegraph (or own project?)
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf("/webjars/d3js/3.5.17" + Prefix.WILDCARD_SUFFIX),
-				passThrough
-			)
-		);
-		// TODO: Move to docs-taglib:
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf("/images" + Prefix.WILDCARD_SUFFIX),
-				passThrough
-			)
-		);
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf("/images/list-item/16x16" + Prefix.WILDCARD_SUFFIX),
-				passThrough
-			)
-		);
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf("/images/styles" + Prefix.WILDCARD_SUFFIX),
-				passThrough
-			)
-		);
-		// TODO: Move to -styles project
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf(DocumentationTheme.PREFIX + "/images" + Prefix.WILDCARD_SUFFIX),
-				passThrough
-			)
-		);
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf(DocumentationTheme.PREFIX + "/styles" + Prefix.WILDCARD_SUFFIX),
-				passThrough
+		FirewallPathSpace.getFirewallPathSpace(servletContext).add(
+			// /semanticcms-theme-documentation/*
+			FirewallComponent.newInstance(
+				valueOf(PREFIX + WILDCARD_SUFFIX),
+				// /navigation.js as GET on request only
+				isRequest(
+					// If ever have more than one .js file, could use endsWith .js, or "map" to avoid sequential scan
+					path.equals("/navigation.js",
+						constrain(GET),
+						doFilter
+					),
+					// 404 everything else on "REQUEST" dispatcher
+					NOT_FOUND
+				),
+				// *.inc.jspx as include only
+				isInclude(
+					path.endsWith(".inc.jspx", doFilter)
+				),
+				// *.jspx as forward only, but not including *.inc.jspx
+				isForward(
+					path.endsWith(".jspx",
+						path.endsWith(".inc.jspx", FORBIDDEN),
+						doFilter
+					)
+				),
+				// Drop everything else
+				FORBIDDEN
+			),
+			// /semanticcms-theme-documentation/error-pages/*
+			FirewallComponent.newInstance(
+				valueOf(PREFIX + SEPARATOR_CHAR + "error-pages" + WILDCARD_SUFFIX),
+				// 404 everything on "REQUEST" dispatcher
+				isRequest(FORBIDDEN),
+				// Allow via "ERROR" dispatcher
+				isError(doFilter),
+				// Drop everything else
+				FORBIDDEN
+			),
+			// /semanticcms-theme-documentation/error-pages/jslib/yui-(version)/*** (greedy)
+			FirewallComponent.newInstance(
+				valueOf(PREFIX + SEPARATOR_CHAR + "jslib" + SEPARATOR_CHAR + "yui-" + DocumentationTheme.YUI_VERSION + GREEDY_SUFFIX),
+				// Limit file exensions served on request dispatcher
+				isRequest(
+					// Block access to *.inc.jspx
+					path.endsWith(".inc.jspx", NOT_FOUND),
+					// Restrict all other to "GET"
+					constrain(GET),
+					doFilter
+				),
+				// *.inc.jspx as include only (different style than above)
+				isInclude(
+					path.endsWith(".inc.jspx", doFilter)
+				),
+				// Drop everything else
+				FORBIDDEN
+			),
+			// /webjars/***
+			// TODO: Create an ao-servlet-firewall-webjars project that sets this up, just include it as dependency here
+			FirewallComponent.newInstance(
+				valueOf("/webjars/***"), // TODO: Use string overload of newInstance, once it exists
+				// Constraint REQUEST dispatcher to GET only
+				isRequest(
+					constrain(GET),
+					doFilter
+				),
+				// Drop everything else
+				FORBIDDEN
+			),
+			// /images/*
+			// TODO: Move to docs-taglib:
+			FirewallComponent.newInstance(
+				// TODO: Use String[] overload of newInstance, once it exists
+				new Prefix[] {
+					valueOf("/images/*"),
+					valueOf("/images/list-item/16x16/*"),
+					valueOf("/styles/*")
+				},
+				// Constraint REQUEST dispatcher to GET only
+				isRequest(
+					constrain(GET),
+					doFilter
+				),
+				// Drop everything else
+				FORBIDDEN
+			),
+			// /semanticcms-theme-documentation/images/*
+			// /semanticcms-theme-documentation/styles/*
+			// TODO: Move to -styles project
+			FirewallComponent.newInstance(
+				// TODO: Use String[] overload of newInstance, once it exists
+				new Prefix[] {
+					valueOf(PREFIX + SEPARATOR_CHAR + "images" + WILDCARD_SUFFIX),
+					valueOf(PREFIX + SEPARATOR_CHAR + "styles" + WILDCARD_SUFFIX)
+				},
+				// Constraint REQUEST dispatcher to GET only
+				isRequest(
+					constrain(GET),
+					doFilter
+				),
+				// Drop everything else
+				FORBIDDEN
 			)
 		);
 	}
