@@ -116,18 +116,6 @@ public class DocumentationThemeContextListener implements ServletContextListener
 				// Drop everything else
 				FORBIDDEN
 			),
-			// /webjars/***
-			// TODO: Create an ao-servlet-firewall-webjars project that sets this up, just include it as dependency here
-			FirewallComponent.newInstance(
-				valueOf("/webjars/***"), // TODO: Use string overload of newInstance, once it exists
-				// Constraint REQUEST dispatcher to GET only
-				isRequest(
-					constrain(GET),
-					doFilter
-				),
-				// Drop everything else
-				FORBIDDEN
-			),
 			// /images/*
 			// TODO: Move to docs-taglib:
 			FirewallComponent.newInstance(
