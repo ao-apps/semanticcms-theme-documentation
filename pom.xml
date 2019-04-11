@@ -30,7 +30,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	</parent>
 
 	<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.6.3-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>bundle</packaging>
 
 	<properties>
 		<shortTitle>Theme Documentation</shortTitle>
