@@ -183,7 +183,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<li>Removed unnecessary "included" check.</li>
 				<li>
 					Using <ao:a rel="nofollow" href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a> function
-					function <core:link book="/core/taglib" page="/semanticcms-core.tld/function-isExporting" />
+					<core:link book="/core/taglib" page="/semanticcms-core.tld/function-isExporting" />
 					instead of direct access to header.
 				</li>
 				<li>Moved automatic Git to separate packages.</li>
