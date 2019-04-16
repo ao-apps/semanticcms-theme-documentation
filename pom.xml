@@ -67,15 +67,15 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 							<links>
 								<link>${javac.link.javaApi}</link>
 								<link>${javac.link.javaeeApi.6}</link>
-								<link>https://aoindustries.com/ao-taglib/apidocs</link>
-								<link>https://aoindustries.com/aocode-public/apidocs</link>
-								<link>https://semanticcms.com/core/model/apidocs</link>
-								<link>https://semanticcms.com/core/servlet/apidocs</link>
-								<link>https://semanticcms.com/core/taglib/apidocs</link>
-								<link>https://semanticcms.com/core/theme-base/apidocs</link>
-								<link>https://semanticcms.com/file/taglib/apidocs</link>
-								<link>https://semanticcms.com/openfile/servlet/apidocs</link>
-								<link>https://semanticcms.com/pagegraph/apidocs</link>
+								<link>https://aoindustries.com/ao-taglib/apidocs/</link>
+								<link>https://aoindustries.com/aocode-public/apidocs/</link>
+								<link>https://semanticcms.com/core/model/apidocs/</link>
+								<link>https://semanticcms.com/core/servlet/apidocs/</link>
+								<link>https://semanticcms.com/core/taglib/apidocs/</link>
+								<link>https://semanticcms.com/core/theme-base/apidocs/</link>
+								<link>https://semanticcms.com/file/taglib/apidocs/</link>
+								<link>https://semanticcms.com/openfile/servlet/apidocs/</link>
+								<link>https://semanticcms.com/pagegraph/apidocs/</link>
 							</links>
 						</configuration>
 					</plugin>
