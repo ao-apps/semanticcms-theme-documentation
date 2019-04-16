@@ -43,7 +43,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		</div>]]></javadoc.modules>
 	</properties>
 
-	<name>SemanticCMS 1 Theme Documentation</name>
+	<name>SemanticCMS Theme Documentation</name>
 	<url>https://semanticcms.com/theme-documentation/</url>
 	<description>SemanticCMS theme tailored for technical documentation.</description>
 	<inceptionYear>2013</inceptionYear>
