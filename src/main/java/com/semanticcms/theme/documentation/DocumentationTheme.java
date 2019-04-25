@@ -1,6 +1,6 @@
 /*
  * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
- * Copyright (C) 2016, 2017, 2018  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2018, 2019  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -67,7 +67,7 @@ public class DocumentationTheme extends Theme {
 		View view,
 		Page page
 	) throws ServletException, IOException, SkipPageException {
-		Map<String,Object> args = new LinkedHashMap<String,Object>();
+		Map<String,Object> args = new LinkedHashMap<>();
 		args.put("view", view);
 		args.put("page", page);
 		Dispatcher.forward(
