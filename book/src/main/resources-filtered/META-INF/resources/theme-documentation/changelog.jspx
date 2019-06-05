@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2017-08-03T11:05:22-0500"
+		dateModified="2019-06-04T19:54:26-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -52,8 +52,17 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				groupId="@{documented.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{documented.scm.url}"
-			/>
-			<!-- TODO: <li>Minimum Java version changed from 1.6 to 1.7.</li>-->
+			>
+				<ul>
+					<!-- TODO: <li>Minimum Java version changed from 1.6 to 1.7.</li>-->
+					<li>Using managed dependencies:
+						<ol>
+							<li>This project uses transitive managed dependencies.</li>
+							<li>This project's managed dependencies may also be imported by other projects.</li>
+						</ol>
+					</li>
+				</ul>
+			</changelog:release>
 		</c:if>
 
 		<changelog:release
