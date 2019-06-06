@@ -234,14 +234,13 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId>
 		</dependency>
-		<!-- TODO: Remove this dependency once "Edit" is its own view -->
 		<dependency>
+			<!-- TODO: Remove this dependency once "Edit" is its own view -->
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId>
 		</dependency>
-		<!-- TODO: Once central "devMode" defined, remove this optional dependency -->
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId>
-			<optional>true</optional>
+			<optional>true</optional><!-- TODO: Once central "devMode" defined, remove this optional dependency -->
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
