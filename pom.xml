@@ -43,7 +43,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		</div>]]></javadoc.modules>
 	</properties>
 
-	<name>SemanticCMS 2 Theme Documentation</name>
+	<name>SemanticCMS Theme Documentation²</name>
 	<url>https://semanticcms.com/theme-documentation/</url>
 	<description>SemanticCMS theme tailored for technical documentation.</description>
 	<inceptionYear>2013</inceptionYear>
@@ -66,13 +66,16 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 						<configuration>
 							<links>
 								<link>${javac.link.javaApi}</link>
+								<!-- Java EE -->
 								<link>${javac.link.javaeeApi.6}</link>
-								<link>https://aoindustries.com/ao-servlet-firewall/webjars/apidocs/</link>
+								<!-- Direct -->
 								<link>https://aoindustries.com/ao-net-path-space/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-firewall/path-space/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-firewall/rules/apidocs/</link>
+								<link>https://aoindustries.com/ao-servlet-firewall/webjars/apidocs/</link>
 								<link>https://aoindustries.com/ao-taglib/apidocs/</link>
 								<link>https://aoindustries.com/aocode-public/apidocs/</link>
+								<!-- No apidocs: <groupId>org.webjars</groupId><artifactId>jquery</artifactId> -->
 								<link>https://semanticcms.com/core/model/apidocs/</link>
 								<link>https://semanticcms.com/core/renderer/html/apidocs/</link>
 								<link>https://semanticcms.com/core/taglib/apidocs/</link>
@@ -88,78 +91,208 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		</profile>
 	</profiles>
 
+	<dependencyManagement>
+		<dependencies>
+			<!-- Java EE -->
+			<dependency>
+				<groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><version>3.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<!-- JSTL: See http://stackoverflow.com/questions/6094329/tomcat-7-and-jstl -->
+			<dependency>
+				<groupId>javax.servlet</groupId><artifactId>jstl</artifactId><version>1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><version>2.2.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId><version>1.2</version>
+				<exclusions>
+					<exclusion>
+						<groupId>javax.servlet</groupId><artifactId>servlet-api</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>javax.servlet.jsp</groupId><artifactId>jsp-api</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>javax.servlet.jsp.jstl</groupId><artifactId>jstl-api</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- Direct -->
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-net-path-space</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-net-path-space</artifactId><version>1.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><version>1.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>1.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>1.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.1-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>2.1.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<!-- TODO: Update -->
+				<groupId>org.webjars</groupId><artifactId>jquery</artifactId><version>2.2.4</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>2.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>2.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId><version>2.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId><version>2.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>2.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>2.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>2.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>2.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>2.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>2.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId><version>2.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId><version>2.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>2.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>2.0.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
+		<!-- Java EE -->
 		<dependency>
-			<groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><version>3.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- JSTL: See http://stackoverflow.com/questions/6094329/tomcat-7-and-jstl -->
-		<dependency>
-			<groupId>javax.servlet</groupId><artifactId>jstl</artifactId><version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><version>2.2.1</version>
+			<groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId><version>1.2</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.servlet</groupId><artifactId>servlet-api</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.servlet.jsp</groupId><artifactId>jsp-api</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.servlet.jsp.jstl</groupId><artifactId>jstl-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- Open servlet firewall for /webjars/*** -->
-		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>1.0.0-SNAPSHOT</version>
+			<groupId>javax.servlet</groupId><artifactId>jstl</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.webjars</groupId><artifactId>jquery</artifactId><version>2.2.4</version>
+			<groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-net-path-space</artifactId><version>1.0.0-SNAPSHOT</version>
+			<groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId>
+		</dependency>
+		<!-- Direct -->
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-net-path-space</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><version>1.0.0-SNAPSHOT</version>
+			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-path-space</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>1.0.0-SNAPSHOT</version>
+			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-rules</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.0-validation-SNAPSHOT</version>
+			<!-- Open servlet firewall for /webjars/*** -->
+			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>2.1.0-SNAPSHOT</version>
+			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>2.0.0-SNAPSHOT</version>
+			<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId><version>2.0.0-SNAPSHOT</version>
+			<groupId>org.webjars</groupId><artifactId>jquery</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>2.0.0-SNAPSHOT</version>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>2.0.0-SNAPSHOT</version>
-		</dependency>
-		<!-- TODO: Remove this dependency once "Edit" is its own view -->
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>2.0.0-SNAPSHOT</version>
-		</dependency>
-		<!-- TODO: Once central "devMode" defined, remove this optional dependency -->
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId><version>2.0.0-SNAPSHOT</version>
-			<optional>true</optional>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>2.0.0-SNAPSHOT</version>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId>
+		</dependency>
+		<dependency>
+			<!-- TODO: Remove this dependency once "Edit" is its own view -->
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId>
+			<optional>true</optional><!-- TODO: Once central "devMode" defined, remove this optional dependency -->
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
 		</dependency>
 	</dependencies>
 </project>

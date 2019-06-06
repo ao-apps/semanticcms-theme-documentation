@@ -42,7 +42,7 @@ public class DocumentationTheme extends Theme {
 
 	static final String THEME_NAME = "semanticcms-theme-documentation";
 
-	static final String PREFIX = "/semanticcms-theme-documentation";
+	static final String PREFIX = "/" + THEME_NAME;
 
 	private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
 
