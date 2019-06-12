@@ -33,6 +33,7 @@ Arguments:
 	xmlns:ao="https://aoindustries.com/ao-taglib/"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:core="https://semanticcms.com/core/taglib/"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
 >
@@ -112,7 +113,8 @@ Arguments:
 				</ao:otherwise>
 			</ao:choose>
 			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
-				<ao:script src="/webjars/html5shiv/3.7.3/html5shiv.min.js" />
+				<!-- html5shiv version "3.7.3-1" is in a directory named "3.7.3": -->
+				<ao:script src="/webjars/html5shiv/${fn:split('@{org.webjars:html5shiv:jar.version}', '-')[0]}/html5shiv.min.js" />
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
 			<ao:link href="/semanticcms-core-theme-base/styles/html5.css" rel="stylesheet" type="text/css" />
 			<ao:link href="styles/page.css" rel="stylesheet" type="text/css" />
@@ -121,8 +123,7 @@ Arguments:
 			<ao:link href="styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
 			<!-- TODO: This causes a 404 error where docs-taglib not deployed.  Register as a headInclude from docs-taglib -->
 			<ao:link href="/styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
-			<!-- TODO: Get version from MavenProperties, other places, too (even inside jsps) -->
-			<ao:script src="/webjars/jquery/3.4.1/jquery.min.js" />
+			<ao:script src="/webjars/jquery/@{org.webjars:jquery:jar.version}/jquery.min.js" />
 			<!-- Application-wide head includes -->
 			<c:forEach var="headInclude" items="${applicationScope.semanticCMS.headIncludes}">
 				<ao:include page="${headInclude}" />
