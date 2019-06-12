@@ -80,14 +80,13 @@ Arguments:
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
 			<ao:link href="/semanticcms-core-theme-base/styles/html5.css" rel="stylesheet" type="text/css" />
 			<ao:link href="styles/page.css" rel="stylesheet" type="text/css" />
-			<!-- TODO: This causes a 404 error where docs-taglib not deployed.  Register as a headInclude from docs-taglib -->
-			<ao:link href="/styles/page.css" rel="stylesheet" type="text/css" />
 			<ao:link href="styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
-			<!-- TODO: This causes a 404 error where docs-taglib not deployed.  Register as a headInclude from docs-taglib -->
-			<ao:link href="/styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
 			<!-- Application-wide CSS -->
 			<c:forEach var="cssLink" items="${applicationScope.semanticCMS.cssLinks}">
 				<ao:link href="${cssLink}" rel="stylesheet" type="text/css" />
+			</c:forEach>
+			<c:forEach var="printCssLink" items="${applicationScope.semanticCMS.printCssLinks}">
+				<ao:link href="${printCssLink}" media="print" rel="stylesheet" type="text/css" />
 			</c:forEach>
 			<!-- Per-view links -->
 			<c:forEach var="link" items="${core:getViewLinks(view, page)}">

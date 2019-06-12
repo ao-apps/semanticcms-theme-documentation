@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2019-06-04T19:54:26-0500"
+		dateModified="2019-06-12T03:09:29-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -61,6 +61,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 							<li>This project's managed dependencies may also be imported by other projects.</li>
 						</ol>
 					</li>
+					<li>Now supporting media="print" stylesheets.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
