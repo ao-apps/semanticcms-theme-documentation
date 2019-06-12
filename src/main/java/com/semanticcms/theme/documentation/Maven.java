@@ -1,6 +1,6 @@
 /*
  * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
- * Copyright (C) 2016, 2017, 2018, 2019  AO Industries, Inc.
+ * Copyright (C) 2019  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,23 +22,23 @@
  */
 package com.semanticcms.theme.documentation;
 
-import com.semanticcms.core.servlet.SemanticCMS;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import com.aoindustries.util.PropertiesUtils;
+import java.io.IOException;
+import java.util.Properties;
 
-@WebListener("Registers the \"" + DocumentationTheme.THEME_NAME + "\" theme and required scripts in SemanticCMS.")
-public class DocumentationThemeContextListener implements ServletContextListener {
+/**
+ * @author  AO Industries, Inc.
+ */
+class Maven {
 
-	@Override
-	public void contextInitialized(ServletContextEvent event) {
-		SemanticCMS semanticCMS = SemanticCMS.getInstance(event.getServletContext());
-		semanticCMS.addScript("jquery", "/webjars/jquery/" + Maven.properties.getProperty("jquery.version") + "/jquery.min.js");
-		semanticCMS.addTheme(new DocumentationTheme());
+	static final Properties properties;
+	static {
+		try {
+			properties = PropertiesUtils.loadFromResource(Maven.class, "Maven.properties");
+		} catch(IOException e) {
+			throw new ExceptionInInitializerError(e);
+		}
 	}
 
-	@Override
-	public void contextDestroyed(ServletContextEvent event) {
-		// Do nothing
-	}
+	private Maven() {}
 }
