@@ -55,8 +55,7 @@ public class DocumentationThemeContextListener implements ServletContextListener
 	public void contextInitialized(ServletContextEvent event) {
 		ServletContext servletContext = event.getServletContext();
 		HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
-		// TODO: Get version from MavenProperties, other places, too (even inside jsps)
-		htmlRenderer.addScript("jquery", "/webjars/jquery/3.4.1/jquery.min.js");
+		htmlRenderer.addScript("jquery", "/webjars/jquery/" + Maven.properties.getProperty("jquery.version") + "/jquery.min.js");
 		htmlRenderer.addTheme(new DocumentationTheme());
 		// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
 		// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
