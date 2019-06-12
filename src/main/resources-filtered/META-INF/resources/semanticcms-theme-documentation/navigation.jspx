@@ -32,6 +32,7 @@ Arguments:
 	xmlns:ao="https://aoindustries.com/ao-taglib/"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:core="https://semanticcms.com/core/taglib/"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
 >
@@ -53,14 +54,14 @@ Arguments:
 			<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
 			<title>Navigation - <ao:out value="${book.title}" /></title>
 			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
-				<ao:script src="/webjars/html5shiv/3.7.3/html5shiv.min.js" />
+				<!-- html5shiv version "3.7.3-1" is in a directory named "3.7.3": -->
+				<ao:script src="/webjars/html5shiv/${fn:split('@{org.webjars:html5shiv:jar.version}', '-')[0]}/html5shiv.min.js" />
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
 			<ao:link href="/semanticcms-core-theme-base/styles/html5.css" rel="stylesheet" type="text/css" />
 			<ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
 			<ao:link href="styles/navigation.css" rel="stylesheet" type="text/css" />
 			<ao:script src="navigation.js" />
-			<!-- TODO: Get version from MavenProperties, other places, too (even inside jsps) -->
-			<ao:script src="/webjars/jquery/3.4.1/jquery.min.js" />
+			<ao:script src="/webjars/jquery/@{org.webjars:jquery:jar.version}/jquery.min.js" />
 			<!-- No search index left navigation frame -->
 			<ao:meta name="robots" content="noindex, nofollow" />
 		</head>
