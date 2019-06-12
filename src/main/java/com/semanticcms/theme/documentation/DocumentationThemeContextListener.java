@@ -1,6 +1,6 @@
 /*
  * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
- * Copyright (C) 2016, 2017, 2018  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2018, 2019  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -56,7 +56,7 @@ public class DocumentationThemeContextListener implements ServletContextListener
 		ServletContext servletContext = event.getServletContext();
 		HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
 		// TODO: Get version from MavenProperties, other places, too (even inside jsps)
-		htmlRenderer.addScript("jquery", "/webjars/jquery/2.2.4/jquery.min.js");
+		htmlRenderer.addScript("jquery", "/webjars/jquery/3.4.1/jquery.min.js");
 		htmlRenderer.addTheme(new DocumentationTheme());
 		// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
 		// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?

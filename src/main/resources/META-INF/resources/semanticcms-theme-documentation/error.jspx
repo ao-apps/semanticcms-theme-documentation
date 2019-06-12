@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2015, 2016, 2017, 2018  AO Industries, Inc.
+Copyright (C) 2015, 2016, 2017, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -116,12 +116,13 @@ Arguments:
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
 			<ao:link href="/semanticcms-core-theme-base/styles/html5.css" rel="stylesheet" type="text/css" />
 			<ao:link href="styles/page.css" rel="stylesheet" type="text/css" />
-			<!-- TODO: Remove this once all out of docs-taglib -->
+			<!-- TODO: This causes a 404 error where docs-taglib not deployed.  Register as a headInclude from docs-taglib -->
 			<ao:link href="/styles/page.css" rel="stylesheet" type="text/css" />
 			<ao:link href="styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
-			<!-- TODO: Remove this once all out of docs-taglib -->
+			<!-- TODO: This causes a 404 error where docs-taglib not deployed.  Register as a headInclude from docs-taglib -->
 			<ao:link href="/styles/page-print.css" media="print" rel="stylesheet" type="text/css" />
-			<ao:script src="/webjars/jquery/2.2.4/jquery.min.js" />
+			<!-- TODO: Get version from MavenProperties, other places, too (even inside jsps) -->
+			<ao:script src="/webjars/jquery/3.4.1/jquery.min.js" />
 			<!-- Application-wide head includes -->
 			<c:forEach var="headInclude" items="${applicationScope.htmlRenderer.headIncludes}">
 				<ao:include page="${headInclude}" />
