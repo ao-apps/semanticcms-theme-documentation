@@ -1,6 +1,6 @@
 /*
  * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
- * Copyright (C) 2016, 2017, 2018  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2018, 2019  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -33,7 +33,8 @@ public class DocumentationThemeContextListener implements ServletContextListener
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
 		SemanticCMS semanticCMS = SemanticCMS.getInstance(event.getServletContext());
-		semanticCMS.addScript("jquery", "/webjars/jquery/2.2.4/jquery.min.js");
+		// TODO: Get version from MavenProperties, other places, too (even inside jsps)
+		semanticCMS.addScript("jquery", "/webjars/jquery/3.4.1/jquery.min.js");
 		semanticCMS.addTheme(new DocumentationTheme());
 	}
 
