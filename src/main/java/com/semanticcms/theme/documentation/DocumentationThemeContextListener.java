@@ -55,6 +55,7 @@ public class DocumentationThemeContextListener implements ServletContextListener
 	public void contextInitialized(ServletContextEvent event) {
 		ServletContext servletContext = event.getServletContext();
 		HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
+		// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
 		htmlRenderer.addScript("jquery", "/webjars/jquery/" + Maven.properties.getProperty("jquery.version") + "/jquery.min.js");
 		htmlRenderer.addTheme(new DocumentationTheme());
 		// TODO: Move to /META-INF/semanticcms-servlet-space.xml?

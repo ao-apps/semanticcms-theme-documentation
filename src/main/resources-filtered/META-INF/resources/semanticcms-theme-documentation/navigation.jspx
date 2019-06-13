@@ -62,6 +62,7 @@ Arguments:
 			<ao:link href="styles/navigation.css" rel="stylesheet" type="text/css" />
 			<ao:script src="navigation.js" />
 			<ao:script src="/webjars/jquery/@{org.webjars:jquery:jar.version}/jquery.min.js" />
+			<ao:script>jQuery.noConflict();</ao:script>
 			<!-- No search index left navigation frame -->
 			<ao:meta name="robots" content="noindex, nofollow" />
 		</head>
