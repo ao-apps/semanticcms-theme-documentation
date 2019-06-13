@@ -120,7 +120,7 @@ Arguments:
 				semanticcms_theme_documentation_navigation.tree.render();
 				// TODO: The tree is double-encoding things
 				//       See https://aoindustries.com/ao-taglib/ao.tld/tags?navigation=true
-				$(function() {
+				jQuery(function() {
 					semanticcms_theme_documentation_navigation.highlightPage(<ao:out value="${core:encodeHexData(arg.page.pageRef)}" />);
 				});
 			</ao:script>
