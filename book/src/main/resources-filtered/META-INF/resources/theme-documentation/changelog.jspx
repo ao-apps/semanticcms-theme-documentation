@@ -55,7 +55,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<ul>
 					<li>
 						<code><core:link page="semanticcms-core.tld/function-encodeUrlParam" /></code> is deprecated - using
-						<code><ao:a href="https://aoindustries.com/ao-taglib/ao.tld/function-encodeQuery">\${ao:encodeQuery()}<ao:a></code> instead.
+						<code><ao:a href="https://aoindustries.com/ao-taglib/ao.tld/function-encodeQuery">\${ao:encodeQuery()}</ao:a></code> instead.
 					</li>
 				</ul>
 			</changelog:release>
