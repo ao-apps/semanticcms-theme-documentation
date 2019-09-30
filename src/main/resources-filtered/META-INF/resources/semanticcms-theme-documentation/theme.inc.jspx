@@ -117,7 +117,7 @@ Arguments:
 					page="page-top-area.inc.jspx"
 					arg.book="${pageRef.book}"
 					arg.path="${pageRef.path}"
-					arg.view="${view.isDefault() ? pageRef.path : pageRef.path.concat('?view=').concat(core:encodeUrlParam(view.name))}"
+					arg.view="${view.isDefault() ? pageRef.path : pageRef.path.concat('?view=').concat(ao:encodeQuery(view.name))}"
 					arg.page="${page}"
 					arg.active="${view.name}"
 				/>

@@ -36,7 +36,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2019-06-22T05:45:18-0500"
+		dateModified="2019-09-30T03:10:52-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -51,7 +51,14 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				groupId="@{documented.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{documented.scm.url}"
-			/>
+			>
+				<ul>
+					<li>
+						<code><core:link page="semanticcms-core.tld/function-encodeUrlParam" /></code> is deprecated - using
+						<code><ao:a href="https://aoindustries.com/ao-taglib/ao.tld/function-encodeQuery">\${ao:encodeQuery()}<ao:a></code> instead.
+					</li>
+				</ul>
+			</changelog:release>
 		</c:if>
 
 		<changelog:release
