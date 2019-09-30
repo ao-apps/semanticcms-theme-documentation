@@ -36,7 +36,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2019-06-19T09:48:11-0500"
+		dateModified="2019-09-30T03:10:52-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -54,21 +54,33 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			>
 				<ul>
 					<li>Updated for <core:link book="/" page="/" /> 2 compatibility.</li>
-					<li>Minimum Java version changed from 1.6 to 1.7.</li>
-					<li>Using managed dependencies:
-						<ol>
-							<li>This project uses managed dependencies.</li>
-							<li>This project's managed dependencies may also be imported by other projects.</li>
-						</ol>
-					</li>
-					<li>Now supporting media="print" stylesheets.</li>
-					<li>
-						Using jQuery in <ao:a href="https://api.jquery.com/jquery.noconflict/">jQuery.noConflict()</ao:a> mode.
-						This should minimize potential interference from unrelated JS libraries.
-					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.7.0"
+			datePublished="2019-06-22T05:45:18-0500"
+			groupId="@{documented.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{documented.scm.url}"
+		>
+			<ul>
+				<li>Minimum Java version changed from 1.6 to 1.7.</li>
+				<li>Using managed dependencies:
+					<ol>
+						<li>This project uses managed dependencies.</li>
+						<li>This project's managed dependencies may also be imported by other projects.</li>
+					</ol>
+				</li>
+				<li>Now supporting media="print" stylesheets.</li>
+				<li>
+					Using jQuery in <ao:a href="https://api.jquery.com/jquery.noconflict/">jQuery.noConflict()</ao:a> mode.
+					This should minimize potential interference from unrelated JS libraries.
+				</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"

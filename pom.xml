@@ -69,12 +69,15 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 								<!-- Java EE -->
 								<link>${javac.link.javaeeApi.6}</link>
 								<!-- Direct -->
+								<link>https://aoindustries.com/ao-lang/apidocs/</link>
 								<link>https://aoindustries.com/ao-net-path-space/apidocs/</link>
+								<link>https://aoindustries.com/ao-net-types/apidocs/</link>
+								<link>https://aoindustries.com/ao-servlet-firewall/api/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-firewall/path-space/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-firewall/rules/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-firewall/webjars/apidocs/</link>
+								<link>https://aoindustries.com/ao-servlet-util/apidocs/</link>
 								<link>https://aoindustries.com/ao-taglib/apidocs/</link>
-								<link>https://aoindustries.com/aocode-public/apidocs/</link>
 								<!-- No apidocs: <groupId>org.webjars</groupId><artifactId>jquery</artifactId> -->
 								<link>https://semanticcms.com/core/model/apidocs/</link>
 								<link>https://semanticcms.com/core/renderer/html/apidocs/</link>
@@ -101,7 +104,16 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			</dependency>
 			<!-- Direct -->
 			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>3.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-net-path-space</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-api</artifactId><version>1.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><version>1.0.0-SNAPSHOT</version>
@@ -113,10 +125,10 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>1.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.1.0-SNAPSHOT</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-util</artifactId><version>1.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>3.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>4.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.webjars</groupId><artifactId>html5shiv</artifactId><version>3.7.3-1</version>
@@ -166,7 +178,16 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		</dependency>
 		<!-- Direct -->
 		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-net-path-space</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-path-space</artifactId>
@@ -179,10 +200,10 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId>
+			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-util</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId>
+			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId><artifactId>html5shiv</artifactId>
