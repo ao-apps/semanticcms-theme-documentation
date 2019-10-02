@@ -62,7 +62,7 @@ Arguments:
 			<frame id="navigationFrame" name="navigationFrame" src="${fn:escapeXml(ao:encodeURL(navigationSrc))}" />
 			<c:set var="contentSrc" value="${pageContext.request.contextPath}${pageRef}" />
 			<c:if test="${!empty param.view}">
-				<c:set var="contentSrc" value="${contentSrc}?view=${ao:encodeQuery(param.view)}" />
+				<c:set var="contentSrc" value="${contentSrc}?view=${ao:encodeURIComponent(param.view)}" />
 			</c:if>
 			<frame id="contentFrame" name="contentFrame" src="${fn:escapeXml(ao:encodeURL(contentSrc))}" />
 		</frameset>
