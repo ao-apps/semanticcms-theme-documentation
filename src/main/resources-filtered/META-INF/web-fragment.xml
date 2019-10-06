@@ -29,7 +29,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
   metadata-complete="false">
 	<name>@{project.artifactId}-@{project.version}</name>
 	<!-- Causes error: "The display name was defined in multiple fragments with different value"
-    <display-name>@{project.name}</display-name>
+	<display-name>@{project.name}</display-name>
 	-->
 	<description>@{project.description}</description>
 	<!-- Error pages -->
