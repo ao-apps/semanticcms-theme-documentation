@@ -152,8 +152,8 @@ Arguments:
 					<ao:include
 						page="page-top-area.inc.jspx"
 						arg.book="${book}"
-						arg.path="${contentRoot}"
-						arg.view="${contentRoot}"
+						arg.path="${book.contentRoot}"
+						arg.view="${book.contentRoot}"
 					/>
 				</c:if>
 				<main id="pageMainArea">

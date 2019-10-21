@@ -36,7 +36,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2019-10-12T01:00:20-0500"
+		dateModified="2019-10-21T09:37:23-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -51,7 +51,11 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				groupId="@{documented.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{documented.scm.url}"
-			/>
+			>
+				<ul>
+					<li>Fixed bug in <code>error.inc.jsp</code> that didn't pass <code>contentRoot</code> correctly.</li>
+				</ul>
+			</changelog:release>
 		</c:if>
 
 		<changelog:release
