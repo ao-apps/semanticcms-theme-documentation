@@ -80,7 +80,7 @@ Arguments:
 		}
 		pageContext.setAttribute("isDev", isDev);
 	]]></jsp:scriptlet>
-	<ao:html doctype="html5">
+	<ao:html doctype="HTML5">
 		<!-- Find the book that best matches the incoming request -->
 		<c:set var="book" value="" />
 		<!-- Try to find book for request -->
