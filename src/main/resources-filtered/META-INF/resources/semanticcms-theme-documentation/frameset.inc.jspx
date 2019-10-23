@@ -39,7 +39,7 @@ Arguments:
 	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<c:set var="pageRef" value="${arg.page.pageRef}" />
 	<c:set var="book" value="${applicationScope.semanticCMS.rootBook}" />
-	<ao:html doctype="frameset"><!-- html5 does not support framesets -->
+	<ao:html doctype="FRAMESET"><!-- HTML5 does not support framesets -->
 		<head>
 			<ao:meta httpEquiv="Content-Style-Type" content="text/css" />
 			<ao:meta httpEquiv="Content-Script-Type" content="text/javascript" />

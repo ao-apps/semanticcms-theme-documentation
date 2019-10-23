@@ -41,7 +41,7 @@ Arguments:
 	<c:set var="pageRef" value="${contentRoot.pageRef}" />
 	<c:set var="book" value="${pageRef.book}" />
 	<c:set var="servletPath" value="${pageRef.servletPath}" />
-	<ao:html doctype="html5">
+	<ao:html doctype="HTML5">
 		<head>
 			<ao:meta charset="${pageContext.response.characterEncoding}" />
 			<ao:meta httpEquiv="X-UA-Compatible" content="IE=edge" />
