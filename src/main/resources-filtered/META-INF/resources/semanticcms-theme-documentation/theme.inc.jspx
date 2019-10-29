@@ -73,16 +73,16 @@ Arguments:
 			<!-- Authors -->
 			<ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${core:getViewCopyright(view, page)}" />
 			<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${core:getViewAuthors(view, page)}" />
-			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<title><ao:out value="${core:getViewTitle(view, page)}" /></title>
-			<c:set var="description" value="${view.getDescription(page)}" />
+			<c:set var="description" value="${fn:trim(view.getDescription(page))}" />
 			<c:if test="${!empty description}">
 				<ao:meta name="description" content="${description}" />
 			</c:if>
-			<c:set var="keywords" value="${view.getKeywords(page)}" />
+			<c:set var="keywords" value="${fn:trim(view.getKeywords(page))}" />
 			<c:if test="${!empty keywords}">
 				<ao:meta name="keywords" content="${keywords}" />
 			</c:if>
+			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
 				<!-- html5shiv version "3.7.3-1" is in a directory named "3.7.3": -->
 				<ao:script src="/webjars/html5shiv/${fn:split('@{org.webjars:html5shiv:jar.version}', '-')[0]}/html5shiv.min.js" />
