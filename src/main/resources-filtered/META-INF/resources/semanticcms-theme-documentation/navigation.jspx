@@ -60,8 +60,8 @@ Arguments:
 			<!-- Authors -->
 			<ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${book.copyright}" />
 			<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
-			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<title>Navigation - <ao:out value="${book.title}" /></title>
+			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
 				<!-- html5shiv version "3.7.3-1" is in a directory named "3.7.3": -->
 				<ao:script src="/webjars/html5shiv/${fn:split('@{org.webjars:html5shiv:jar.version}', '-')[0]}/html5shiv.min.js" />

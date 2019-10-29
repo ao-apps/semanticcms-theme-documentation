@@ -58,8 +58,8 @@ Arguments:
 			<!-- Authors -->
 			<ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${book.copyright}" />
 			<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
-			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<title><!--Frames - --><ao:out value="${book.title}" /></title>
+			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<ao:link href="styles/frameset.css" rel="stylesheet" type="text/css" />
 			<!-- No search index framesets -->
 			<ao:meta name="robots" content="noindex, nofollow" />
