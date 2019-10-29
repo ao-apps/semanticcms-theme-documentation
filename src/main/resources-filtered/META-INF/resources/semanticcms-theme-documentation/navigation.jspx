@@ -43,7 +43,17 @@ Arguments:
 	<c:set var="servletPath" value="${pageRef.servletPath}" />
 	<ao:html doctype="HTML5">
 		<head>
-			<ao:meta charset="${pageContext.response.characterEncoding}" />
+			<ao:choose>
+				<ao:when test="#{ao:getDoctype() == 'HTML5'}">
+					<ao:meta charset="${pageContext.response.characterEncoding}" />
+				</ao:when>
+				<ao:otherwise>
+					<ao:meta httpEquiv="Content-Type" content="${pageContext.response.contentType}" />
+					<ao:meta httpEquiv="Content-Style-Type" content="text/css" />
+					<ao:meta httpEquiv="Content-Script-Type" content="text/javascript" />
+				</ao:otherwise>
+			</ao:choose>
+			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<ao:meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 			<!-- Mobile support -->
 			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
