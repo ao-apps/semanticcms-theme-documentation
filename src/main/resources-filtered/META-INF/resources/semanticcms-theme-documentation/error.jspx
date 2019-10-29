@@ -106,7 +106,6 @@ Arguments:
 			</ao:choose>
 			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<core:doComponents view="${null}" page="${null}" position="HEAD_START" />
-			<ao:meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 			<!-- Mobile support -->
 			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
