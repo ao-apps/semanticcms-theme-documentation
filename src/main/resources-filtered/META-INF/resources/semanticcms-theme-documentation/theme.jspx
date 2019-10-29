@@ -66,7 +66,6 @@ Arguments:
 				</ao:otherwise>
 			</ao:choose>
 			<core:doComponents view="${view}" page="${page}" position="HEAD_START" />
-			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<!-- Mobile support -->
 			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,6 +73,7 @@ Arguments:
 			<!-- Authors -->
 			<ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${core:getViewCopyright(view, page)}" />
 			<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${core:getViewAuthors(view, page)}" />
+			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<title><ao:out value="${core:getViewTitle(view, page)}" /></title>
 			<c:set var="description" value="${view.getDescription(page)}" />
 			<c:if test="${!empty description}">

@@ -105,7 +105,6 @@ Arguments:
 				</ao:otherwise>
 			</ao:choose>
 			<core:doComponents view="${null}" page="${null}" position="HEAD_START" />
-			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<!-- Mobile support -->
 			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
@@ -118,6 +117,7 @@ Arguments:
 					<!-- Authors -->
 					<ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${book.copyright}" />
 					<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
+			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 					<title><ao:out value="${arg.message}" /> - <ao:out value="${book.title}" /></title>
 				</ao:otherwise>
 			</ao:choose>
