@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2013, 2014, 2015, 2016, 2018, 2019  AO Industries, Inc.
+Copyright (C) 2013, 2014, 2015, 2016, 2018, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -46,9 +46,9 @@ Arguments:
 					<ao:meta charset="${pageContext.response.characterEncoding}" />
 				</ao:when>
 				<ao:otherwise>
-					<ao:meta httpEquiv="Content-Type" content="${pageContext.response.contentType}" />
-					<ao:meta httpEquiv="Content-Style-Type" content="text/css" />
-					<ao:meta httpEquiv="Content-Script-Type" content="text/javascript" />
+					<ao:meta httpEquiv="content-type" content="${pageContext.response.contentType}" />
+					<ao:meta httpEquiv="content-style-type" content="text/css" />
+					<ao:meta httpEquiv="content-script-type" content="text/javascript" />
 				</ao:otherwise>
 			</ao:choose>
 			<!-- Mobile support -->
