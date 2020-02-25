@@ -37,7 +37,8 @@ Arguments:
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
+	<jsp:directive.page language="java" pageEncoding="UTF-8" />
+	<jsp:directive.page session="false" />
 	<jsp:directive.page isErrorPage="true" />
 
 	<c:set var="code" value="${arg.code}" />
