@@ -172,8 +172,7 @@ Arguments:
 						An error has occurred in processing your request.
 					</p>
 					<c:if test="${isDev}">
-						<!-- TODO: Is thinTable a SemanticCMS class? -->
-						<table class="thinTable">
+						<table class="ao-grid">
 							<tbody>
 								<tr>
 									<th>Request URI</th>
