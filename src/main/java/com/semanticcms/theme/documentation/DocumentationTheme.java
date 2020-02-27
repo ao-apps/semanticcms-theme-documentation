@@ -82,7 +82,7 @@ public class DocumentationTheme extends Theme {
 			htmlRenderer.addTheme(new DocumentationTheme());
 			// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
 			// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
-			FirewallPathSpace.getFirewallPathSpace(servletContext).add(
+			FirewallPathSpace.getInstance(servletContext).add(
 				// /semanticcms-theme-documentation/*
 				FirewallComponent.newInstance(
 					valueOf(PREFIX + WILDCARD_SUFFIX),
