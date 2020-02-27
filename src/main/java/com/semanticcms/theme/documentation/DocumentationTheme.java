@@ -1,6 +1,6 @@
 /*
  * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
- * Copyright (C) 2016, 2017, 2018, 2019  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2018, 2019, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -24,13 +24,17 @@ package com.semanticcms.theme.documentation;
 
 import com.aoindustries.servlet.http.Dispatcher;
 import com.semanticcms.core.model.Page;
+import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.servlet.Theme;
 import com.semanticcms.core.servlet.View;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.SkipPageException;
@@ -40,14 +44,31 @@ import javax.servlet.jsp.SkipPageException;
  */
 public class DocumentationTheme extends Theme {
 
-	static final String THEME_NAME = "semanticcms-theme-documentation";
+	private static final String NAME = "semanticcms-theme-documentation";
 
-	static final String PREFIX = "/" + THEME_NAME;
+	private static final String PREFIX = "/" + NAME;
 
 	private static final String JSPX_TARGET = PREFIX + "/theme.inc.jspx";
 
 	// TODO: Version from filtered .xml with maven properties
-	static final String YUI_VERSION = "2.9.0";
+	private static final String YUI_VERSION = "2.9.0";
+
+	@WebListener("Registers the \"" + NAME + "\" theme and required scripts in SemanticCMS.")
+	public static class Initializer implements ServletContextListener {
+		@Override
+		public void contextInitialized(ServletContextEvent event) {
+			SemanticCMS semanticCMS = SemanticCMS.getInstance(event.getServletContext());
+			// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
+			semanticCMS.addScript("jquery", "/webjars/jquery/" + Maven.properties.getProperty("jquery.version") + "/jquery.min.js");
+			semanticCMS.addTheme(new DocumentationTheme());
+		}
+		@Override
+		public void contextDestroyed(ServletContextEvent event) {
+			// Do nothing
+		}
+	}
+
+	private DocumentationTheme() {}
 
 	@Override
 	public String getDisplay() {
@@ -56,7 +77,7 @@ public class DocumentationTheme extends Theme {
 
 	@Override
 	public String getName() {
-		return THEME_NAME;
+		return NAME;
 	}
 
 	@Override
