@@ -37,6 +37,7 @@ Arguments:
 >
 	<jsp:directive.page language="java" pageEncoding="UTF-8" />
 	<jsp:directive.page session="false" />
+	<!-- TODO: Rename "semanticcms-theme.skipFocus"? -->
 	<c:if test="${!core:isExporting() || requestScope['template.skipFocus'] != true}">
 		<ao:script>
 			jQuery(function() {
@@ -55,7 +56,8 @@ Arguments:
 				<c:if test="${requestScope['template.skipFocus'] != true}">
 					setTimeout(
 						function() {
-							document.getElementById("pageMainArea").focus();
+							var main = document.getElementsByTagName("main")[0];
+							if(main) main.focus();
 						},
 						0
 					);

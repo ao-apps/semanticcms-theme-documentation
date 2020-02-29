@@ -42,15 +42,15 @@ Arguments:
 >
 	<jsp:directive.page language="java" pageEncoding="UTF-8" />
 	<jsp:directive.page session="false" />
-	<nav id="pageTopArea">
+	<nav id="semanticcms-theme-documentation-page-top-area">
 		<!-- Is it OK to put h1 inside nav, this was div before? -->
 		<c:set var="pageHeader" value="${arg.book.param.pageHeader}" />
 		<c:if test="${!empty pageHeader}">
-			<h1 id="pageHeader"><ao:out value="${pageHeader}" /></h1>
+			<h1 id="semanticcms-theme-documentation-page-header"><ao:out value="${pageHeader}" /></h1>
 		</c:if>
 		<c:if test="${!empty arg.page}">
 			<c:set var="page" value="${arg.page}" />
-			<div id="pageTopLinks1">
+			<div id="semanticcms-theme-documentation-page-top-links1">
 				<c:set var="views" value="${applicationScope.semanticCMS.views}" />
 
 				<!-- FIRST views -->
@@ -58,7 +58,7 @@ Arguments:
 					<c:if test="${view.group=='FIRST' and core:isViewApplicable(view, page)}">
 						<c:set var="linkCssClass" value="${core:getViewLinkCssClass(view)}" />
 						<c:if test="${arg.active==view.name}">
-							<c:set var="linkCssClass" value="${empty linkCssClass ? 'pageTopLinkActive' : linkCssClass.concat(' pageTopLinkActive')}" />
+							<c:set var="linkCssClass" value="${empty linkCssClass ? 'semanticcms-theme-documentation-page-top-link-active' : linkCssClass.concat(' semanticcms-theme-documentation-page-top-link-active')}" />
 						</c:if>
 						<ao:a
 							id="${view.linkId}"
@@ -87,7 +87,7 @@ Arguments:
 					<c:if test="${view.group=='FIXED' and core:isViewApplicable(view, page)}">
 						<c:set var="linkCssClass" value="${core:getViewLinkCssClass(view)}" />
 						<c:if test="${arg.active==view.name}">
-							<c:set var="linkCssClass" value="${empty linkCssClass ? 'pageTopLinkActive' : linkCssClass.concat(' pageTopLinkActive')}" />
+							<c:set var="linkCssClass" value="${empty linkCssClass ? 'semanticcms-theme-documentation-page-top-link-active' : linkCssClass.concat(' semanticcms-theme-documentation-page-top-link-active')}" />
 						</c:if>
 						<ao:a
 							id="${view.linkId}"
@@ -107,7 +107,7 @@ Arguments:
 					<c:if test="${view.group=='VARIABLE' and core:isViewApplicable(view, page)}">
 						<c:set var="linkCssClass" value="${core:getViewLinkCssClass(view)}" />
 						<c:if test="${arg.active==view.name}">
-							<c:set var="linkCssClass" value="${empty linkCssClass ? 'pageTopLinkActive' : linkCssClass.concat(' pageTopLinkActive')}" />
+							<c:set var="linkCssClass" value="${empty linkCssClass ? 'semanticcms-theme-documentation-page-top-link-active' : linkCssClass.concat(' semanticcms-theme-documentation-page-top-link-active')}" />
 						</c:if>
 						<ao:a
 							id="${view.linkId}"
@@ -123,7 +123,7 @@ Arguments:
 				</c:forEach>
 			</div>
 		</c:if>
-		<div id="pageTopLinks2">
+		<div id="semanticcms-theme-documentation-page-top-links2">
 			<jsp:text><!-- Newline required before googleon, doing on googleoff just to be clear and safe -->
 &lt;!--googleoff: all--&gt;
 </jsp:text>
@@ -134,6 +134,6 @@ Arguments:
 </jsp:text>
 		</div>
 		<!-- div to push parent element below floated -->
-		<div id="pageTopLinksEnd"><!-- Avoid self-closing tag in jspx --></div>
+		<div id="semanticcms-theme-documentation-page-top-links-end"><!-- Avoid self-closing tag in jspx --></div>
 	</nav>
 </jsp:root>

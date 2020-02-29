@@ -158,7 +158,7 @@ Arguments:
 		</head>
 		<body>
 			<core:doComponents view="${null}" page="${null}" position="BODY_START" />
-			<div id="pageContainer">
+			<div id="semanticcms-theme-documentation-page-container">
 				<c:if test="${!empty book}">
 					<ao:include
 						page="page-top-area.inc.jspx"
@@ -167,7 +167,7 @@ Arguments:
 						arg.view="${book.contentRoot}"
 					/>
 				</c:if>
-				<main id="pageMainArea">
+				<main>
 					<h1><ao:out value="${arg.message}" /></h1>
 					<p>
 						An error has occurred in processing your request.
@@ -211,7 +211,7 @@ Arguments:
 							</tbody>
 						</table>
 					</c:if>
-					<div id="pagePadBottom"><!-- Avoid self-closing tag in jspx --></div>
+					<div id="semanticcms-theme-documentation-page-pad-bottom"><!-- Avoid self-closing tag in jspx --></div>
 				</main>
 			</div>
 			<core:doComponents view="${null}" page="${null}" position="BODY_END" reverse="true" />
