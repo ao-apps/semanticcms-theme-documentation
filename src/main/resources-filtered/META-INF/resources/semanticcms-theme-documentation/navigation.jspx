@@ -78,11 +78,11 @@ Arguments:
 		</head>
 		<body class="yui-skin-sam">
 			<main>
-				<div id="navigationLogo">
+				<div id="semanticcms-theme-documentation-navigation-logo">
 					<ao:a target="contentFrame" href="${servletPath}" param.view="what-to-do"><ao:img src="${book.bookRef.prefix}${book.param.logoSrc}" width="${book.param.logoWidth}" height="${book.param.logoHeight}" alt="${book.param.logoAlt}" /></ao:a>
 				</div>
 				<c:if test="${!core:isExporting()}">
-					<div id="navigationSearch">
+					<div id="semanticcms-theme-documentation-navigation-search">
 						<ao:form target="contentFrame" action="search.jsp" style="display:inline">
 							<div>
 								<ao:input type="search" name="q" size="12"/>
@@ -119,12 +119,12 @@ Arguments:
 				</c:forEach>
 
 				<!-- Capture all pages recursively without headers (for fast traversal) -->
-				<nav id="navigationTree" class="ygtv-highlight">
+				<nav id="semanticcms-theme-documentation-navigation-tree" class="ygtv-highlight">
 					<core:navigationTree yuiConfig="true" target="contentFrame" root="#{contentRoot}" />
 				</nav>
 			</main>
 			<ao:script>
-				semanticcms_theme_documentation_navigation.tree = new YAHOO.widget.TreeView("navigationTree");
+				semanticcms_theme_documentation_navigation.tree = new YAHOO.widget.TreeView("semanticcms-theme-documentation-navigation-tree");
 				// semanticcms_theme_documentation_navigation.tree.singleNodeHighlight = true; 
 				semanticcms_theme_documentation_navigation.tree.subscribe("clickEvent", semanticcms_theme_documentation_navigation.treeClickEvent);
 				semanticcms_theme_documentation_navigation.tree.subscribe("enterKeyPressed", semanticcms_theme_documentation_navigation.treeEnterKeyPressed);

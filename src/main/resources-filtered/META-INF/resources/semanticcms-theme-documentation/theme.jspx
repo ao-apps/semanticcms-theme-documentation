@@ -123,7 +123,7 @@ Arguments:
 		</head>
 		<body>
 			<core:doComponents view="${view}" page="${page}" position="BODY_START" />
-			<div id="pageContainer">
+			<div id="semanticcms-theme-documentation-page-container">
 				<ao:include
 					page="page-top-area.inc.jspx"
 					arg.book="${pageRef.book}"
@@ -132,10 +132,10 @@ Arguments:
 					arg.page="${page}"
 					arg.active="${view.name}"
 				/>
-				<main id="pageMainArea">
+				<main>
 					<ao:include page="/semanticcms-pagegraph/pagegraph.inc.jsp" arg.page="${page}" arg.view="${view}" />
 					<core:doView view="${view}" page="${page}" />
-					<div id="pagePadBottom"><!-- Avoid self-closing tag in jspx --></div>
+					<div id="semanticcms-theme-documentation-page-pad-bottom"><!-- Avoid self-closing tag in jspx --></div>
 				</main>
 			</div>
 			<core:doComponents view="${view}" page="${page}" position="BODY_END" reverse="true" />
