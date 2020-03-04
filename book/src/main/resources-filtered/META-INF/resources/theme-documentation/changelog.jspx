@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2020-03-04T07:26:10-0600"
+		dateModified="2020-03-04T14:00:20-0600"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -60,6 +60,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 					<li>Integrated with <ao:a href="https://aoindustries.com/ao-web-resources/">AO Web Resources</ao:a>.</li>
 					<li>No more <code>html5shiv</code>: IE 8 is long end-of-life.</li>
 					<li>No more <code>html5.css</code>: we don't care about super ancient browsers.</li>
+					<li>Swapped dependency order with <core:link book="/theme-documentation/style" page="/index.jspx" />.</li>
 				</ul>
 			</changelog:release>
 		</c:if>

@@ -32,6 +32,7 @@ import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.servlet.Theme;
 import com.semanticcms.core.servlet.View;
+import com.semanticcms.theme.documentation.style.DocumentationThemeStyle;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -51,15 +52,7 @@ public class DocumentationTheme extends Theme {
 
 	private static final String NAME = "semanticcms-theme-documentation";
 
-	/**
-	 * The name of the {@link Group} of web resources for the documentation theme.
-	 */
-	public static final String STYLE_GROUP = NAME;
-
 	private static final String PREFIX = "/" + NAME;
-
-	public static final Style THEME_CSS = new Style(PREFIX + "/styles/semanticcms-theme-documentation.css");
-	public static final Style THEME_PRINT_CSS = Style.builder().uri(PREFIX + "/styles/semanticcms-theme-documentation-print.css").media("print").build();
 
 	private static final String JSPX_TARGET = PREFIX + "/theme.inc.jspx";
 
@@ -80,11 +73,9 @@ public class DocumentationTheme extends Theme {
 			ServletContext servletContext = event.getServletContext();
 
 			Registry registry = RegistryEE.get(servletContext);
-			// TODO: Move style initialization to -style project, reverse dependency order
-			Styles styles = registry.getGroup(STYLE_GROUP).styles;
-			styles.add(AoStyle.AO_STYLE);
-			styles.add(THEME_CSS);
-			styles.add(THEME_PRINT_CSS);
+
+			// We use ao-style directly, add here
+			registry.getGroup(DocumentationThemeStyle.STYLE_GROUP).styles.add(AoStyle.AO_STYLE);
 
 			Styles yuiStyles = registry.getGroup(YUI_GROUP).styles;
 			Style treeview = new Style(YUI_PREFIX + "/build/treeview/assets/skins/sam/treeview.css");
