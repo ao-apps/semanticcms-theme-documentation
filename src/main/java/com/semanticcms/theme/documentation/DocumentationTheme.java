@@ -40,6 +40,10 @@ import static com.aoindustries.servlet.firewall.rules.Rules.request.method.const
 import static com.aoindustries.servlet.firewall.rules.Rules.response.sendError.FORBIDDEN;
 import static com.aoindustries.servlet.firewall.rules.Rules.response.sendError.NOT_FOUND;
 import com.aoindustries.servlet.http.Dispatcher;
+import com.aoindustries.web.resources.registry.Registry;
+import com.aoindustries.web.resources.registry.Style;
+import com.aoindustries.web.resources.registry.Styles;
+import com.aoindustries.web.resources.servlet.RegistryEE;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
 import com.semanticcms.core.renderer.html.Theme;
@@ -63,19 +67,52 @@ public class DocumentationTheme extends Theme {
 
 	private static final String NAME = "semanticcms-theme-documentation";
 
+	/**
+	 * The name of the {@link Group} of web resources for the documentation theme.
+	 */
+	public static final String STYLE_GROUP = NAME;
+
 	private static final String PREFIX = "/" + NAME;
+
+	public static final Style THEME_CSS = new Style(PREFIX + "/styles/semanticcms-theme-documentation.css");
+	public static final Style THEME_PRINT_CSS = Style.builder().uri(PREFIX + "/styles/semanticcms-theme-documentation-print.css").media("print").build();
 
 	private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
 
 	// TODO: Version from filtered .xml with maven properties
 	private static final String YUI_VERSION = "2.9.0";
+	private static final String YUI_PREFIX = PREFIX + "/jslib/yui-" + YUI_VERSION;
 
-	@WebListener("Registers the \"" + NAME + "\" theme and required scripts in HtmlRenderer and SemanticCMS.")
+	/**
+	 * The name of the {@link Group} of web resources for YUI.
+	 */
+	public static final String YUI_GROUP = "yui-" + YUI_VERSION;
+
+	@WebListener("Registers the \"" + NAME + "\" theme and required scripts in RegistryEE and HtmlRenderer.")
 	public static class Initializer implements ServletContextListener {
 
 		@Override
 		public void contextInitialized(ServletContextEvent event) {
 			ServletContext servletContext = event.getServletContext();
+
+			Registry registry = RegistryEE.get(servletContext);
+			// TODO: Move style initialization to -style project, reverse dependency order
+			Styles styles = registry.getGroup(STYLE_GROUP).styles;
+			styles.add(THEME_CSS);
+			styles.add(THEME_PRINT_CSS);
+
+			Styles yuiStyles = registry.getGroup(YUI_GROUP).styles;
+			Style treeview = new Style(YUI_PREFIX + "/build/treeview/assets/skins/sam/treeview.css");
+			//Style calendar = new Style(YUI_PREFIX + "/build/calendar/assets/skins/sam/calendar.css");//
+			Style tree     = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
+			yuiStyles.add(treeview);
+			//yuiStyles.add(calendar);
+			yuiStyles.add(tree);
+			// treeview -> calendar -> tree
+			//yuiStyles.addOrdering(treeview, calendar);
+			//yuiStyles.addOrdering(calendar, tree);
+			yuiStyles.addOrdering(treeview, tree);
+
 			HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
 			// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
 			htmlRenderer.addScript("jquery", "/webjars/jquery/" + Maven.properties.getProperty("jquery.version") + "/jquery.min.js");

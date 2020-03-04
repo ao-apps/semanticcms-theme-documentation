@@ -35,9 +35,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 >
 	<jsp:directive.page language="java" pageEncoding="UTF-8" />
 	<jsp:directive.page session="false" />
-	<ao:link type="text/css" rel="stylesheet" href="build/treeview/assets/skins/sam/treeview.css" />
-	<!--<ao:link type="text/css" rel="stylesheet" href="build/calendar/assets/skins/sam/calendar.css" />-->
-	<ao:link type="text/css" rel="stylesheet" href="examples/treeview/assets/css/folders/tree.css" />
+	<!-- TODO: ao-web-resources -->
 	<ao:script src="build/yahoo-dom-event/yahoo-dom-event.js" />
 	<ao:script src="build/animation/animation-min.js" />
 	<!--<ao:script src="build/calendar/calendar-min.js" />-->

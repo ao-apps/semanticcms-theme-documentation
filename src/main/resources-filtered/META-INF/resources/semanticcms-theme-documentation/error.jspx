@@ -128,13 +128,8 @@ Arguments:
 				<!-- html5shiv version "3.7.3-1" is in a directory named "3.7.3": -->
 				<ao:script src="/webjars/html5shiv/${fn:split('@{org.webjars:html5shiv:jar.version}', '-')[0]}/html5shiv.min.js" />
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
-			<!-- TODO: Add to RegistryEE as a beforeAll, separate package ao-html5? -->
-			<ao:link href="/semanticcms-core-theme-base/styles/html5.css" rel="stylesheet" type="text/css" />
-			<!-- TODO: RegistryEE -->
-			<ao:link href="styles/semanticcms-theme-documentation.css" rel="stylesheet" type="text/css" />
-			<ao:link href="styles/semanticcms-theme-documentation-print.css" media="print" rel="stylesheet" type="text/css" />
 			<!-- ao-web-resources -->
-			<wr:styles />
+			<wr:styles groups="semanticcms-core-theme-base, semanticcms-theme-documentation" /><!-- TODO: semanticcms-theme-documentation include semanticcms-core-theme-base -->
 			<!-- Per-view links -->
 			<!-- TODO: Move to RegistryEE -->
 			<c:forEach var="link" items="${core:getViewLinks(null, page)}">

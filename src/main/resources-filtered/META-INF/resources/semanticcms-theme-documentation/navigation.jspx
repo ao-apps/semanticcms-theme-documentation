@@ -68,10 +68,10 @@ Arguments:
 				<!-- html5shiv version "3.7.3-1" is in a directory named "3.7.3": -->
 				<ao:script src="/webjars/html5shiv/${fn:split('@{org.webjars:html5shiv:jar.version}', '-')[0]}/html5shiv.min.js" />
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
-			<!-- TODO: RegistryEE, without global? -->
-			<ao:link href="/semanticcms-core-theme-base/styles/html5.css" rel="stylesheet" type="text/css" />
+			<!-- ao-web-resources -->
+			<wr:styles groups="semanticcms-core-theme-base, yui-2.9.0" />
 			<ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
-			<!-- TODO: RegistryEE -->
+			<!-- TODO: RegistryEE, after yui -->
 			<ao:link href="styles/navigation.css" rel="stylesheet" type="text/css" />
 			<ao:script src="navigation.js" />
 			<ao:script src="/webjars/jquery/@{org.webjars:jquery:jar.version}/jquery.min.js" />
