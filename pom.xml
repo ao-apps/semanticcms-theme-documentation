@@ -94,6 +94,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 								<link>https://semanticcms.com/file/taglib/apidocs/</link>
 								<link>https://semanticcms.com/openfile/servlet/apidocs/</link>
 								<link>https://semanticcms.com/pagegraph/apidocs/</link>
+								<link>https://semanticcms.com/theme-documentation/style/apidocs/</link>
 							</links>
 						</configuration>
 					</plugin>
@@ -173,6 +174,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -259,6 +263,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId>
 		</dependency>
 	</dependencies>
 </project>
