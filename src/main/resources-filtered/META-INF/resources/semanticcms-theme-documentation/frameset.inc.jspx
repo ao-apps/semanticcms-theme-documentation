@@ -61,6 +61,7 @@ Arguments:
 			<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
 			<title><!--Frames - --><ao:out value="${book.title}" /></title>
 			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
+			<!-- TODO: RegistryEE, without global -->
 			<ao:link href="styles/frameset.css" rel="stylesheet" type="text/css" />
 			<!-- No search index framesets -->
 			<ao:meta name="robots" content="noindex, nofollow" />

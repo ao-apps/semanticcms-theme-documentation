@@ -35,6 +35,7 @@ Arguments:
 	xmlns:core="https://semanticcms.com/core/taglib/"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:wr="https://aoindustries.com/ao-web-resources/taglib/"
 	version="2.1"
 >
 	<jsp:directive.page language="java" pageEncoding="UTF-8" />
@@ -84,22 +85,20 @@ Arguments:
 				<ao:meta name="keywords" content="${keywords}" />
 			</c:if>
 			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
+			<!-- TODO: No more html5shiv -->
 			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
 				<!-- html5shiv version "3.7.3-1" is in a directory named "3.7.3": -->
 				<ao:script src="/webjars/html5shiv/${fn:split('@{org.webjars:html5shiv:jar.version}', '-')[0]}/html5shiv.min.js" />
 			<jsp:text>&lt;![endif]--&gt;</jsp:text>
+			<!-- TODO: Add to RegistryEE as a beforeAll, separate package ao-html5? -->
 			<ao:link href="/semanticcms-core-theme-base/styles/html5.css" rel="stylesheet" type="text/css" />
-			<!-- TODO: Add via ao-style-registry, from semanticcms-theme-documentation-style project -->
+			<!-- TODO: RegistryEE -->
 			<ao:link href="styles/semanticcms-theme-documentation.css" rel="stylesheet" type="text/css" />
 			<ao:link href="styles/semanticcms-theme-documentation-print.css" media="print" rel="stylesheet" type="text/css" />
-			<!-- Application-wide CSS -->
-			<c:forEach var="cssLink" items="${applicationScope.semanticCMS.cssLinks}">
-				<ao:link href="${cssLink}" rel="stylesheet" type="text/css" />
-			</c:forEach>
-			<c:forEach var="printCssLink" items="${applicationScope.semanticCMS.printCssLinks}">
-				<ao:link href="${printCssLink}" media="print" rel="stylesheet" type="text/css" />
-			</c:forEach>
+			<!-- ao-web-resources -->
+			<wr:styles />
 			<!-- Per-view links -->
+			<!-- TODO: Move to RegistryEE -->
 			<c:forEach var="link" items="${core:getViewLinks(view, page)}">
 				<ao:link link="${link}" />
 			</c:forEach>
