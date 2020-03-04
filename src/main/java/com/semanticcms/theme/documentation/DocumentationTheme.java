@@ -40,6 +40,7 @@ import static com.aoindustries.servlet.firewall.rules.Rules.request.method.const
 import static com.aoindustries.servlet.firewall.rules.Rules.response.sendError.FORBIDDEN;
 import static com.aoindustries.servlet.firewall.rules.Rules.response.sendError.NOT_FOUND;
 import com.aoindustries.servlet.http.Dispatcher;
+import com.aoindustries.style.AoStyle;
 import com.aoindustries.web.resources.registry.Registry;
 import com.aoindustries.web.resources.registry.Style;
 import com.aoindustries.web.resources.registry.Styles;
@@ -98,6 +99,7 @@ public class DocumentationTheme extends Theme {
 			Registry registry = RegistryEE.get(servletContext);
 			// TODO: Move style initialization to -style project, reverse dependency order
 			Styles styles = registry.getGroup(STYLE_GROUP).styles;
+			styles.add(AoStyle.AO_STYLE);
 			styles.add(THEME_CSS);
 			styles.add(THEME_PRINT_CSS);
 
