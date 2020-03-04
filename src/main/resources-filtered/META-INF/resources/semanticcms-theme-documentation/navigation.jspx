@@ -64,7 +64,7 @@ Arguments:
 			<title>Navigation - <ao:out value="${book.title}" /></title>
 			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<!-- ao-web-resources -->
-			<wr:styles groups="semanticcms-core-theme-base, yui-2.9.0" />
+			<wr:styles groups="yui-2.9.0" />
 			<ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
 			<!-- TODO: RegistryEE, after yui -->
 			<ao:link href="styles/navigation.css" rel="stylesheet" type="text/css" />
