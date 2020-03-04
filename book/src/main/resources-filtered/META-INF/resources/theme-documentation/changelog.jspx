@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2020-03-04T03:14:31-0600"
+		dateModified="2020-03-04T06:11:22-0600"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -58,6 +58,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 					<li>Fixed bug in <code>error.inc.jsp</code> that didn't pass <code>contentRoot</code> correctly.</li>
 					<li>Optimized ServletContext attribute initialization and concurrency.</li>
 					<li>Integrated with <ao:a href="https://aoindustries.com/ao-web-resources/">AO Web Resources</ao:a>.</li>
+					<li>No more html5shiv, IE 8 is long end-of-life.</li>
 				</ul>
 			</changelog:release>
 		</c:if>

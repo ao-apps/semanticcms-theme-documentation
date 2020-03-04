@@ -85,11 +85,6 @@ Arguments:
 				<ao:meta name="keywords" content="${keywords}" />
 			</c:if>
 			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
-			<!-- TODO: No more html5shiv -->
-			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
-				<!-- html5shiv version "3.7.3-1" is in a directory named "3.7.3": -->
-				<ao:script src="/webjars/html5shiv/${fn:split('@{org.webjars:html5shiv:jar.version}', '-')[0]}/html5shiv.min.js" />
-			<jsp:text>&lt;![endif]--&gt;</jsp:text>
 			<!-- ao-web-resources -->
 			<wr:styles groups="semanticcms-core-theme-base, semanticcms-theme-documentation" /><!-- TODO: semanticcms-theme-documentation include semanticcms-core-theme-base -->
 			<!-- Per-view links -->
