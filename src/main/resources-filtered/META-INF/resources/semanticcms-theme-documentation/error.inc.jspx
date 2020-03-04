@@ -124,7 +124,7 @@ Arguments:
 			</ao:choose>
 			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<!-- ao-web-resources -->
-			<wr:styles groups="semanticcms-core-theme-base, semanticcms-theme-documentation" /><!-- TODO: semanticcms-theme-documentation include semanticcms-core-theme-base -->
+			<wr:styles groups="semanticcms-theme-documentation" />
 			<!-- Per-view links -->
 			<!-- TODO: Move to RegistryEE -->
 			<c:forEach var="link" items="${core:getViewLinks(null, page)}">
