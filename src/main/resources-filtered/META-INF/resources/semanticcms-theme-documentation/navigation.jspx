@@ -34,6 +34,7 @@ Arguments:
 	xmlns:core="https://semanticcms.com/core/taglib/"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:wr="https://aoindustries.com/ao-web-resources/taglib/"
 	version="2.1"
 >
 	<jsp:directive.page language="java" pageEncoding="UTF-8" />
