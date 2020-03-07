@@ -40,7 +40,7 @@ import static com.aoindustries.servlet.firewall.rules.Rules.request.method.const
 import static com.aoindustries.servlet.firewall.rules.Rules.response.sendError.FORBIDDEN;
 import static com.aoindustries.servlet.firewall.rules.Rules.response.sendError.NOT_FOUND;
 import com.aoindustries.servlet.http.Dispatcher;
-import com.aoindustries.style.AoStyle;
+import com.aoindustries.web.resources.registry.Group;
 import com.aoindustries.web.resources.registry.Registry;
 import com.aoindustries.web.resources.registry.Style;
 import com.aoindustries.web.resources.registry.Styles;
@@ -71,7 +71,9 @@ public class DocumentationTheme extends Theme {
 
 	private static final String PREFIX = "/" + NAME;
 
-	private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
+	private static final String THEME_JSPX      = PREFIX + "/theme.jspx";
+	private static final String FRAMESET_JSPX   = PREFIX + "/frameset.jspx";
+	private static final String NAVIGATION_JSPX = PREFIX + "/navigation.jspx";
 
 	// TODO: Version from filtered .xml with maven properties
 	private static final String YUI_VERSION = "2.9.0";
@@ -80,7 +82,11 @@ public class DocumentationTheme extends Theme {
 	/**
 	 * The name of the {@link Group} of web resources for YUI.
 	 */
-	public static final String YUI_GROUP = "yui-" + YUI_VERSION;
+	public static final Group.Name YUI_GROUP = new Group.Name(NAME + "/yui-" + YUI_VERSION);
+
+	public static final Style YUI_TREEVIEW = new Style(YUI_PREFIX + "/build/treeview/assets/skins/sam/treeview.css");
+	// public static final Style YUI_CALENDAR = new Style(YUI_PREFIX + "/build/calendar/assets/skins/sam/calendar.css");//
+	public static final Style YUI_TREE     = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
 
 	@WebListener("Registers the \"" + NAME + "\" theme and required scripts in RegistryEE and HtmlRenderer.")
 	public static class Initializer implements ServletContextListener {
@@ -89,22 +95,20 @@ public class DocumentationTheme extends Theme {
 		public void contextInitialized(ServletContextEvent event) {
 			ServletContext servletContext = event.getServletContext();
 
-			Registry registry = RegistryEE.get(servletContext);
-
-			// We use ao-style directly, add here
-			registry.getGroup(DocumentationThemeStyle.STYLE_GROUP).styles.add(AoStyle.AO_STYLE);
+			Registry registry = RegistryEE.Application.get(servletContext);
 
 			Styles yuiStyles = registry.getGroup(YUI_GROUP).styles;
-			Style treeview = new Style(YUI_PREFIX + "/build/treeview/assets/skins/sam/treeview.css");
-			//Style calendar = new Style(YUI_PREFIX + "/build/calendar/assets/skins/sam/calendar.css");//
-			Style tree     = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
-			yuiStyles.add(treeview);
-			//yuiStyles.add(calendar);
-			yuiStyles.add(tree);
+			yuiStyles.add(YUI_TREEVIEW);
+			//yuiStyles.add(YUI_CALENDAR);
+			yuiStyles.add(YUI_TREE);
 			// treeview -> calendar -> tree
-			//yuiStyles.addOrdering(treeview, calendar);
-			//yuiStyles.addOrdering(calendar, tree);
-			yuiStyles.addOrdering(treeview, tree);
+			//yuiStyles.addOrdering(YUI_TREEVIEW, YUI_CALENDAR);
+			//yuiStyles.addOrdering(YUI_CALENDAR, YUI_TREE);
+			yuiStyles.addOrdering(YUI_TREEVIEW, YUI_TREE);
+
+			Styles navigationStyles = registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles;
+			// tree -> navigation
+			navigationStyles.addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
 
 			HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
 			// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
@@ -232,14 +236,21 @@ public class DocumentationTheme extends Theme {
 		Page page
 	) throws ServletException, IOException, SkipPageException {
 		Map<String,Object> args = new LinkedHashMap<>();
-		args.put("view", view);
 		args.put("page", page);
-		Dispatcher.forward(
-			servletContext,
-			JSPX_TARGET,
-			request,
-			response,
-			args
-		);
+
+		String target;
+		if(Boolean.parseBoolean(request.getParameter("frames"))) {
+			// Dispatch to frameset
+			target = FRAMESET_JSPX;
+		} else if(Boolean.parseBoolean(request.getParameter("navigation"))) {
+			// Dispatch to navigation
+			target = NAVIGATION_JSPX;
+		} else {
+			// Dispatch to theme with view
+			target = THEME_JSPX;
+			args.put("view", view);
+		}
+
+		Dispatcher.forward(servletContext, target, request, response, args);
 	}
 }
