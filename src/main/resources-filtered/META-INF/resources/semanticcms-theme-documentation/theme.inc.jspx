@@ -42,16 +42,6 @@ Arguments:
 	<jsp:directive.page session="false" />
 	<c:set var="page" value="${arg.page}" />
 
-	<!-- Dispatch to frameset -->
-	<c:if test="${param.frames}">
-		<ao:forward page="frameset.inc.jspx" arg.page="${page}" />
-	</c:if>
-
-	<!-- Dispatch to navigation -->
-	<c:if test="${param.navigation}">
-		<ao:forward page="navigation.inc.jspx" arg.page="${page}" />
-	</c:if>
-
 	<!-- Display the current view and page -->
 	<ao:html>
 		<c:set var="view" value="${arg.view}" />
@@ -86,9 +76,8 @@ Arguments:
 			</c:if>
 			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<!-- ao-web-resources -->
-			<wr:styles groups="semanticcms-theme-documentation" />
+			<wr:renderStyles activate="ao-style, semanticcms-theme-documentation-style" />
 			<!-- Per-view links -->
-			<!-- TODO: Move to RegistryEE -->
 			<c:forEach var="link" items="${core:getViewLinks(view, page)}">
 				<ao:link link="${link}" />
 			</c:forEach>

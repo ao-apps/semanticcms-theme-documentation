@@ -65,10 +65,16 @@ Arguments:
 			<title>Navigation - <ao:out value="${book.title}" /></title>
 			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<!-- ao-web-resources -->
-			<wr:styles groups="yui-2.9.0" />
+			<wr:renderStyles activate="semanticcms-theme-documentation-style/navigation semanticcms-theme-documentation/yui-2.9.0" />
+			<!-- TODO:
+				Move yui activate to the head.inc.jspx
+				Along with defining the group via JSP?
+				Maybe only once it also registers scripts, too.
+				Alternatively, no head.inc.jspx, just do via activation.
+
+				Could do jquery, and other scripts, via activations only, too.
+			-->
 			<ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
-			<!-- TODO: RegistryEE, after yui -->
-			<ao:link href="styles/navigation.css" rel="stylesheet" type="text/css" />
 			<ao:script src="navigation.js" />
 			<ao:script src="/webjars/jquery/@{org.webjars:jquery:jar.version}/jquery.min.js" />
 			<ao:script>jQuery.noConflict();</ao:script>

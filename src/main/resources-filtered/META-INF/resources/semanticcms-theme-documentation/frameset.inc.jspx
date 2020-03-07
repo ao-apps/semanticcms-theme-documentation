@@ -34,6 +34,7 @@ Arguments:
 	xmlns:core="https://semanticcms.com/core/taglib/"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:wr="https://aoindustries.com/ao-web-resources/taglib/"
 	version="2.1"
 >
 	<jsp:directive.page language="java" pageEncoding="UTF-8" />
@@ -62,8 +63,7 @@ Arguments:
 			<title><!--Frames - --><ao:out value="${book.title}" /></title>
 			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
 			<!-- ao-web-resources -->
-			<!-- TODO: RegistryEE, without global -->
-			<ao:link href="styles/frameset.css" rel="stylesheet" type="text/css" />
+			<wr:renderStyles registered="false" activate="semanticcms-theme-documentation-style/frameset" />
 			<!-- No search index framesets -->
 			<ao:meta name="robots" content="noindex, nofollow" />
 		</head>
