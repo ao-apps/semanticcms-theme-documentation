@@ -49,9 +49,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			<changelog:release
 				projectName="@{documented.name}"
 				version="#{version}"
-				groupId="@{documented.groupId}"
+				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
-				scmUrl="@{documented.scm.url}"
+				scmUrl="@{project.scm.url}"
 			>
 				<ul>
 					<li>Updated for <core:link book="/" page="/" /> 2 compatibility.</li>
@@ -64,9 +64,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.8.0"
 			datePublished="2019-10-12T01:00:20-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>
@@ -80,9 +80,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.7.0"
 			datePublished="2019-06-22T05:45:18-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Minimum Java version changed from 1.6 to 1.7.</li>
@@ -104,9 +104,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.6.2"
 			datePublished="2017-07-20T14:37:18-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>New release for bug fixes in underlying <ao:a href="https://aoindustries.com/ao-encoding/">AO Encoding</ao:a> library.</li>
@@ -118,9 +118,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.6.1"
 			datePublished="2016-11-16T06:56:44-0600"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Added googleoff / googleon around the frames links.</li>
@@ -134,9 +134,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.6.0"
 			datePublished="2016-10-20T19:36:00-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Improved Javadoc formatting.</li>
@@ -153,9 +153,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.5.1"
 			datePublished="2016-10-11T20:52:00-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>display-name defined in web-fragment.xml was causing "The display name was defined in multiple fragments with different value"</li>
@@ -167,9 +167,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.5.0"
 			datePublished="2016-10-04T23:12:00-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Improved Javadoc formatting.</li>
@@ -183,9 +183,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.4"
 			datePublished="2016-09-11T17:26:00-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Use dependencyManagement instead of dependency for junit.</li>
@@ -200,9 +200,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.3"
 			datePublished="2016-09-03T11:11:00-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Improved Maven configuration for Java EE 6 dependencies.</li>
@@ -213,9 +213,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.2"
 			datePublished="2016-08-28T20:57:00-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Fixed package name to moved file.</li>
@@ -239,9 +239,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.1"
 			datePublished="2016-08-21T18:33:00-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Implementation-specific book attributes changed to parameters.</li>
@@ -253,9 +253,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			projectName="@{documented.name}"
 			version="1.0"
 			datePublished="2016-08-19T16:47:00-0500"
-			groupId="@{documented.groupId}"
+			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
-			scmUrl="@{documented.scm.url}"
+			scmUrl="@{project.scm.url}"
 		>
 			<ul>
 				<li>Project moved to GitHub and Maven.</li>
