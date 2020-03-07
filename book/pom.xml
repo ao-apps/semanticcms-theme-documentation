@@ -35,8 +35,6 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	<properties>
 		<!-- These values are copied from the project being documented -->
 		<documented.artifactId>semanticcms-theme-documentation</documented.artifactId>
-		<documented.javaVersion>1.8</documented.javaVersion>
-		<documented.javac.link.javaApi>${javac.link.javaApi.jdk8}</documented.javac.link.javaApi>
 		<documented.name>SemanticCMS Theme Documentation²</documented.name>
 		<documented.shortTitle>Theme Documentation</documented.shortTitle>
 		<documented.description>SemanticCMS theme tailored for technical documentation.</documented.description>
