@@ -43,7 +43,6 @@ import com.aoindustries.servlet.http.Dispatcher;
 import com.aoindustries.web.resources.registry.Group;
 import com.aoindustries.web.resources.registry.Registry;
 import com.aoindustries.web.resources.registry.Style;
-import com.aoindustries.web.resources.registry.Styles;
 import com.aoindustries.web.resources.servlet.RegistryEE;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
@@ -97,18 +96,22 @@ public class DocumentationTheme extends Theme {
 
 			Registry registry = RegistryEE.Application.get(servletContext);
 
-			Styles yuiStyles = registry.getGroup(YUI_GROUP).styles;
-			yuiStyles.add(YUI_TREEVIEW);
-			//yuiStyles.add(YUI_CALENDAR);
-			yuiStyles.add(YUI_TREE);
-			// treeview -> calendar -> tree
-			//yuiStyles.addOrdering(YUI_TREEVIEW, YUI_CALENDAR);
-			//yuiStyles.addOrdering(YUI_CALENDAR, YUI_TREE);
-			yuiStyles.addOrdering(YUI_TREEVIEW, YUI_TREE);
+			registry.getGroup(YUI_GROUP).styles
+				.add(
+					YUI_TREEVIEW,
+					// YUI_CALENDAR,
+					YUI_TREE
+				)
+				// treeview -> calendar -> tree
+				.addOrdering(
+					YUI_TREEVIEW,
+					// YUI_CALENDAR,
+					YUI_TREE
+				);
 
-			Styles navigationStyles = registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles;
-			// tree -> navigation
-			navigationStyles.addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
+			registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles
+				// tree -> navigation
+				.addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
 
 			HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
 			// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
