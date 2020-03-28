@@ -54,6 +54,11 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<tag>HEAD</tag>
 	</scm>
 
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/aoindustries/semanticcms-theme-documentation/issues</url>
+	</issueManagement>
+
 	<dependencyManagement>
 		<dependencies>
 			<!-- Java EE -->
