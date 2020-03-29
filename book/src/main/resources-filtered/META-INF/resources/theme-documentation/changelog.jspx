@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-0500"
-		dateModified="2020-03-07T06:01:29-0600"
+		dateModified="2020-03-29T01:07:52-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-theme-documentation:pom.version}" />
@@ -52,22 +52,31 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>Minimum Java version changed from 1.7 to 1.8.</li>
-					<li>
-						Reduced use of property substitutions in <code>pom.xml</code>.
-						This is to help 3rd-party parsers that fail to perform full Maven-compatible substitutions.
-					</li>
-					<li>Fixed bug in <code>error.inc.jsp</code> that didn't pass <code>contentRoot</code> correctly.</li>
-					<li>Optimized ServletContext attribute initialization and concurrency.</li>
-					<li>Integrated with <ao:a href="https://aoindustries.com/ao-web-resources/">AO Web Resources</ao:a>.</li>
-					<li>No more <code>html5shiv</code>: IE 8 is long end-of-life.</li>
-					<li>No more <code>html5.css</code>: we don't care about super ancient browsers.</li>
-					<li>Swapped dependency order with <core:link book="/theme-documentation/style" page="/index.jspx" />.</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.9.0"
+			datePublished="2020-03-29T01:07:52-05:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Minimum Java version changed from 1.7 to 1.8.</li>
+				<li>
+					Reduced use of property substitutions in <code>pom.xml</code>.
+					This is to help 3rd-party parsers that fail to perform full Maven-compatible substitutions.
+				</li>
+				<li>Fixed bug in <code>error.inc.jsp</code> that didn't pass <code>contentRoot</code> correctly.</li>
+				<li>Optimized ServletContext attribute initialization and concurrency.</li>
+				<li>Integrated with <ao:a href="https://aoindustries.com/ao-web-resources/">AO Web Resources</ao:a>.</li>
+				<li>No more <code>html5shiv</code>: IE 8 is long end-of-life.</li>
+				<li>No more <code>html5.css</code>: we don't care about super ancient browsers.</li>
+				<li>Swapped dependency order with <core:link book="/theme-documentation/style" page="/index.jspx" />.</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
