@@ -79,21 +79,11 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 								<link>https://aoindustries.com/ao-servlet-firewall/api/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-firewall/path-space/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-firewall/rules/apidocs/</link>
-								<link>https://aoindustries.com/ao-servlet-firewall/webjars/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-util/apidocs/</link>
-								<link>https://aoindustries.com/ao-style/apidocs/</link>
-								<link>https://aoindustries.com/ao-taglib/apidocs/</link>
 								<link>https://aoindustries.com/ao-web-resources/registry/apidocs/</link>
 								<link>https://aoindustries.com/ao-web-resources/servlet/apidocs/</link>
-								<link>https://aoindustries.com/ao-web-resources/taglib/apidocs/</link>
-								<!-- No apidocs: <groupId>org.webjars</groupId><artifactId>jquery</artifactId> -->
 								<link>https://semanticcms.com/core/model/apidocs/</link>
 								<link>https://semanticcms.com/core/renderer/html/apidocs/</link>
-								<link>https://semanticcms.com/core/taglib/apidocs/</link>
-								<link>https://semanticcms.com/core/theme-base/apidocs/</link>
-								<link>https://semanticcms.com/file/taglib/apidocs/</link>
-								<link>https://semanticcms.com/openfile/servlet/apidocs/</link>
-								<link>https://semanticcms.com/pagegraph/apidocs/</link>
 								<link>https://semanticcms.com/theme-documentation/style/apidocs/</link>
 							</links>
 						</configuration>
@@ -131,16 +121,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>1.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>1.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-util</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-style</artifactId><version>1.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>5.0.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
@@ -149,16 +130,29 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars</groupId><artifactId>jquery</artifactId><version>3.4.1</version>
-			</dependency>
-			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<!-- Runtime Direct -->
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>1.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-style</artifactId><version>1.0.0${POST-SNAPSHOT}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>5.0.0${POST-SNAPSHOT}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars</groupId><artifactId>jquery</artifactId><version>3.4.1</version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -175,9 +169,6 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -190,12 +181,6 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId><artifactId>jstl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId>
 		</dependency>
 		<!-- Direct -->
 		<dependency>
@@ -217,17 +202,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-rules</artifactId>
 		</dependency>
 		<dependency>
-			<!-- Open servlet firewall for /webjars/*** -->
-			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-util</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-style</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-registry</artifactId>
@@ -236,36 +211,65 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-servlet</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-taglib</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId><artifactId>jquery</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId>
+		</dependency>
+		<!-- Runtime Direct -->
+		<dependency>
+			<!-- Open servlet firewall for /webjars/*** -->
+			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-style</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-taglib</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId><artifactId>jquery</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId><artifactId>jstl</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<!-- TODO: Remove this dependency once "Edit" is its own view -->
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId>
+			<scope>runtime</scope>
 			<optional>true</optional><!-- TODO: Once central "devMode" defined, remove this optional dependency -->
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 </project>
