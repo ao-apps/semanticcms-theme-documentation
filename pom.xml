@@ -83,7 +83,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 								<link>https://aoindustries.com/ao-web-resources/registry/apidocs/</link>
 								<link>https://aoindustries.com/ao-web-resources/servlet/apidocs/</link>
 								<link>https://semanticcms.com/core/model/apidocs/</link>
-								<link>https://semanticcms.com/core/renderer/html/apidocs/</link>
+								<!-- TODO: Once published: <link>https://semanticcms.com/core/renderer/html/apidocs/</link> -->
 								<link>https://semanticcms.com/theme-documentation/style/apidocs/</link>
 							</links>
 						</configuration>
