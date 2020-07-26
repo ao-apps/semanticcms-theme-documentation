@@ -43,16 +43,16 @@ Arguments:
 	<c:set var="book" value="${applicationScope.semanticCMS.rootBook}" />
 	<ao:html doctype="FRAMESET"><!-- HTML5 does not support framesets -->
 		<head>
-			<ao:choose>
-				<ao:when test="#{ao:getDoctype() == 'HTML5'}">
+			<c:choose>
+				<c:when test="${ao:getDoctype() == 'HTML5'}">
 					<ao:meta charset="${pageContext.response.characterEncoding}" />
-				</ao:when>
-				<ao:otherwise>
+				</c:when>
+				<c:otherwise>
 					<ao:meta httpEquiv="content-type" content="${pageContext.response.contentType}" />
 					<ao:meta httpEquiv="content-style-type" content="text/css" />
 					<ao:meta httpEquiv="content-script-type" content="text/javascript" />
-				</ao:otherwise>
-			</ao:choose>
+				</c:otherwise>
+			</c:choose>
 			<!-- Mobile support -->
 			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<ao:meta name="apple-mobile-web-app-capable" content="yes" />

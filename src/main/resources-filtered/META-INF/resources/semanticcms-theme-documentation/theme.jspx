@@ -47,16 +47,16 @@ Arguments:
 		<c:set var="view" value="${arg.view}" />
 		<c:set var="pageRef" value="${page.pageRef}" />
 		<head>
-			<ao:choose>
-				<ao:when test="#{ao:getDoctype() == 'HTML5'}">
+			<c:choose>
+				<c:when test="${ao:getDoctype() == 'HTML5'}">
 					<ao:meta charset="${pageContext.response.characterEncoding}" />
-				</ao:when>
-				<ao:otherwise>
+				</c:when>
+				<c:otherwise>
 					<ao:meta httpEquiv="content-type" content="${pageContext.response.contentType}" />
 					<ao:meta httpEquiv="content-style-type" content="text/css" />
 					<ao:meta httpEquiv="content-script-type" content="text/javascript" />
-				</ao:otherwise>
-			</ao:choose>
+				</c:otherwise>
+			</c:choose>
 			<core:doComponents view="${view}" page="${page}" position="HEAD_START" />
 			<!-- Mobile support -->
 			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
