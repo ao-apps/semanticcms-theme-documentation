@@ -76,7 +76,7 @@ Arguments:
 			-->
 			<ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
 			<ao:script src="navigation.js" />
-			<ao:script src="/webjars/jquery/@{org.webjars:jquery:jar.version}/jquery.min.js" />
+			<ao:script src="/webjars/jquery/${ao:encodeURIComponent(applicationScope['com.semanticcms.theme.documentation.Maven'].jqueryVersion)}/jquery.min.js" />
 			<ao:script>jQuery.noConflict();</ao:script>
 			<!-- No search index left navigation frame -->
 			<ao:meta name="robots" content="noindex, nofollow" />

@@ -22,8 +22,8 @@
  */
 package com.semanticcms.theme.documentation;
 
-import com.aoindustries.lang.Projects;
 import static com.aoindustries.net.Path.SEPARATOR_CHAR;
+import com.aoindustries.net.URIEncoder;
 import com.aoindustries.net.pathspace.Prefix;
 import static com.aoindustries.net.pathspace.Prefix.GREEDY_SUFFIX;
 import static com.aoindustries.net.pathspace.Prefix.WILDCARD_SUFFIX;
@@ -116,7 +116,7 @@ public class DocumentationTheme extends Theme {
 
 			HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
 			// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
-			htmlRenderer.addScript("jquery", "/webjars/jquery/" + Projects.getVersion("org.webjars", "jquery", Maven.properties.getProperty("jquery.version")) + "/jquery.min.js");
+			htmlRenderer.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/jquery.min.js");
 			htmlRenderer.addTheme(new DocumentationTheme());
 			// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
 			// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?

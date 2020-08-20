@@ -1,6 +1,6 @@
 /*
  * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
- * Copyright (C) 2019  AO Industries, Inc.
+ * Copyright (C) 2019, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,23 +22,47 @@
  */
 package com.semanticcms.theme.documentation;
 
+import com.aoindustries.lang.Projects;
 import com.aoindustries.util.PropertiesUtils;
 import java.io.IOException;
 import java.util.Properties;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
 /**
  * @author  AO Industries, Inc.
  */
 class Maven {
 
-	static final Properties properties;
+	@WebListener
+	public static class Initializer implements ServletContextListener {
+
+		@Override
+		public void contextInitialized(ServletContextEvent event) {
+			event.getServletContext().setAttribute(Maven.class.getName(), new Maven());
+		}
+
+		@Override
+		public void contextDestroyed(ServletContextEvent event) {
+			// Nothing to do
+		}
+	}
+
+	static final String jqueryVersion;
+
 	static {
 		try {
-			properties = PropertiesUtils.loadFromResource(Maven.class, "Maven.properties");
+			Properties properties = PropertiesUtils.loadFromResource(Maven.class, "Maven.properties");
+			jqueryVersion = Projects.getVersion("org.webjars", "jquery", properties.getProperty("jqueryVersion"));
 		} catch(IOException e) {
 			throw new ExceptionInInitializerError(e);
 		}
 	}
 
 	private Maven() {}
+
+	public String getJqueryVersion() {
+		return jqueryVersion;
+	}
 }
