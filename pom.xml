@@ -29,7 +29,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.10.0-POST-SNAPSHOT</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.10.1-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<properties>
@@ -67,7 +67,6 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<configuration>
 					<usedDependencies>
 						<!-- JSP Only -->
-						<dependency>com.aoindustries:ao-net-types</dependency>
 						<dependency>com.aoindustries:ao-taglib</dependency>
 						<dependency>com.aoindustries:ao-web-resources-taglib</dependency>
 						<dependency>javax.servlet:jstl</dependency>
@@ -104,7 +103,11 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 											<classifier>javadoc</classifier><includes>element-list, package-list</includes>
 											<outputDirectory>${project.build.directory}/offlineLinks/com.aoindustries/ao-lang</outputDirectory>
 										</artifactItem>
-										<!-- JSP Only: <groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId> -->
+										<artifactItem>
+											<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId>
+											<classifier>javadoc</classifier><includes>element-list, package-list</includes>
+											<outputDirectory>${project.build.directory}/offlineLinks/com.aoindustries/ao-net-types</outputDirectory>
+										</artifactItem>
 										<artifactItem>
 											<groupId>com.aoindustries</groupId><artifactId>ao-servlet-util</artifactId>
 											<classifier>javadoc</classifier><includes>element-list, package-list</includes>
@@ -157,7 +160,10 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 									<url>https://aoindustries.com/ao-lang/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.aoindustries/ao-lang</location>
 								</offlineLink>
-								<!-- JSP Only: <groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId> -->
+								<offlineLink>
+									<url>https://aoindustries.com/ao-net-types/apidocs/</url>
+									<location>${project.build.directory}/offlineLinks/com.aoindustries/ao-net-types</location>
+								</offlineLink>
 								<offlineLink>
 									<url>https://aoindustries.com/ao-servlet-util/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.aoindustries/ao-servlet-util</location>
@@ -320,10 +326,10 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			</dependency>
 			<!-- javaee-web-api-bom: <groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId> -->
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId><version>1.9.0${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId><version>1.9.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>1.6.0${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>1.6.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<!-- Runtime Transitive -->
 			<dependency>

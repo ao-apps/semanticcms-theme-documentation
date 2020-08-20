@@ -22,7 +22,7 @@
  */
 package com.semanticcms.theme.documentation;
 
-import com.aoindustries.lang.Projects;
+import com.aoindustries.net.URIEncoder;
 import com.aoindustries.servlet.http.Dispatcher;
 import com.aoindustries.web.resources.registry.Group;
 import com.aoindustries.web.resources.registry.Registry;
@@ -99,7 +99,7 @@ public class DocumentationTheme extends Theme {
 
 			SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
 			// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
-			semanticCMS.addScript("jquery", "/webjars/jquery/" + Projects.getVersion("org.webjars", "jquery", Maven.properties.getProperty("jquery.version")) + "/jquery.min.js");
+			semanticCMS.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/jquery.min.js");
 			semanticCMS.addTheme(new DocumentationTheme());
 		}
 
