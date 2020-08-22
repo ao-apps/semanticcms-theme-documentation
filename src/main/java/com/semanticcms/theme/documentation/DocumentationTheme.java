@@ -116,7 +116,7 @@ public class DocumentationTheme extends Theme {
 
 			HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
 			// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
-			htmlRenderer.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/jquery.min.js");
+			htmlRenderer.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/dist/jquery.min.js");
 			htmlRenderer.addTheme(new DocumentationTheme());
 			// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
 			// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?

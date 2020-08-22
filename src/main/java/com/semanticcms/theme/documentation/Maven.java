@@ -33,7 +33,7 @@ import javax.servlet.annotation.WebListener;
 /**
  * @author  AO Industries, Inc.
  */
-class Maven {
+public class Maven {
 
 	@WebListener
 	public static class Initializer implements ServletContextListener {
@@ -54,7 +54,7 @@ class Maven {
 	static {
 		try {
 			Properties properties = PropertiesUtils.loadFromResource(Maven.class, "Maven.properties");
-			jqueryVersion = Projects.getVersion("org.webjars", "jquery", properties.getProperty("jqueryVersion"));
+			jqueryVersion = Projects.getVersion("org.webjars.npm", "jquery", properties.getProperty("jqueryVersion"));
 		} catch(IOException e) {
 			throw new ExceptionInInitializerError(e);
 		}
