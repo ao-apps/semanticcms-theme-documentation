@@ -75,7 +75,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 						<dependency>com.semanticcms:semanticcms-file-taglib</dependency>
 						<!-- Runtime Direct -->
 						<dependency>com.aoindustries:ao-style</dependency>
-						<dependency>org.webjars:jquery</dependency>
+						<dependency>org.webjars.npm:jquery</dependency>
 						<dependency>org.glassfish.web:jstl-impl</dependency>
 						<dependency>com.semanticcms:semanticcms-openfile-servlet</dependency>
 						<dependency>com.semanticcms:semanticcms-pagegraph</dependency>
@@ -322,7 +322,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<groupId>com.aoindustries</groupId><artifactId>ao-style</artifactId><version>1.0.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.webjars</groupId><artifactId>jquery</artifactId><version>3.5.1</version>
+				<groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId><version>3.5.1</version>
 			</dependency>
 			<!-- javaee-web-api-bom: <groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId> -->
 			<dependency>
@@ -413,7 +413,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.webjars</groupId><artifactId>jquery</artifactId>
+			<groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

@@ -99,7 +99,7 @@ public class DocumentationTheme extends Theme {
 
 			SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
 			// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
-			semanticCMS.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/jquery.min.js");
+			semanticCMS.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/dist/jquery.min.js");
 			semanticCMS.addTheme(new DocumentationTheme());
 		}
 
