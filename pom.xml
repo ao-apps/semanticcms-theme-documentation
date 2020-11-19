@@ -29,7 +29,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.10.1-SNAPSHOT</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.11.0-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<properties>
@@ -67,6 +67,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<configuration>
 					<usedDependencies>
 						<!-- JSP Only -->
+						<dependency>com.aoindustries:ao-encoding-taglib</dependency>
 						<dependency>com.aoindustries:ao-taglib</dependency>
 						<dependency>com.aoindustries:ao-web-resources-taglib</dependency>
 						<dependency>javax.servlet:jstl</dependency>
@@ -98,6 +99,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 								<configuration>
 									<artifactItems>
 										<!-- Direct -->
+										<!-- JSP Only: <groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId> -->
 										<artifactItem>
 											<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId>
 											<classifier>javadoc</classifier><includes>element-list, package-list</includes>
@@ -156,6 +158,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 						<configuration>
 							<offlineLinks>
 								<!-- Direct -->
+								<!-- JSP Only: <groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId> -->
 								<offlineLink>
 									<url>https://aoindustries.com/ao-lang/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.aoindustries/ao-lang</location>
@@ -218,6 +221,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<dependencies>
 			<!-- Direct -->
 			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId><version>1.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>4.6.1${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
@@ -245,16 +251,16 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>1.12.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.15.1${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.16.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.13.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.4.0${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>1.8.0${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>1.8.0${POST-SNAPSHOT}</version>
@@ -315,7 +321,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-model</artifactId><version>1.4.6${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-servlet</artifactId><version>1.8.1${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-servlet</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<!-- Runtime Direct -->
 			<dependency>
@@ -358,6 +364,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 
 	<dependencies>
 		<!-- Direct -->
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId>
 		</dependency>
