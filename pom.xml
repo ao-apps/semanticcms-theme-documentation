@@ -362,7 +362,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			</dependency>
 			<!-- Runtime Transitive -->
 			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>6.3.1</version>
+				<groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>6.5.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.webjars.npm</groupId><artifactId>dagre</artifactId><version>0.8.5</version>
