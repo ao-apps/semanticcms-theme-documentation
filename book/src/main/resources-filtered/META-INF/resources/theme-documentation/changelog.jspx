@@ -22,7 +22,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/licenses />.
 -->
 <jsp:root
-	xmlns:ao="https://aoindustries.com/ao-taglib/"
+	xmlns:ao="https://oss.aoapps.com/taglib/"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:changelog="https://semanticcms.com/changelog/taglib/"
 	xmlns:core="https://semanticcms.com/core/taglib/"
@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-05:00"
-		dateModified="2021-05-26T06:36:49-05:00"
+		dateModified="2021-05-31T08:58:51-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -45,6 +45,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				version="@{project.version}"
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
+				repository="https://oss.sonatype.org/content/repositories/snapshots/"
 				scmUrl="@{project.scm.url}"
 			>
 				<ul>
@@ -113,7 +114,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				</li>
 				<li>Fixed bug in <code>error.inc.jsp</code> that didn't pass <code>contentRoot</code> correctly.</li>
 				<li>Optimized ServletContext attribute initialization and concurrency.</li>
-				<li>Integrated with <ao:a href="https://aoindustries.com/ao-web-resources/">AO Web Resources</ao:a>.</li>
+				<li>Integrated with <ao:a href="https://oss.aoapps.com/web-resources/">AO Web Resources</ao:a>.</li>
 				<li>No more <code>html5shiv</code>: IE 8 is long end-of-life.</li>
 				<li>No more <code>html5.css</code>: we don't care about super ancient browsers.</li>
 				<li>Swapped dependency order with <core:link book="/theme-documentation/style" page="/index.jspx" />.</li>
@@ -131,7 +132,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			<ul>
 				<li>
 					<code><core:link book="/core/taglib" page="/semanticcms-core.tld/function-encodeUrlParam" /></code> is deprecated - using
-					<code><ao:a href="https://aoindustries.com/ao-taglib/ao.tld/function-encodeURIComponent">\${ao:encodeURIComponent()}</ao:a></code> instead.
+					<code><ao:a href="https://oss.aoapps.com/taglib/ao.tld/function-encodeURIComponent">\${ao:encodeURIComponent()}</ao:a></code> instead.
 				</li>
 			</ul>
 		</changelog:release>
@@ -169,7 +170,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 			scmUrl="@{project.scm.url}"
 		>
 			<ul>
-				<li>New release for bug fixes in underlying <ao:a href="https://aoindustries.com/ao-encoding/">AO Encoding</ao:a> library.</li>
+				<li>New release for bug fixes in underlying <ao:a href="https://oss.aoapps.com/encoding/">AO Encoding</ao:a> library.</li>
 				<li>Updated dependencies.</li>
 			</ul>
 		</changelog:release>
@@ -184,7 +185,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		>
 			<ul>
 				<li>Added googleoff / googleon around the frames links.</li>
-				<li>New <ao:a href="https://aoindustries.com/ao-oss-parent/">AO OSS Parent</ao:a> POM to simplify <code>pom.xml</code> files.</li>
+				<li>New <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a> POM to simplify <code>pom.xml</code> files.</li>
 				<li>Project documentation moved to per-project book in <core:link book="/" page="/" /> format.</li>
 				<li>Added changelog as top-level project link.</li>
 			</ul>
