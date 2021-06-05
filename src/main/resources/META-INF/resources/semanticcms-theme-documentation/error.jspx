@@ -53,7 +53,7 @@ Arguments:
 
 		// Find the request URL in context-relative form
 		String requestUri = (String)request.getAttribute("javax.servlet.error.request_uri");
-		String contextPath = com.aoindustries.net.URIEncoder.encodeURI(request.getContextPath());
+		String contextPath = com.aoapps.net.URIEncoder.encodeURI(request.getContextPath());
 		int cpLen = contextPath.length();
 		String pagePath;
 		if(cpLen > 0) {
