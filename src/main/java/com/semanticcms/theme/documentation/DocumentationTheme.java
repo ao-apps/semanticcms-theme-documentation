@@ -22,12 +22,12 @@
  */
 package com.semanticcms.theme.documentation;
 
-import com.aoindustries.net.URIEncoder;
-import com.aoindustries.servlet.http.Dispatcher;
-import com.aoindustries.web.resources.registry.Group;
-import com.aoindustries.web.resources.registry.Registry;
-import com.aoindustries.web.resources.registry.Style;
-import com.aoindustries.web.resources.servlet.RegistryEE;
+import com.aoapps.net.URIEncoder;
+import com.aoapps.servlet.http.Dispatcher;
+import com.aoapps.web.resources.registry.Group;
+import com.aoapps.web.resources.registry.Registry;
+import com.aoapps.web.resources.registry.Style;
+import com.aoapps.web.resources.servlet.RegistryEE;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.servlet.Theme;
