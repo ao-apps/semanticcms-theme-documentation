@@ -43,7 +43,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<li><a target="${javadoc.target}" href="https://semanticcms.com/theme-documentation/style/">SemanticCMS Theme Documentation Style</a></li>
 			</ul>
 		</div>]]></javadoc.modules>
-		<!-- SonarCloud.io -->
+		<!-- SonarQube -->
 		<sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
 		<sonar.organization>aoindustries</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
