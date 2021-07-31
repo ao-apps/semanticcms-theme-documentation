@@ -230,7 +230,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-javadoc-plugin</artifactId>
 						<configuration>
-							<offlineLinks>
+							<offlineLinks combine.children="append">
 								<!-- Direct -->
 								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId> -->
 								<offlineLink>
@@ -271,8 +271,8 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-web-resources-servlet</location>
 								</offlineLink>
 								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId> -->
-								<!-- Java EE: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
-								<!-- Java EE: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
+								<!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
+								<!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
 								<offlineLink>
 									<url>https://semanticcms.com/core/model/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-model</location>
@@ -289,16 +289,6 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 									<location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-theme-documentation-style</location>
 								</offlineLink>
 								<!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
-								<!-- Java SE -->
-								<offlineLink>
-									<url>${javadoc.link.javase}</url>
-									<location>${project.build.directory}/offlineLinks/com/aoapps/javadoc/offline/javase/${javase.release}</location>
-								</offlineLink>
-								<!-- Java EE -->
-								<offlineLink>
-									<url>${javadoc.link.javaee}</url>
-									<location>${project.build.directory}/offlineLinks/com/aoapps/javadoc/offline/javaee/${javaee.version}</location>
-								</offlineLink>
 							</offlineLinks>
 						</configuration>
 					</plugin>
