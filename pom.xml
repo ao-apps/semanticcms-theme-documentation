@@ -327,7 +327,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>1.10.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>1.9.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>1.9.1${POST-SNAPSHOT}</version>
 			</dependency>
 			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
 			<!-- Transitive -->
