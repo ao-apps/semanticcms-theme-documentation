@@ -131,7 +131,7 @@ Arguments:
 			</main>
 			<ao:script>
 				semanticcms_theme_documentation_navigation.tree = new YAHOO.widget.TreeView("semanticcms-theme-documentation-navigation-tree");
-				// semanticcms_theme_documentation_navigation.tree.singleNodeHighlight = true; 
+				// semanticcms_theme_documentation_navigation.tree.singleNodeHighlight = true;
 				semanticcms_theme_documentation_navigation.tree.subscribe("clickEvent", semanticcms_theme_documentation_navigation.treeClickEvent);
 				semanticcms_theme_documentation_navigation.tree.subscribe("enterKeyPressed", semanticcms_theme_documentation_navigation.treeEnterKeyPressed);
 				semanticcms_theme_documentation_navigation.tree.render();
