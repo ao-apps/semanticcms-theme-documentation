@@ -43,12 +43,13 @@ Arguments:
 	<jsp:directive.page session="false" />
 	<jsp:directive.page isErrorPage="true" />
 
-	<c:set var="code" value="${arg.code}" />
+	<c:set var="code" value="${empty arg.code ? 500 : arg.code}" />
 	<jsp:scriptlet><![CDATA[
+		if(exception != null) log(null, exception);
 		// Set the error status
 		if(!response.isCommitted()) {
 			Object code = pageContext.getAttribute("code");
-			if(code != null) response.setStatus(Integer.parseInt(code.toString()));
+			response.setStatus((code instanceof Integer) ? (Integer)code : Integer.parseInt(code.toString()));
 		}
 
 		// Find the request URL in context-relative form

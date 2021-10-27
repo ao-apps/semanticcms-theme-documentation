@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2015, 2016, 2018, 2020, 2021  AO Industries, Inc.
+Copyright (C) 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -23,6 +23,7 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 -->
 <jsp:root
 	xmlns:ao="https://oss.aoapps.com/taglib/"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	version="2.1"
 >
@@ -30,5 +31,13 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	<jsp:directive.page session="false" />
 	<jsp:directive.page isErrorPage="true" />
 
-	<ao:forward page="/semanticcms-theme-documentation/error.jspx" arg.code="404" arg.message="404 Not Found" />
+	<c:set var="code" value="${
+		empty requestScope['javax.servlet.error.status_code'] or requestScope['javax.servlet.error.status_code'] le 0
+			? 500 : requestScope['javax.servlet.error.status_code']
+	}" />
+	<ao:forward
+		page="/semanticcms-theme-documentation/error.jspx"
+		arg.code="${pageScope.code}"
+		arg.message="${pageScope.code} Error"
+	/>
 </jsp:root>

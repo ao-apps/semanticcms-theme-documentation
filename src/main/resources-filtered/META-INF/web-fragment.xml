@@ -31,7 +31,15 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	<!-- <display-name>@{project.name} @{project.version}</display-name> -->
 	<description>@{project.description}</description>
 
-	<!-- Error pages -->
+	<!-- Error Pages -->
+	<error-page>
+		<error-code>401</error-code>
+		<location>/semanticcms-theme-documentation/error-pages/401.jspx</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/semanticcms-theme-documentation/error-pages/403.jspx</location>
+	</error-page>
 	<error-page>
 		<error-code>404</error-code>
 		<location>/semanticcms-theme-documentation/error-pages/404.jspx</location>
@@ -43,6 +51,9 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	<error-page>
 		<error-code>503</error-code>
 		<location>/semanticcms-theme-documentation/error-pages/503.jspx</location>
+	</error-page>
+	<error-page>
+		<location>/semanticcms-theme-documentation/error-pages/other.jspx</location>
 	</error-page>
 
 </web-fragment>
