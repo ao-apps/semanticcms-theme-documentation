@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2015, 2016, 2018, 2020, 2021  AO Industries, Inc.
+Copyright (C) 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -30,5 +30,5 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 	<jsp:directive.page session="false" />
 	<jsp:directive.page isErrorPage="true" />
 
-	<ao:forward page="/semanticcms-theme-documentation/error.inc.jspx" arg.code="503" arg.message="503 Service Unavailable" />
+	<ao:forward page="/semanticcms-theme-documentation/error.inc.jspx" arg.code="403" arg.message="403 Forbidden" />
 </jsp:root>
