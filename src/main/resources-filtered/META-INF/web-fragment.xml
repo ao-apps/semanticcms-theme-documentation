@@ -41,6 +41,10 @@ along with semanticcms-theme-documentation.  If not, see <http://www.gnu.org/lic
 		<location>/semanticcms-theme-documentation/error-pages/403.jspx</location>
 	</error-page>
 	<error-page>
+		<exception-type>java.lang.SecurityException</exception-type>
+		<location>/semanticcms-theme-documentation/error-pages/403.jspx</location>
+	</error-page>
+	<error-page>
 		<error-code>404</error-code>
 		<location>/semanticcms-theme-documentation/error-pages/404.jspx</location>
 	</error-page>
