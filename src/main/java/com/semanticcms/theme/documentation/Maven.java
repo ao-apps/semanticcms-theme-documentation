@@ -33,7 +33,7 @@ import javax.servlet.annotation.WebListener;
 /**
  * @author  AO Industries, Inc.
  */
-public class Maven {
+public final class Maven {
 
 	@WebListener
 	public static class Initializer implements ServletContextListener {
@@ -60,7 +60,9 @@ public class Maven {
 		}
 	}
 
-	private Maven() {}
+	private Maven() {
+		// Do nothing
+	}
 
 	public String getJqueryVersion() {
 		return jqueryVersion;

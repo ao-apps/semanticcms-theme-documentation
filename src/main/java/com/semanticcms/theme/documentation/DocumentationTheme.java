@@ -48,7 +48,7 @@ import javax.servlet.jsp.SkipPageException;
 /**
  * A theme designed for technical documentation.
  */
-public class DocumentationTheme extends Theme {
+public final class DocumentationTheme extends Theme {
 
 	private static final String NAME = "semanticcms-theme-documentation";
 
@@ -109,7 +109,9 @@ public class DocumentationTheme extends Theme {
 		}
 	}
 
-	private DocumentationTheme() {}
+	private DocumentationTheme() {
+		// Do nothing
+	}
 
 	@Override
 	public String getDisplay() {
