@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021, 2022  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -411,7 +411,7 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
 			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId> -->
 			<!-- Runtime Transitive -->
 			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>7.2.1</version>
+				<groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>7.3.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.webjars.npm</groupId><artifactId>dagre</artifactId><version>0.8.5</version>
