@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2016, 2017, 2019, 2020, 2021  AO Industries, Inc.
+Copyright (C) 2016, 2017, 2019, 2020, 2021, 2022  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-31T02:51:43-05:00"
-		dateModified="2021-10-27T03:30:49-05:00"
+		dateModified="2022-02-16T20:30:04-06:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -47,12 +47,21 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
 				artifactId="@{documented.artifactId}"
 				repository="@{nexusUrl}content/repositories/snapshots/"
 				scmUrl="@{project.scm.url}"
-			>
-				<ul>
-					<li>Added 401, 403, and catch-all error handlers.</li>
-				</ul>
-			</changelog:release>
+			/>
 		</c:if>
+
+		<changelog:release
+			projectName="@{documented.name}"
+			version="1.12.1"
+			datePublished="2022-02-16T20:30:04-06:00"
+			groupId="@{project.groupId}"
+			artifactId="@{documented.artifactId}"
+			scmUrl="@{project.scm.url}"
+		>
+			<ul>
+				<li>Added 401, 403, and catch-all error handlers.</li>
+			</ul>
+		</changelog:release>
 
 		<changelog:release
 			projectName="@{documented.name}"
