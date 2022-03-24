@@ -37,8 +37,8 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
 		<javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
 / <a target="${javadoc.target}" href="${project.url}">Theme Documentation</a>]]></javadoc.breadcrumbs>
 		<description.html><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> theme tailored for technical documentation.]]></description.html>
-		<javadoc.modules><![CDATA[<div style="float:left; margin: 0 1em">
-			<h2 style="margin-top: 0em">Modules</h2>
+		<javadoc.modules><![CDATA[<div>
+			<h2>Modules</h2>
 			<ul>
 				<li><a target="${javadoc.target}" href="https://semanticcms.com/theme-documentation/style/">SemanticCMS Theme Documentation Style</a></li>
 			</ul>
