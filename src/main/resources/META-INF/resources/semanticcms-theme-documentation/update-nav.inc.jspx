@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2013, 2014, 2015, 2016, 2019, 2020, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2013, 2014, 2015, 2016, 2019, 2020, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-theme-documentation.
 
@@ -26,43 +26,43 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
 Script to update the navigation view on the left when in frames.
 
 Arguments:
-	arg.page  The page that should be displayed.
+  arg.page  The page that should be displayed.
 -->
 <jsp:root
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:core="https://semanticcms.com/core/taglib/"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	version="2.1"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:core="https://semanticcms.com/core/taglib/"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<!-- TODO: Rename "semanticcms-theme.skipFocus"? -->
-	<c:if test="${!core:isExporting() || requestScope['template.skipFocus'] != true}">
-		<ao:script>
-			jQuery(function() {
-				<!-- Scripting not allowed between pages when static files loaded from filesystem -->
-				<c:if test="${!core:isExporting()}">
-					if(window.parent !== window) {
-						var frames = window.parent.frames;
-						if(frames.length==2 &amp;&amp; frames[1]==window) {
-							var navigation = frames[0].semanticcms_theme_documentation_navigation;
-							if(navigation !== undefined) {
-								navigation.highlightPage(<ao:out value="${core:encodeHexData(arg.page.pageRef)}" />);
-							}
-						}
-					}
-				</c:if>
-				<c:if test="${requestScope['template.skipFocus'] != true}">
-					setTimeout(
-						function() {
-							var main = document.getElementsByTagName("main")[0];
-							if(main) main.focus();
-						},
-						0
-					);
-				</c:if>
-			});
-		</ao:script>
-	</c:if>
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <!-- TODO: Rename "semanticcms-theme.skipFocus"? -->
+  <c:if test="${!core:isExporting() || requestScope['template.skipFocus'] != true}">
+    <ao:script>
+      jQuery(function() {
+        <!-- Scripting not allowed between pages when static files loaded from filesystem -->
+        <c:if test="${!core:isExporting()}">
+          if(window.parent !== window) {
+            var frames = window.parent.frames;
+            if(frames.length == 2 &amp;&amp; frames[1] == window) {
+              var navigation = frames[0].semanticcms_theme_documentation_navigation;
+              if(navigation !== undefined) {
+                navigation.highlightPage(<ao:out value="${core:encodeHexData(arg.page.pageRef)}" />);
+              }
+            }
+          }
+        </c:if>
+        <c:if test="${requestScope['template.skipFocus'] != true}">
+          setTimeout(
+            function() {
+              var main = document.getElementsByTagName("main")[0];
+              if(main) main.focus();
+            },
+            0
+          );
+        </c:if>
+      });
+    </ao:script>
+  </c:if>
 </jsp:root>

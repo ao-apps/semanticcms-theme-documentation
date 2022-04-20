@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2015, 2016, 2017, 2018, 2019, 2020, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-theme-documentation.
 
@@ -26,185 +26,185 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
 Shared handler forwarded to by all the individual error handlers.
 
 Arguments:
-	arg.code     The error code
-	arg.message  The human readable error message
+  arg.code     The error code
+  arg.message  The human readable error message
 -->
 <jsp:root
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:core="https://semanticcms.com/core/taglib/"
-	xmlns:encoding="https://oss.aoapps.com/encoding/taglib/"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:wr="https://oss.aoapps.com/web-resources/taglib/"
-	version="2.1"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:core="https://semanticcms.com/core/taglib/"
+  xmlns:encoding="https://oss.aoapps.com/encoding/taglib/"
+  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:wr="https://oss.aoapps.com/web-resources/taglib/"
+  version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<jsp:directive.page isErrorPage="true" />
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <jsp:directive.page isErrorPage="true" />
 
-	<c:set var="code" value="${empty arg.code ? 500 : arg.code}" />
-	<jsp:scriptlet><![CDATA[
-		if(exception != null) log(null, exception);
-		// Set the error status
-		if(!response.isCommitted()) {
-			Object code = pageContext.getAttribute("code");
-			response.setStatus((code instanceof Integer) ? (Integer)code : Integer.parseInt(code.toString()));
-		}
+  <c:set var="code" value="${empty arg.code ? 500 : arg.code}" />
+  <jsp:scriptlet><![CDATA[
+    if(exception != null) log(null, exception);
+    // Set the error status
+    if(!response.isCommitted()) {
+      Object code = pageContext.getAttribute("code");
+      response.setStatus((code instanceof Integer) ? (Integer)code : Integer.parseInt(code.toString()));
+    }
 
-		// Find the request URL in context-relative form
-		String requestUri = (String)request.getAttribute("javax.servlet.error.request_uri");
-		String contextPath = com.aoapps.net.URIEncoder.encodeURI(request.getContextPath());
-		int cpLen = contextPath.length();
-		String pagePath;
-		if(cpLen > 0) {
-			assert requestUri.startsWith(contextPath);
-			pagePath = requestUri.substring(cpLen);
-		} else {
-			pagePath = requestUri;
-		}
-		pageContext.setAttribute("pagePath", pagePath);
+    // Find the request URL in context-relative form
+    String requestUri = (String)request.getAttribute("javax.servlet.error.request_uri");
+    String contextPath = com.aoapps.net.URIEncoder.encodeURI(request.getContextPath());
+    int cpLen = contextPath.length();
+    String pagePath;
+    if(cpLen > 0) {
+      assert requestUri.startsWith(contextPath);
+      pagePath = requestUri.substring(cpLen);
+    } else {
+      pagePath = requestUri;
+    }
+    pageContext.setAttribute("pagePath", pagePath);
 
-		// Determine if in a development mode
-		// Using reflection to avoid hard dependency on semanticcms-openfile-servlet.
-		// TODO: A better centrally defined "devMode" or other profile mechanism.
-		boolean isDev = true;
-		try {
-			Class<?> openFileClass = Class.forName("com.semanticcms.openfile.servlet.OpenFile");
-			java.lang.reflect.Method isAllowedMethod = openFileClass.getMethod("isAllowed", ServletContext.class, ServletRequest.class);
-			isDev = (Boolean)isAllowedMethod.invoke(null, getServletContext(), request);
-		} catch(ClassNotFoundException e) {
-			isDev = false;
-		} catch(NoSuchMethodException e) {
-			throw new ServletException(e);
-		} catch(IllegalAccessException e) {
-			throw new ServletException(e);
-		} catch(java.lang.reflect.InvocationTargetException e) {
-			throw new ServletException(e);
-		}
-		pageContext.setAttribute("isDev", isDev);
-	]]></jsp:scriptlet>
-	<ao:html doctype="HTML5">
-		<!-- Find the book that best matches the incoming request -->
-		<c:set var="book" value="" />
-		<!-- Try to find book for request -->
-		<c:catch>
-			<c:set var="book" value="${core:getPublishedBook(pagePath)}" />
-		</c:catch>
-		<!-- Try to find root book -->
-		<c:if test="${(empty book or !book.accessible) and !empty applicationScope.semanticCMS}">
-			<c:catch>
-				<c:set var="book" value="${applicationScope.semanticCMS.rootBook}" />
-			</c:catch>
-		</c:if>
-		<head>
-			<c:choose>
-				<c:when test="${encoding:getDoctype() == 'HTML5'}">
-					<ao:meta charset="${pageContext.response.characterEncoding}" />
-				</c:when>
-				<c:otherwise>
-					<ao:meta httpEquiv="content-type" content="${pageContext.response.contentType}" />
-					<ao:meta httpEquiv="content-style-type" content="text/css" />
-					<ao:meta httpEquiv="content-script-type" content="text/javascript" />
-				</c:otherwise>
-			</c:choose>
-			<core:doComponents view="${null}" page="${null}" position="HEAD_START" />
-			<!-- Mobile support -->
-			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
-			<ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
-			<ao:choose>
-				<ao:when test="#{empty book or !book.accessible}">
-					<title><ao:out value="${arg.message}" /></title>
-				</ao:when>
-				<ao:otherwise>
-					<!-- Authors -->
-					<ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${book.copyright}" />
-					<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
-					<title><ao:out value="${arg.message}" /> - <ao:out value="${book.title}" /></title>
-				</ao:otherwise>
-			</ao:choose>
-			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
-			<!-- ao-web-resources -->
-			<wr:renderStyles activate="ao-style, semanticcms-theme-documentation-style" />
-			<!-- Per-view links -->
-			<c:forEach var="link" items="${core:getViewLinks(null, page)}">
-				<ao:link link="${link}" />
-			</c:forEach>
-			<!-- Application-wide scripts merged with view-specific scripts -->
-			<c:forEach var="script" items="${core:mergeGlobalAndViewScripts(null)}">
-				<ao:script src="${script.value}" />
-				<!-- TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();" -->
-				<c:if test="${script.key == 'jquery'}">
-					<ao:script>jQuery.noConflict();</ao:script>
-				</c:if>
-			</c:forEach>
-			<!-- Application-wide head includes -->
-			<c:forEach var="headInclude" items="${applicationScope.htmlRenderer.headIncludes}">
-				<ao:include page="${headInclude}" />
-			</c:forEach>
-			<ao:meta name="robots" content="noindex, nofollow" />
-			<core:doComponents view="${null}" page="${null}" position="HEAD_END" reverse="true" />
-		</head>
-		<body>
-			<core:doComponents view="${null}" page="${null}" position="BODY_START" />
-			<div id="semanticcms-theme-documentation-page-container">
-				<c:if test="${!empty book and book.accessible}">
-					<ao:include
-						page="page-top-area.inc.jspx"
-						arg.book="${book}"
-						arg.path="${book.contentRoot}"
-						arg.view="${book.contentRoot}"
-					/>
-				</c:if>
-				<main>
-					<h1><ao:out value="${arg.message}" /></h1>
-					<p>
-						An error has occurred in processing your request.
-					</p>
-					<c:if test="${isDev}">
-						<table class="ao-grid">
-							<tbody>
-								<tr>
-									<th>Request URI</th>
-									<td><ao:out value="${requestScope['javax.servlet.error.request_uri']}" /></td>
-								</tr>
-								<tr>
-									<th>Servlet Name</th>
-									<td><ao:out value="${requestScope['javax.servlet.error.servlet_name']}" /></td>
-								</tr>
-								<tr>
-									<th>Status Code</th>
-									<td><ao:out value="${requestScope['javax.servlet.error.status_code']}" /></td>
-								</tr>
-								<c:set var="errorMessage" value="${requestScope['javax.servlet.error.message']}" />
-								<c:if test="${!empty errorMessage}">
-									<tr>
-										<th>Error Message</th>
-										<td><ao:out value="${errorMessage}" /></td>
-									</tr>
-								</c:if>
-								<c:set var="exceptionType" value="${requestScope['javax.servlet.error.exception_type']}" />
-								<c:if test="${!empty exceptionType}">
-									<tr>
-										<th>Exception Type</th>
-										<td><ao:out value="${exceptionType}" /></td>
-									</tr>
-								</c:if>
-								<c:set var="exception" value="${requestScope['javax.servlet.error.exception']}" />
-								<c:if test="${!empty exception}">
-									<tr>
-										<th>Exception</th>
-										<td><pre><ao:getStackTraces scope="page" name="exception" /></pre></td>
-									</tr>
-								</c:if>
-							</tbody>
-						</table>
-					</c:if>
-					<div id="semanticcms-theme-documentation-page-pad-bottom"><!-- Avoid self-closing tag in jspx --></div>
-				</main>
-			</div>
-			<core:doComponents view="${null}" page="${null}" position="BODY_END" reverse="true" />
-		</body>
-	</ao:html>
+    // Determine if in a development mode
+    // Using reflection to avoid hard dependency on semanticcms-openfile-servlet.
+    // TODO: A better centrally defined "devMode" or other profile mechanism.
+    boolean isDev = true;
+    try {
+      Class<?> openFileClass = Class.forName("com.semanticcms.openfile.servlet.OpenFile");
+      java.lang.reflect.Method isAllowedMethod = openFileClass.getMethod("isAllowed", ServletContext.class, ServletRequest.class);
+      isDev = (Boolean)isAllowedMethod.invoke(null, getServletContext(), request);
+    } catch(ClassNotFoundException e) {
+      isDev = false;
+    } catch(NoSuchMethodException e) {
+      throw new ServletException(e);
+    } catch(IllegalAccessException e) {
+      throw new ServletException(e);
+    } catch(java.lang.reflect.InvocationTargetException e) {
+      throw new ServletException(e);
+    }
+    pageContext.setAttribute("isDev", isDev);
+  ]]></jsp:scriptlet>
+  <ao:html doctype="HTML5">
+    <!-- Find the book that best matches the incoming request -->
+    <c:set var="book" value="" />
+    <!-- Try to find book for request -->
+    <c:catch>
+      <c:set var="book" value="${core:getPublishedBook(pagePath)}" />
+    </c:catch>
+    <!-- Try to find root book -->
+    <c:if test="${(empty book or !book.accessible) and !empty applicationScope.semanticCMS}">
+      <c:catch>
+        <c:set var="book" value="${applicationScope.semanticCMS.rootBook}" />
+      </c:catch>
+    </c:if>
+    <head>
+      <c:choose>
+        <c:when test="${encoding:getDoctype() == 'HTML5'}">
+          <ao:meta charset="${pageContext.response.characterEncoding}" />
+        </c:when>
+        <c:otherwise>
+          <ao:meta httpEquiv="content-type" content="${pageContext.response.contentType}" />
+          <ao:meta httpEquiv="content-style-type" content="text/css" />
+          <ao:meta httpEquiv="content-script-type" content="text/javascript" />
+        </c:otherwise>
+      </c:choose>
+      <core:doComponents view="${null}" page="${null}" position="HEAD_START" />
+      <!-- Mobile support -->
+      <ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <ao:meta name="apple-mobile-web-app-capable" content="yes" />
+      <ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      <ao:choose>
+        <ao:when test="#{empty book or !book.accessible}">
+          <title><ao:out value="${arg.message}" /></title>
+        </ao:when>
+        <ao:otherwise>
+          <!-- Authors -->
+          <ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${book.copyright}" />
+          <ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
+          <title><ao:out value="${arg.message}" /> - <ao:out value="${book.title}" /></title>
+        </ao:otherwise>
+      </ao:choose>
+      <!-- TODO: Review HTML 4/HTML 5 differences from here -->
+      <!-- ao-web-resources -->
+      <wr:renderStyles activate="ao-style, semanticcms-theme-documentation-style" />
+      <!-- Per-view links -->
+      <c:forEach var="link" items="${core:getViewLinks(null, page)}">
+        <ao:link link="${link}" />
+      </c:forEach>
+      <!-- Application-wide scripts merged with view-specific scripts -->
+      <c:forEach var="script" items="${core:mergeGlobalAndViewScripts(null)}">
+        <ao:script src="${script.value}" />
+        <!-- TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();" -->
+        <c:if test="${script.key == 'jquery'}">
+          <ao:script>jQuery.noConflict();</ao:script>
+        </c:if>
+      </c:forEach>
+      <!-- Application-wide head includes -->
+      <c:forEach var="headInclude" items="${applicationScope.htmlRenderer.headIncludes}">
+        <ao:include page="${headInclude}" />
+      </c:forEach>
+      <ao:meta name="robots" content="noindex, nofollow" />
+      <core:doComponents view="${null}" page="${null}" position="HEAD_END" reverse="true" />
+    </head>
+    <body>
+      <core:doComponents view="${null}" page="${null}" position="BODY_START" />
+      <div id="semanticcms-theme-documentation-page-container">
+        <c:if test="${!empty book and book.accessible}">
+          <ao:include
+            page="page-top-area.inc.jspx"
+            arg.book="${book}"
+            arg.path="${book.contentRoot}"
+            arg.view="${book.contentRoot}"
+          />
+        </c:if>
+        <main>
+          <h1><ao:out value="${arg.message}" /></h1>
+          <p>
+            An error has occurred in processing your request.
+          </p>
+          <c:if test="${isDev}">
+            <table class="ao-grid">
+              <tbody>
+                <tr>
+                  <th>Request URI</th>
+                  <td><ao:out value="${requestScope['javax.servlet.error.request_uri']}" /></td>
+                </tr>
+                <tr>
+                  <th>Servlet Name</th>
+                  <td><ao:out value="${requestScope['javax.servlet.error.servlet_name']}" /></td>
+                </tr>
+                <tr>
+                  <th>Status Code</th>
+                  <td><ao:out value="${requestScope['javax.servlet.error.status_code']}" /></td>
+                </tr>
+                <c:set var="errorMessage" value="${requestScope['javax.servlet.error.message']}" />
+                <c:if test="${!empty errorMessage}">
+                  <tr>
+                    <th>Error Message</th>
+                    <td><ao:out value="${errorMessage}" /></td>
+                  </tr>
+                </c:if>
+                <c:set var="exceptionType" value="${requestScope['javax.servlet.error.exception_type']}" />
+                <c:if test="${!empty exceptionType}">
+                  <tr>
+                    <th>Exception Type</th>
+                    <td><ao:out value="${exceptionType}" /></td>
+                  </tr>
+                </c:if>
+                <c:set var="exception" value="${requestScope['javax.servlet.error.exception']}" />
+                <c:if test="${!empty exception}">
+                  <tr>
+                    <th>Exception</th>
+                    <td><pre><ao:getStackTraces scope="page" name="exception" /></pre></td>
+                  </tr>
+                </c:if>
+              </tbody>
+            </table>
+          </c:if>
+          <div id="semanticcms-theme-documentation-page-pad-bottom"><!-- Avoid self-closing tag in jspx --></div>
+        </main>
+      </div>
+      <core:doComponents view="${null}" page="${null}" position="BODY_END" reverse="true" />
+    </body>
+  </ao:html>
 </jsp:root>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-theme-documentation.
 
@@ -22,22 +22,22 @@ You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <jsp:root
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	version="2.1"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<jsp:directive.page isErrorPage="true" />
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <jsp:directive.page isErrorPage="true" />
 
-	<c:set var="code" value="${
-		empty requestScope['javax.servlet.error.status_code'] or requestScope['javax.servlet.error.status_code'] le 0
-			? 500 : requestScope['javax.servlet.error.status_code']
-	}" />
-	<ao:forward
-		page="/semanticcms-theme-documentation/error.jspx"
-		arg.code="${pageScope.code}"
-		arg.message="${pageScope.code} Error"
-	/>
+  <c:set var="code" value="${
+    empty requestScope['javax.servlet.error.status_code'] or requestScope['javax.servlet.error.status_code'] le 0
+      ? 500 : requestScope['javax.servlet.error.status_code']
+  }" />
+  <ao:forward
+    page="/semanticcms-theme-documentation/error.jspx"
+    arg.code="${pageScope.code}"
+    arg.message="${pageScope.code} Error"
+  />
 </jsp:root>

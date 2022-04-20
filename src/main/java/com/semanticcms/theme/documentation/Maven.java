@@ -36,36 +36,36 @@ import javax.servlet.annotation.WebListener;
  */
 public final class Maven {
 
-	@WebListener
-	public static class Initializer implements ServletContextListener {
+  @WebListener
+  public static class Initializer implements ServletContextListener {
 
-		@Override
-		public void contextInitialized(ServletContextEvent event) {
-			event.getServletContext().setAttribute(Maven.class.getName(), new Maven());
-		}
+    @Override
+    public void contextInitialized(ServletContextEvent event) {
+      event.getServletContext().setAttribute(Maven.class.getName(), new Maven());
+    }
 
-		@Override
-		public void contextDestroyed(ServletContextEvent event) {
-			// Nothing to do
-		}
-	}
+    @Override
+    public void contextDestroyed(ServletContextEvent event) {
+      // Nothing to do
+    }
+  }
 
-	static final String jqueryVersion;
+  static final String jqueryVersion;
 
-	static {
-		try {
-			Properties properties = PropertiesUtils.loadFromResource(Maven.class, "Maven.properties");
-			jqueryVersion = Projects.getVersion("org.webjars.npm", "jquery", properties.getProperty("jqueryVersion"));
-		} catch(IOException e) {
-			throw new ExceptionInInitializerError(e);
-		}
-	}
+  static {
+    try {
+      Properties properties = PropertiesUtils.loadFromResource(Maven.class, "Maven.properties");
+      jqueryVersion = Projects.getVersion("org.webjars.npm", "jquery", properties.getProperty("jqueryVersion"));
+    } catch (IOException e) {
+      throw new ExceptionInInitializerError(e);
+    }
+  }
 
-	private Maven() {
-		// Do nothing
-	}
+  private Maven() {
+    // Do nothing
+  }
 
-	public String getJqueryVersion() {
-		return jqueryVersion;
-	}
+  public String getJqueryVersion() {
+    return jqueryVersion;
+  }
 }

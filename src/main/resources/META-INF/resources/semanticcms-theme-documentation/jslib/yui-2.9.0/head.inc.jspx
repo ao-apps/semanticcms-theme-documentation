@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2013, 2014, 2016, 2020, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2013, 2014, 2016, 2020, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-theme-documentation.
 
@@ -23,22 +23,22 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
 -->
 
 <!--
-	Configures YUI with TreeView.  This is to be called within the <head> of the HTML page.
+  Configures YUI with TreeView.  This is to be called within the <head> of the HTML page.
 
-	@see  http://developer.yahoo.com/yui/treeview/#start
+  @see  http://developer.yahoo.com/yui/treeview/#start
 -->
 <jsp:root
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	version="2.1"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<!-- TODO: ao-web-resources -->
-	<ao:script src="build/yahoo-dom-event/yahoo-dom-event.js" />
-	<ao:script src="build/animation/animation-min.js" />
-	<!--<ao:script src="build/calendar/calendar-min.js" />-->
-	<ao:script src="build/json/json-min.js" />
-	<ao:script src="build/treeview/treeview-min.js" />
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <!-- TODO: ao-web-resources -->
+  <ao:script src="build/yahoo-dom-event/yahoo-dom-event.js" />
+  <ao:script src="build/animation/animation-min.js" />
+  <!--<ao:script src="build/calendar/calendar-min.js" />-->
+  <ao:script src="build/json/json-min.js" />
+  <ao:script src="build/treeview/treeview-min.js" />
 </jsp:root>

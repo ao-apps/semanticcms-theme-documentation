@@ -22,590 +22,590 @@ You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>2.0.0-SNAPSHOT</version>
-		<relativePath>../parent/pom.xml</relativePath>
-	</parent>
+  <parent>
+    <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId><version>2.0.0-SNAPSHOT</version>
+    <relativePath>../parent/pom.xml</relativePath>
+  </parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>2.0.0-SNAPSHOT</version>
-	<packaging>bundle</packaging>
+  <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>2.0.0-SNAPSHOT</version>
+  <packaging>bundle</packaging>
 
-	<properties>
-		<module.name>com.semanticcms.theme.documentation</module.name>
-		<javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
+  <properties>
+    <module.name>com.semanticcms.theme.documentation</module.name>
+    <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
 / <a target="${javadoc.target}" href="${project.url}">Theme Documentation</a>]]></javadoc.breadcrumbs>
-		<description.html><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> theme tailored for technical documentation.]]></description.html>
-		<javadoc.modules><![CDATA[<div>
-			<h2>Modules</h2>
-			<ul>
-				<li><a target="${javadoc.target}" href="https://semanticcms.com/theme-documentation/style/">SemanticCMS Theme Documentation Style</a></li>
-			</ul>
-		</div>]]></javadoc.modules>
-		<!-- SonarQube -->
-		<sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
-		<sonar.organization>ao-apps</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<!-- TODO: Implement tests -->
-		<sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
-	</properties>
+    <description.html><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> theme tailored for technical documentation.]]></description.html>
+    <javadoc.modules><![CDATA[<div>
+      <h2>Modules</h2>
+      <ul>
+        <li><a target="${javadoc.target}" href="https://semanticcms.com/theme-documentation/style/">SemanticCMS Theme Documentation Style</a></li>
+      </ul>
+    </div>]]></javadoc.modules>
+    <!-- SonarQube -->
+    <sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
+    <sonar.organization>ao-apps</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <!-- TODO: Implement tests -->
+    <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
+  </properties>
 
-	<name>SemanticCMS Theme Documentation²</name>
-	<url>https://semanticcms.com/theme-documentation/</url>
-	<description>SemanticCMS theme tailored for technical documentation.</description>
-	<inceptionYear>2013</inceptionYear>
+  <name>SemanticCMS Theme Documentation²</name>
+  <url>https://semanticcms.com/theme-documentation/</url>
+  <description>SemanticCMS theme tailored for technical documentation.</description>
+  <inceptionYear>2013</inceptionYear>
 
-	<licenses>
-		<license>
-			<name>GNU General Lesser Public License (LGPL) version 3.0</name>
-			<url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
+  <licenses>
+    <license>
+      <name>GNU General Lesser Public License (LGPL) version 3.0</name>
+      <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
-	<organization>
-		<name>AO Industries, Inc.</name>
-		<url>https://aoindustries.com/</url>
-	</organization>
+  <organization>
+    <name>AO Industries, Inc.</name>
+    <url>https://aoindustries.com/</url>
+  </organization>
 
-	<developers>
-		<developer>
-			<name>AO Industries, Inc.</name>
-			<email>support@aoindustries.com</email>
-			<url>https://aoindustries.com/</url>
-			<organization>AO Industries, Inc.</organization>
-			<organizationUrl>https://aoindustries.com/</organizationUrl>
-		</developer>
-	</developers>
+  <developers>
+    <developer>
+      <name>AO Industries, Inc.</name>
+      <email>support@aoindustries.com</email>
+      <url>https://aoindustries.com/</url>
+      <organization>AO Industries, Inc.</organization>
+      <organizationUrl>https://aoindustries.com/</organizationUrl>
+    </developer>
+  </developers>
 
-	<scm>
-		<connection>scm:git:git://github.com/ao-apps/semanticcms-theme-documentation.git</connection>
-		<developerConnection>scm:git:git@github.com:ao-apps/semanticcms-theme-documentation.git</developerConnection>
-		<url>https://github.com/ao-apps/semanticcms-theme-documentation</url>
-		<tag>HEAD</tag>
-	</scm>
+  <scm>
+    <connection>scm:git:git://github.com/ao-apps/semanticcms-theme-documentation.git</connection>
+    <developerConnection>scm:git:git@github.com:ao-apps/semanticcms-theme-documentation.git</developerConnection>
+    <url>https://github.com/ao-apps/semanticcms-theme-documentation</url>
+    <tag>HEAD</tag>
+  </scm>
 
-	<issueManagement>
-		<system>GitHub Issues</system>
-		<url>https://github.com/ao-apps/semanticcms-theme-documentation/issues</url>
-	</issueManagement>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/ao-apps/semanticcms-theme-documentation/issues</url>
+  </issueManagement>
 
-	<ciManagement>
-		<system>Jenkins</system>
-		<url>https://jenkins.aoindustries.com/job/ao/job/semanticcms/job/theme-documentation/</url>
-	</ciManagement>
-	<!-- Only one allowed in POM:
-	<ciManagement>
-		<system>GitHub Actions</system>
-		<url>https://github.com/ao-apps/semanticcms-theme-documentation/actions</url>
-	</ciManagement>
-	-->
+  <ciManagement>
+    <system>Jenkins</system>
+    <url>https://jenkins.aoindustries.com/job/ao/job/semanticcms/job/theme-documentation/</url>
+  </ciManagement>
+  <!-- Only one allowed in POM:
+  <ciManagement>
+    <system>GitHub Actions</system>
+    <url>https://github.com/ao-apps/semanticcms-theme-documentation/actions</url>
+  </ciManagement>
+  -->
 
-	<repositories>
-		<!-- Repository required here, too, so can find parent -->
-		<repository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-		</repository>
-	</repositories>
+  <repositories>
+    <!-- Repository required here, too, so can find parent -->
+    <repository>
+      <id>sonatype-nexus-snapshots</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </repository>
+  </repositories>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
-				<configuration>
-					<usedDependencies>
-						<!-- JSP Only -->
-						<dependency>com.aoapps:ao-taglib</dependency>
-						<dependency>com.aoapps:ao-web-resources-taglib</dependency>
-						<dependency>com.semanticcms:semanticcms-core-taglib</dependency>
-						<dependency>com.semanticcms:semanticcms-core-theme-base</dependency>
-						<dependency>com.semanticcms:semanticcms-file-taglib</dependency>
-						<dependency>org.apache.taglibs:taglibs-standard-spec</dependency>
-						<!-- Runtime Direct -->
-						<dependency>com.aoapps:ao-servlet-firewall-webjars</dependency>
-						<dependency>com.aoapps:ao-style</dependency>
-						<dependency>org.webjars.npm:jquery</dependency>
-						<dependency>com.semanticcms:semanticcms-openfile-servlet</dependency>
-						<dependency>com.semanticcms:semanticcms-pagegraph</dependency>
-						<dependency>org.apache.taglibs:taglibs-standard-impl</dependency>
-					</usedDependencies>
-					<ignoredDependencies>
-						<!-- No "module-info.java" in some release builds -->
-						<dependency>com.aoapps:ao-collections</dependency>
-						<dependency>com.aoapps:ao-encoding-taglib</dependency>
-					</ignoredDependencies>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-checkstyle-plugin</artifactId>
-				<configuration>
-					<!-- TODO: Clean-up Checkstyle -->
-					<failOnViolation>false</failOnViolation>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+        <configuration>
+          <usedDependencies>
+            <!-- JSP Only -->
+            <dependency>com.aoapps:ao-taglib</dependency>
+            <dependency>com.aoapps:ao-web-resources-taglib</dependency>
+            <dependency>com.semanticcms:semanticcms-core-taglib</dependency>
+            <dependency>com.semanticcms:semanticcms-core-theme-base</dependency>
+            <dependency>com.semanticcms:semanticcms-file-taglib</dependency>
+            <dependency>org.apache.taglibs:taglibs-standard-spec</dependency>
+            <!-- Runtime Direct -->
+            <dependency>com.aoapps:ao-servlet-firewall-webjars</dependency>
+            <dependency>com.aoapps:ao-style</dependency>
+            <dependency>org.webjars.npm:jquery</dependency>
+            <dependency>com.semanticcms:semanticcms-openfile-servlet</dependency>
+            <dependency>com.semanticcms:semanticcms-pagegraph</dependency>
+            <dependency>org.apache.taglibs:taglibs-standard-impl</dependency>
+          </usedDependencies>
+          <ignoredDependencies>
+            <!-- No "module-info.java" in some release builds -->
+            <dependency>com.aoapps:ao-collections</dependency>
+            <dependency>com.aoapps:ao-encoding-taglib</dependency>
+          </ignoredDependencies>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <!-- TODO: Clean-up Checkstyle -->
+          <failOnViolation>false</failOnViolation>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
-	<profiles>
-		<profile>
-			<id>offlineLinks</id><activation><file><exists>src/main/java</exists></file></activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>unpack.offlineLinks</id><phase>prepare-package</phase><goals><goal>unpack</goal></goals>
-								<configuration>
-									<artifactItems>
-										<!-- Direct -->
-										<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier> -->
-										<artifactItem>
-											<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</outputDirectory>
-										</artifactItem>
-										<artifactItem>
-											<groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-net-path-space</outputDirectory>
-										</artifactItem>
-										<artifactItem>
-											<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</outputDirectory>
-										</artifactItem>
-										<artifactItem>
-											<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-api</outputDirectory>
-										</artifactItem>
-										<artifactItem>
-											<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-path-space</outputDirectory>
-										</artifactItem>
-										<artifactItem>
-											<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-rules</outputDirectory>
-										</artifactItem>
-										<artifactItem>
-											<groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</outputDirectory>
-										</artifactItem>
-										<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier> -->
-										<artifactItem>
-											<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-web-resources-registry</outputDirectory>
-										</artifactItem>
-										<artifactItem>
-											<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-web-resources-servlet</outputDirectory>
-										</artifactItem>
-										<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier> -->
-										<!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
-										<!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><classifier>javadoc</classifier> -->
-										<artifactItem>
-											<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-model</outputDirectory>
-										</artifactItem>
-										<artifactItem>
-											<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-renderer-html</outputDirectory>
-										</artifactItem>
-										<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><classifier>javadoc</classifier> -->
-										<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><classifier>javadoc</classifier> -->
-										<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><classifier>javadoc</classifier> -->
-										<artifactItem>
-											<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><classifier>javadoc</classifier>
-											<includes>element-list, package-list</includes>
-											<outputDirectory>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-theme-documentation-style</outputDirectory>
-										</artifactItem>
-										<!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId><classifier>javadoc</classifier> -->
-									</artifactItems>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-javadoc-plugin</artifactId>
-						<configuration>
-							<offlineLinks combine.children="append">
-								<!-- Direct -->
-								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier> -->
-								<offlineLink>
-									<url>https://oss.aoapps.com/lang/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</location>
-								</offlineLink>
-								<offlineLink>
-									<url>https://oss.aoapps.com/net-path-space/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-net-path-space</location>
-								</offlineLink>
-								<offlineLink>
-									<url>https://oss.aoapps.com/net-types/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</location>
-								</offlineLink>
-								<offlineLink>
-									<url>https://oss.aoapps.com/servlet-firewall/api/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-api</location>
-								</offlineLink>
-								<offlineLink>
-									<url>https://oss.aoapps.com/servlet-firewall/path-space/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-path-space</location>
-								</offlineLink>
-								<offlineLink>
-									<url>https://oss.aoapps.com/servlet-firewall/rules/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-rules</location>
-								</offlineLink>
-								<offlineLink>
-									<url>https://oss.aoapps.com/servlet-util/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</location>
-								</offlineLink>
-								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier> -->
-								<offlineLink>
-									<url>https://oss.aoapps.com/web-resources/registry/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-web-resources-registry</location>
-								</offlineLink>
-								<offlineLink>
-									<url>https://oss.aoapps.com/web-resources/servlet/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-web-resources-servlet</location>
-								</offlineLink>
-								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier> -->
-								<!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
-								<!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><classifier>javadoc</classifier> -->
-								<offlineLink>
-									<url>https://semanticcms.com/core/model/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-model</location>
-								</offlineLink>
-								<offlineLink>
-									<url>https://semanticcms.com/core/renderer/html/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-renderer-html</location>
-								</offlineLink>
-								<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><classifier>javadoc</classifier> -->
-								<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><classifier>javadoc</classifier> -->
-								<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><classifier>javadoc</classifier> -->
-								<offlineLink>
-									<url>https://semanticcms.com/theme-documentation/style/apidocs/</url>
-									<location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-theme-documentation-style</location>
-								</offlineLink>
-								<!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId><classifier>javadoc</classifier> -->
-							</offlineLinks>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>release</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.felix</groupId><artifactId>maven-bundle-plugin</artifactId>
-						<configuration>
-							<instructions>
-								<!--
-									Releases use "Automatic-Module-Name" instead of "module-info.java"
-									since has direct dependencies that are not yet modularized.
-								-->
-								<Automatic-Module-Name>${module.name}</Automatic-Module-Name>
-								<Private-Package>!.</Private-Package>
-							</instructions>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+  <profiles>
+    <profile>
+      <id>offlineLinks</id><activation><file><exists>src/main/java</exists></file></activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>unpack.offlineLinks</id><phase>prepare-package</phase><goals><goal>unpack</goal></goals>
+                <configuration>
+                  <artifactItems>
+                    <!-- Direct -->
+                    <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier> -->
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</outputDirectory>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-net-path-space</outputDirectory>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</outputDirectory>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-api</outputDirectory>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-path-space</outputDirectory>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-rules</outputDirectory>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</outputDirectory>
+                    </artifactItem>
+                    <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier> -->
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-web-resources-registry</outputDirectory>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-web-resources-servlet</outputDirectory>
+                    </artifactItem>
+                    <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier> -->
+                    <!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
+                    <!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><classifier>javadoc</classifier> -->
+                    <artifactItem>
+                      <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-model</outputDirectory>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-renderer-html</outputDirectory>
+                    </artifactItem>
+                    <!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><classifier>javadoc</classifier> -->
+                    <!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><classifier>javadoc</classifier> -->
+                    <!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><classifier>javadoc</classifier> -->
+                    <artifactItem>
+                      <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-theme-documentation-style</outputDirectory>
+                    </artifactItem>
+                    <!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId><classifier>javadoc</classifier> -->
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId><artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+              <offlineLinks combine.children="append">
+                <!-- Direct -->
+                <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier> -->
+                <offlineLink>
+                  <url>https://oss.aoapps.com/lang/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</location>
+                </offlineLink>
+                <offlineLink>
+                  <url>https://oss.aoapps.com/net-path-space/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-net-path-space</location>
+                </offlineLink>
+                <offlineLink>
+                  <url>https://oss.aoapps.com/net-types/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</location>
+                </offlineLink>
+                <offlineLink>
+                  <url>https://oss.aoapps.com/servlet-firewall/api/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-api</location>
+                </offlineLink>
+                <offlineLink>
+                  <url>https://oss.aoapps.com/servlet-firewall/path-space/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-path-space</location>
+                </offlineLink>
+                <offlineLink>
+                  <url>https://oss.aoapps.com/servlet-firewall/rules/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-firewall-rules</location>
+                </offlineLink>
+                <offlineLink>
+                  <url>https://oss.aoapps.com/servlet-util/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</location>
+                </offlineLink>
+                <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier> -->
+                <offlineLink>
+                  <url>https://oss.aoapps.com/web-resources/registry/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-web-resources-registry</location>
+                </offlineLink>
+                <offlineLink>
+                  <url>https://oss.aoapps.com/web-resources/servlet/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-web-resources-servlet</location>
+                </offlineLink>
+                <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier> -->
+                <!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
+                <!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><classifier>javadoc</classifier> -->
+                <offlineLink>
+                  <url>https://semanticcms.com/core/model/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-model</location>
+                </offlineLink>
+                <offlineLink>
+                  <url>https://semanticcms.com/core/renderer/html/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-renderer-html</location>
+                </offlineLink>
+                <!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><classifier>javadoc</classifier> -->
+                <!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><classifier>javadoc</classifier> -->
+                <!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><classifier>javadoc</classifier> -->
+                <offlineLink>
+                  <url>https://semanticcms.com/theme-documentation/style/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-theme-documentation-style</location>
+                </offlineLink>
+                <!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId><classifier>javadoc</classifier> -->
+              </offlineLinks>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.felix</groupId><artifactId>maven-bundle-plugin</artifactId>
+            <configuration>
+              <instructions>
+                <!--
+                  Releases use "Automatic-Module-Name" instead of "module-info.java"
+                  since has direct dependencies that are not yet modularized.
+                -->
+                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+                <Private-Package>!.</Private-Package>
+              </instructions>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
-	<dependencyManagement>
-		<dependencies>
-			<!-- Direct -->
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><version>4.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><version>0.1.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>0.2.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>5.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><version>7.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<!-- javaee-web-api-bom: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
-			<!-- javaee-web-api-bom: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
-			<!-- Transitive -->
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>4.0.2${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><version>7.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>4.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>5.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>4.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>3.0.2${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><version>3.12.0</version>
-			</dependency>
-			<!-- javaee-web-api-bom: <groupId>javax.el</groupId><artifactId>javax.el-api</artifactId> -->
-			<dependency>
-				<groupId>joda-time</groupId><artifactId>joda-time</artifactId><version>2.10.14</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-controller</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-pages</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-pages-local</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-servlet</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-resources</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-model</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-renderer-html</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<!-- Runtime Direct -->
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId><version>3.6.0</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId> -->
-			<!-- Runtime Transitive -->
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>7.4.4</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>dagre</artifactId><version>0.8.5</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>dagre-d3</artifactId><version>0.6.4</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>graphlib</artifactId><version>2.1.8</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>lodash</artifactId><version>4.17.21</version>
-			</dependency>
-			<!-- BOM -->
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.1${POST-SNAPSHOT}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+  <dependencyManagement>
+    <dependencies>
+      <!-- Direct -->
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><version>4.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><version>0.1.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>0.2.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>5.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><version>7.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <!-- javaee-web-api-bom: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
+      <!-- javaee-web-api-bom: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
+      <!-- Transitive -->
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>4.0.2${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><version>7.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>4.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>5.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>4.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>3.0.2${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><version>3.12.0</version>
+      </dependency>
+      <!-- javaee-web-api-bom: <groupId>javax.el</groupId><artifactId>javax.el-api</artifactId> -->
+      <dependency>
+        <groupId>joda-time</groupId><artifactId>joda-time</artifactId><version>2.10.14</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-controller</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-pages</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-pages-local</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-servlet</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-resources</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-model</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-renderer-html</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <!-- Runtime Direct -->
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId><version>3.6.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId> -->
+      <!-- Runtime Transitive -->
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>7.4.4</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>dagre</artifactId><version>0.8.5</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>dagre-d3</artifactId><version>0.6.4</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>graphlib</artifactId><version>2.1.8</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>lodash</artifactId><version>4.17.21</version>
+      </dependency>
+      <!-- BOM -->
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.1${POST-SNAPSHOT}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-	<dependencies>
-		<!-- Direct -->
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId>
-		</dependency>
-		<dependency>
-			<!-- TODO: Remove this dependency once "Edit" is its own view -->
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId>
-		</dependency>
-		<!-- Runtime Direct -->
-		<dependency>
-			<!-- Open servlet firewall for /webjars/*** -->
-			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-style</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional><!-- TODO: Once central "devMode" defined, remove this optional dependency -->
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-	</dependencies>
+  <dependencies>
+    <!-- Direct -->
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId>
+    </dependency>
+    <dependency>
+      <!-- TODO: Remove this dependency once "Edit" is its own view -->
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId>
+    </dependency>
+    <!-- Runtime Direct -->
+    <dependency>
+      <!-- Open servlet firewall for /webjars/*** -->
+      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional><!-- TODO: Once central "devMode" defined, remove this optional dependency -->
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
 </project>
