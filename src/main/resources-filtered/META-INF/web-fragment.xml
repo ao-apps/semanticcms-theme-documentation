@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2016, 2018, 2019, 2020, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2016, 2018, 2019, 2020, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-theme-documentation.
 
@@ -27,37 +27,37 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
                       http://xmlns.jcp.org/xml/ns/javaee/web-fragment_3_1.xsd"
   version="3.1"
   metadata-complete="false">
-	<name>@{project.groupId}:@{project.artifactId}</name>
-	<!-- <display-name>@{project.name} @{project.version}</display-name> -->
-	<description>@{project.description}</description>
+  <name>@{project.groupId}:@{project.artifactId}</name>
+  <!-- <display-name>@{project.name} @{project.version}</display-name> -->
+  <description>@{project.description}</description>
 
-	<!-- Error Pages -->
-	<error-page>
-		<error-code>401</error-code>
-		<location>/semanticcms-theme-documentation/error-pages/401.inc.jspx</location>
-	</error-page>
-	<error-page>
-		<error-code>403</error-code>
-		<location>/semanticcms-theme-documentation/error-pages/403.inc.jspx</location>
-	</error-page>
-	<error-page>
-		<exception-type>java.lang.SecurityException</exception-type>
-		<location>/semanticcms-theme-documentation/error-pages/403.inc.jspx</location>
-	</error-page>
-	<error-page>
-		<error-code>404</error-code>
-		<location>/semanticcms-theme-documentation/error-pages/404.inc.jspx</location>
-	</error-page>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/semanticcms-theme-documentation/error-pages/500.inc.jspx</location>
-	</error-page>
-	<error-page>
-		<error-code>503</error-code>
-		<location>/semanticcms-theme-documentation/error-pages/503.inc.jspx</location>
-	</error-page>
-	<error-page>
-		<location>/semanticcms-theme-documentation/error-pages/other.inc.jspx</location>
-	</error-page>
+  <!-- Error Pages -->
+  <error-page>
+    <error-code>401</error-code>
+    <location>/semanticcms-theme-documentation/error-pages/401.inc.jspx</location>
+  </error-page>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/semanticcms-theme-documentation/error-pages/403.inc.jspx</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.SecurityException</exception-type>
+    <location>/semanticcms-theme-documentation/error-pages/403.inc.jspx</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/semanticcms-theme-documentation/error-pages/404.inc.jspx</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/semanticcms-theme-documentation/error-pages/500.inc.jspx</location>
+  </error-page>
+  <error-page>
+    <error-code>503</error-code>
+    <location>/semanticcms-theme-documentation/error-pages/503.inc.jspx</location>
+  </error-page>
+  <error-page>
+    <location>/semanticcms-theme-documentation/error-pages/other.inc.jspx</location>
+  </error-page>
 
 </web-fragment>

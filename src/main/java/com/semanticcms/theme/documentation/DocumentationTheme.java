@@ -51,103 +51,103 @@ import javax.servlet.jsp.SkipPageException;
  */
 public final class DocumentationTheme extends Theme {
 
-	private static final String NAME = "semanticcms-theme-documentation";
+  private static final String NAME = "semanticcms-theme-documentation";
 
-	private static final String PREFIX = "/" + NAME;
+  private static final String PREFIX = "/" + NAME;
 
-	private static final String THEME_JSPX      = PREFIX + "/theme.inc.jspx";
-	private static final String FRAMESET_JSPX   = PREFIX + "/frameset.inc.jspx";
-	private static final String NAVIGATION_JSPX = PREFIX + "/navigation.inc.jspx";
+  private static final String THEME_JSPX      = PREFIX + "/theme.inc.jspx";
+  private static final String FRAMESET_JSPX   = PREFIX + "/frameset.inc.jspx";
+  private static final String NAVIGATION_JSPX = PREFIX + "/navigation.inc.jspx";
 
-	// TODO: Version from filtered .xml with maven properties
-	private static final String YUI_VERSION = "2.9.0";
-	private static final String YUI_PREFIX = PREFIX + "/jslib/yui-" + YUI_VERSION;
+  // TODO: Version from filtered .xml with maven properties
+  private static final String YUI_VERSION = "2.9.0";
+  private static final String YUI_PREFIX = PREFIX + "/jslib/yui-" + YUI_VERSION;
 
-	/**
-	 * The name of the {@link Group} of web resources for YUI.
-	 */
-	public static final Group.Name YUI_GROUP = new Group.Name(NAME + "/yui-" + YUI_VERSION);
+  /**
+   * The name of the {@link Group} of web resources for YUI.
+   */
+  public static final Group.Name YUI_GROUP = new Group.Name(NAME + "/yui-" + YUI_VERSION);
 
-	public static final Style YUI_TREEVIEW = new Style(YUI_PREFIX + "/build/treeview/assets/skins/sam/treeview.css");
-	// public static final Style YUI_CALENDAR = new Style(YUI_PREFIX + "/build/calendar/assets/skins/sam/calendar.css");//
-	public static final Style YUI_TREE     = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
+  public static final Style YUI_TREEVIEW = new Style(YUI_PREFIX + "/build/treeview/assets/skins/sam/treeview.css");
+  // public static final Style YUI_CALENDAR = new Style(YUI_PREFIX + "/build/calendar/assets/skins/sam/calendar.css");//
+  public static final Style YUI_TREE     = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
 
-	@WebListener("Registers the \"" + NAME + "\" theme and required scripts in RegistryEE and SemanticCMS.")
-	public static class Initializer implements ServletContextListener {
+  @WebListener("Registers the \"" + NAME + "\" theme and required scripts in RegistryEE and SemanticCMS.")
+  public static class Initializer implements ServletContextListener {
 
-		@Override
-		public void contextInitialized(ServletContextEvent event) {
-			ServletContext servletContext = event.getServletContext();
+    @Override
+    public void contextInitialized(ServletContextEvent event) {
+      ServletContext servletContext = event.getServletContext();
 
-			Registry registry = RegistryEE.Application.get(servletContext);
+      Registry registry = RegistryEE.Application.get(servletContext);
 
-			registry.getGroup(YUI_GROUP).styles
-				.add(
-					YUI_TREEVIEW,
-					// YUI_CALENDAR,
-					YUI_TREE
-				)
-				// treeview -> calendar -> tree
-				.addOrdering(
-					YUI_TREEVIEW,
-					// YUI_CALENDAR,
-					YUI_TREE
-				);
+      registry.getGroup(YUI_GROUP).styles
+        .add(
+          YUI_TREEVIEW,
+          // YUI_CALENDAR,
+          YUI_TREE
+        )
+        // treeview -> calendar -> tree
+        .addOrdering(
+          YUI_TREEVIEW,
+          // YUI_CALENDAR,
+          YUI_TREE
+        );
 
-			registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles
-				// tree -> navigation
-				.addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
+      registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles
+        // tree -> navigation
+        .addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
 
-			SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
-			// TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
-			semanticCMS.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/dist/jquery.min.js");
-			semanticCMS.addTheme(new DocumentationTheme());
-		}
+      SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
+      // TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
+      semanticCMS.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/dist/jquery.min.js");
+      semanticCMS.addTheme(new DocumentationTheme());
+    }
 
-		@Override
-		public void contextDestroyed(ServletContextEvent event) {
-			// Do nothing
-		}
-	}
+    @Override
+    public void contextDestroyed(ServletContextEvent event) {
+      // Do nothing
+    }
+  }
 
-	private DocumentationTheme() {
-		// Do nothing
-	}
+  private DocumentationTheme() {
+    // Do nothing
+  }
 
-	@Override
-	public String getDisplay() {
-		return "SemanticCMS Documentation";
-	}
+  @Override
+  public String getDisplay() {
+    return "SemanticCMS Documentation";
+  }
 
-	@Override
-	public String getName() {
-		return NAME;
-	}
+  @Override
+  public String getName() {
+    return NAME;
+  }
 
-	@Override
-	public void doTheme(
-		ServletContext servletContext,
-		HttpServletRequest request,
-		HttpServletResponse response,
-		View view,
-		Page page
-	) throws ServletException, IOException, SkipPageException {
-		Map<String, Object> args = new LinkedHashMap<>();
-		args.put("page", page);
+  @Override
+  public void doTheme(
+    ServletContext servletContext,
+    HttpServletRequest request,
+    HttpServletResponse response,
+    View view,
+    Page page
+  ) throws ServletException, IOException, SkipPageException {
+    Map<String, Object> args = new LinkedHashMap<>();
+    args.put("page", page);
 
-		String target;
-		if(Boolean.parseBoolean(request.getParameter("frames"))) {
-			// Dispatch to frameset
-			target = FRAMESET_JSPX;
-		} else if(Boolean.parseBoolean(request.getParameter("navigation"))) {
-			// Dispatch to navigation
-			target = NAVIGATION_JSPX;
-		} else {
-			// Dispatch to theme with view
-			target = THEME_JSPX;
-			args.put("view", view);
-		}
+    String target;
+    if (Boolean.parseBoolean(request.getParameter("frames"))) {
+      // Dispatch to frameset
+      target = FRAMESET_JSPX;
+    } else if (Boolean.parseBoolean(request.getParameter("navigation"))) {
+      // Dispatch to navigation
+      target = NAVIGATION_JSPX;
+    } else {
+      // Dispatch to theme with view
+      target = THEME_JSPX;
+      args.put("view", view);
+    }
 
-		Dispatcher.forward(servletContext, target, request, response, args);
-	}
+    Dispatcher.forward(servletContext, target, request, response, args);
+  }
 }

@@ -22,347 +22,347 @@ You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <jsp:root
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:changelog="https://semanticcms.com/changelog/taglib/"
-	xmlns:core="https://semanticcms.com/core/taglib/"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	version="2.1"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:changelog="https://semanticcms.com/changelog/taglib/"
+  xmlns:core="https://semanticcms.com/core/taglib/"
+  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<core:page
-		title="@{documented.name} Changelog"
-		shortTitle="Changelog"
-		tocLevels="1"
-		datePublished="2016-10-31T02:51:43-05:00"
-		dateModified="2022-02-16T20:30:04-06:00"
-	>
-		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
-			<changelog:release
-				projectName="@{documented.name}"
-				version="@{project.version}"
-				groupId="@{project.groupId}"
-				artifactId="@{documented.artifactId}"
-				repository="@{nexusUrl}content/repositories/snapshots/"
-				scmUrl="@{project.scm.url}"
-			/>
-		</c:if>
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <core:page
+    title="@{documented.name} Changelog"
+    shortTitle="Changelog"
+    tocLevels="1"
+    datePublished="2016-10-31T02:51:43-05:00"
+    dateModified="2022-02-16T20:30:04-06:00"
+  >
+    <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
+      <changelog:release
+        projectName="@{documented.name}"
+        version="@{project.version}"
+        groupId="@{project.groupId}"
+        artifactId="@{documented.artifactId}"
+        repository="@{nexusUrl}content/repositories/snapshots/"
+        scmUrl="@{project.scm.url}"
+      />
+    </c:if>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.12.1"
-			datePublished="2022-02-16T20:30:04-06:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Added 401, 403, and catch-all error handlers.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.12.1"
+      datePublished="2022-02-16T20:30:04-06:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Added 401, 403, and catch-all error handlers.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.12.0"
-			datePublished="2021-07-19T05:17:25-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Updated to <ao:a rel="nofollow" href="https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html#javaee7">Java™ EE 7 Web Profile</ao:a> (Servlet 3.1, JSP 2.3, EL 3.0, and JSTL 1.2).</li>
-				<li>Minimum Java version changed from 1.8 to 11.</li>
-				<li>
-					Now supports Java 9+ modules.  Due to still having filename-based automatic module dependencies,
-					*-SNAPSHOT versions include <code>module-info.class</code> while releases include the
-					<code>Automatic-Module-Name</code> manifest entry.  To minimize the difference between these
-					modes, <code>module-info.java</code> does not perform any transitive requires.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.12.0"
+      datePublished="2021-07-19T05:17:25-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Updated to <ao:a rel="nofollow" href="https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html#javaee7">Java™ EE 7 Web Profile</ao:a> (Servlet 3.1, JSP 2.3, EL 3.0, and JSTL 1.2).</li>
+        <li>Minimum Java version changed from 1.8 to 11.</li>
+        <li>
+          Now supports Java 9+ modules.  Due to still having filename-based automatic module dependencies,
+          *-SNAPSHOT versions include <code>module-info.class</code> while releases include the
+          <code>Automatic-Module-Name</code> manifest entry.  To minimize the difference between these
+          modes, <code>module-info.java</code> does not perform any transitive requires.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.11.0"
-			datePublished="2020-11-27T21:56:25-06:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Now URI-encoding dependency versions obtained at runtime.</li>
-				<li>
-					<p>
-						Switched to <ao:a href="https://www.npmjs.com/">NPM</ao:a>-based <ao:a href="https://www.webjars.org/">WebJars</ao:a>
-						in groupId <code><ao:a href="https://search.maven.org/search?q=g:org.webjars.npm">org.webjars.npm</ao:a></code>,
-						where possible.  The NPM WebJars seem more up-to-date and actively supported than Classic WebJars.
-					</p>
-					<p>
-						Furthermore, <ao:a href="https://snyk.io/blog/bower-is-dead/">Bower has been deprecated</ao:a>,
-						so we are reluctant to use either "Bower GitHub" or "Bower Original" WebJars.
-					</p>
-				</li>
-				<li>Updated dependencies.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.11.0"
+      datePublished="2020-11-27T21:56:25-06:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Now URI-encoding dependency versions obtained at runtime.</li>
+        <li>
+          <p>
+            Switched to <ao:a href="https://www.npmjs.com/">NPM</ao:a>-based <ao:a href="https://www.webjars.org/">WebJars</ao:a>
+            in groupId <code><ao:a href="https://search.maven.org/search?q=g:org.webjars.npm">org.webjars.npm</ao:a></code>,
+            where possible.  The NPM WebJars seem more up-to-date and actively supported than Classic WebJars.
+          </p>
+          <p>
+            Furthermore, <ao:a href="https://snyk.io/blog/bower-is-dead/">Bower has been deprecated</ao:a>,
+            so we are reluctant to use either "Bower GitHub" or "Bower Original" WebJars.
+          </p>
+        </li>
+        <li>Updated dependencies.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.10.0"
-			datePublished="2020-04-28T04:10:37-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					Now reading deployed version of <code>org.webjars:jquery</code> from
-					<code>pom.properties</code> instead of assuming the version
-					at build time is also used at runtime.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.10.0"
+      datePublished="2020-04-28T04:10:37-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          Now reading deployed version of <code>org.webjars:jquery</code> from
+          <code>pom.properties</code> instead of assuming the version
+          at build time is also used at runtime.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.9.0"
-			datePublished="2020-03-29T01:07:52-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Minimum Java version changed from 1.7 to 1.8.</li>
-				<li>
-					Reduced use of property substitutions in <code>pom.xml</code>.
-					This is to help 3rd-party parsers that fail to perform full Maven-compatible substitutions.
-				</li>
-				<li>Fixed bug in <code>error.inc.jsp</code> that didn't pass <code>contentRoot</code> correctly.</li>
-				<li>Optimized ServletContext attribute initialization and concurrency.</li>
-				<li>Integrated with <ao:a href="https://oss.aoapps.com/web-resources/">AO Web Resources</ao:a>.</li>
-				<li>No more <code>html5shiv</code>: IE 8 is long end-of-life.</li>
-				<li>No more <code>html5.css</code>: we don't care about super ancient browsers.</li>
-				<li>Swapped dependency order with <core:link book="/theme-documentation/style" page="/index.jspx" />.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.9.0"
+      datePublished="2020-03-29T01:07:52-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Minimum Java version changed from 1.7 to 1.8.</li>
+        <li>
+          Reduced use of property substitutions in <code>pom.xml</code>.
+          This is to help 3rd-party parsers that fail to perform full Maven-compatible substitutions.
+        </li>
+        <li>Fixed bug in <code>error.inc.jsp</code> that didn't pass <code>contentRoot</code> correctly.</li>
+        <li>Optimized ServletContext attribute initialization and concurrency.</li>
+        <li>Integrated with <ao:a href="https://oss.aoapps.com/web-resources/">AO Web Resources</ao:a>.</li>
+        <li>No more <code>html5shiv</code>: IE 8 is long end-of-life.</li>
+        <li>No more <code>html5.css</code>: we don't care about super ancient browsers.</li>
+        <li>Swapped dependency order with <core:link book="/theme-documentation/style" page="/index.jspx" />.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.8.0"
-			datePublished="2019-10-12T01:00:20-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>
-					<code><core:link book="/core/taglib" page="/semanticcms-core.tld/function-encodeUrlParam" /></code> is deprecated - using
-					<code><ao:a href="https://oss.aoapps.com/taglib/ao.tld/function-encodeURIComponent">\${ao:encodeURIComponent()}</ao:a></code> instead.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.8.0"
+      datePublished="2019-10-12T01:00:20-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>
+          <code><core:link book="/core/taglib" page="/semanticcms-core.tld/function-encodeUrlParam" /></code> is deprecated - using
+          <code><ao:a href="https://oss.aoapps.com/taglib/ao.tld/function-encodeURIComponent">\${ao:encodeURIComponent()}</ao:a></code> instead.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.7.0"
-			datePublished="2019-06-22T05:45:18-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Minimum Java version changed from 1.6 to 1.7.</li>
-				<li>Using managed dependencies:
-					<ol>
-						<li>This project uses managed dependencies.</li>
-						<li>This project's managed dependencies may also be imported by other projects.</li>
-					</ol>
-				</li>
-				<li>Now supporting media="print" stylesheets.</li>
-				<li>
-					Using jQuery in <ao:a href="https://api.jquery.com/jquery.noconflict/">jQuery.noConflict()</ao:a> mode.
-					This should minimize potential interference from unrelated JS libraries.
-				</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.7.0"
+      datePublished="2019-06-22T05:45:18-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Minimum Java version changed from 1.6 to 1.7.</li>
+        <li>Using managed dependencies:
+          <ol>
+            <li>This project uses managed dependencies.</li>
+            <li>This project's managed dependencies may also be imported by other projects.</li>
+          </ol>
+        </li>
+        <li>Now supporting media="print" stylesheets.</li>
+        <li>
+          Using jQuery in <ao:a href="https://api.jquery.com/jquery.noconflict/">jQuery.noConflict()</ao:a> mode.
+          This should minimize potential interference from unrelated JS libraries.
+        </li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.6.2"
-			datePublished="2017-07-20T14:37:18-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>New release for bug fixes in underlying <ao:a href="https://oss.aoapps.com/encoding/">AO Encoding</ao:a> library.</li>
-				<li>Updated dependencies.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.6.2"
+      datePublished="2017-07-20T14:37:18-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>New release for bug fixes in underlying <ao:a href="https://oss.aoapps.com/encoding/">AO Encoding</ao:a> library.</li>
+        <li>Updated dependencies.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.6.1"
-			datePublished="2016-11-16T06:56:44-06:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Added googleoff / googleon around the frames links.</li>
-				<li>New <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a> POM to simplify <code>pom.xml</code> files.</li>
-				<li>Project documentation moved to per-project book in <core:link book="/" page="/index.jspx" /> format.</li>
-				<li>Added changelog as top-level project link.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.6.1"
+      datePublished="2016-11-16T06:56:44-06:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Added googleoff / googleon around the frames links.</li>
+        <li>New <ao:a href="https://oss.aoapps.com/parent/">AO OSS Parent</ao:a> POM to simplify <code>pom.xml</code> files.</li>
+        <li>Project documentation moved to per-project book in <core:link book="/" page="/index.jspx" /> format.</li>
+        <li>Added changelog as top-level project link.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.6.0"
-			datePublished="2016-10-20T19:36:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Improved Javadoc formatting.</li>
-				<li>Improved README formatting.</li>
-				<li>Theme style is now considered a submodule of theme.</li>
-				<li>Only showing Edit link when local editing is allowed.</li>
-				<li>Added component registry.</li>
-				<li>Skipping pageHeader h1 when no pageHeader set.</li>
-				<li>Including Google Analytics in error pages, too.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.6.0"
+      datePublished="2016-10-20T19:36:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Improved Javadoc formatting.</li>
+        <li>Improved README formatting.</li>
+        <li>Theme style is now considered a submodule of theme.</li>
+        <li>Only showing Edit link when local editing is allowed.</li>
+        <li>Added component registry.</li>
+        <li>Skipping pageHeader h1 when no pageHeader set.</li>
+        <li>Including Google Analytics in error pages, too.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.5.1"
-			datePublished="2016-10-11T20:52:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>display-name defined in web-fragment.xml was causing "The display name was defined in multiple fragments with different value"</li>
-				<li>Using latest releases of dependencies.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.5.1"
+      datePublished="2016-10-11T20:52:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>display-name defined in web-fragment.xml was causing "The display name was defined in multiple fragments with different value"</li>
+        <li>Using latest releases of dependencies.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.5.0"
-			datePublished="2016-10-04T23:12:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Improved Javadoc formatting.</li>
-				<li>Core taglib now supports deferred expressions.</li>
-				<li>book and path now support deferred expressions.</li>
-				<li>Using ao:choose, ao:when, and ao:otherwise implementations for deferred expressions.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.5.0"
+      datePublished="2016-10-04T23:12:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Improved Javadoc formatting.</li>
+        <li>Core taglib now supports deferred expressions.</li>
+        <li>book and path now support deferred expressions.</li>
+        <li>Using ao:choose, ao:when, and ao:otherwise implementations for deferred expressions.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.4"
-			datePublished="2016-09-11T17:26:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Use dependencyManagement instead of dependency for junit.</li>
-				<li>Created base theme to simplify development of additional themes.</li>
-				<li>Now supporting per-page allowRobots setting.</li>
-				<li>Avoiding self-closing tag in jspx.</li>
-				<li>Views now provide general purpose links, not just specifically CSS links.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.4"
+      datePublished="2016-09-11T17:26:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Use dependencyManagement instead of dependency for junit.</li>
+        <li>Created base theme to simplify development of additional themes.</li>
+        <li>Now supporting per-page allowRobots setting.</li>
+        <li>Avoiding self-closing tag in jspx.</li>
+        <li>Views now provide general purpose links, not just specifically CSS links.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.3"
-			datePublished="2016-09-03T11:11:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Improved Maven configuration for Java EE 6 dependencies.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.3"
+      datePublished="2016-09-03T11:11:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Improved Maven configuration for Java EE 6 dependencies.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.2"
-			datePublished="2016-08-28T20:57:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Fixed package name to moved file.</li>
-				<li>Fixed error page finding dev mode.</li>
-				<li>Added headInclude registry.</li>
-				<li>Removed unnecessary "included" check.</li>
-				<li>
-					Using <ao:a rel="nofollow" href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a> function
-					<core:link book="/core/taglib" page="/semanticcms-core.tld/function-isExporting" />
-					instead of direct access to header.
-				</li>
-				<li>Moved automatic Git to separate packages.</li>
-				<li>Added global and per-view script registry.</li>
-				<li>Views may now use parameters.</li>
-				<li>Moved page graph to own package.</li>
-				<li>Moved page styles from docs-taglib to theme.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.2"
+      datePublished="2016-08-28T20:57:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Fixed package name to moved file.</li>
+        <li>Fixed error page finding dev mode.</li>
+        <li>Added headInclude registry.</li>
+        <li>Removed unnecessary "included" check.</li>
+        <li>
+          Using <ao:a rel="nofollow" href="https://docs.oracle.com/cd/E19226-01/820-7627/gjddd/">Expression Language</ao:a> function
+          <core:link book="/core/taglib" page="/semanticcms-core.tld/function-isExporting" />
+          instead of direct access to header.
+        </li>
+        <li>Moved automatic Git to separate packages.</li>
+        <li>Added global and per-view script registry.</li>
+        <li>Views may now use parameters.</li>
+        <li>Moved page graph to own package.</li>
+        <li>Moved page styles from docs-taglib to theme.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.1"
-			datePublished="2016-08-21T18:33:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Implementation-specific book attributes changed to parameters.</li>
-				<li>Created parent pom for all SemanticCMS components.</li>
-			</ul>
-		</changelog:release>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.1"
+      datePublished="2016-08-21T18:33:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Implementation-specific book attributes changed to parameters.</li>
+        <li>Created parent pom for all SemanticCMS components.</li>
+      </ul>
+    </changelog:release>
 
-		<changelog:release
-			projectName="@{documented.name}"
-			version="1.0"
-			datePublished="2016-08-19T16:47:00-05:00"
-			groupId="@{project.groupId}"
-			artifactId="@{documented.artifactId}"
-			scmUrl="@{project.scm.url}"
-		>
-			<ul>
-				<li>Project moved to GitHub and Maven.</li>
-				<li>May now exclude robots from specific views.</li>
-				<li>Moved frameset implementation into theme.</li>
-				<li>Renaming JavaScript objects to avoid likely name conflicts.</li>
-				<li>Added YUI dependency for frameset tree.</li>
-				<li>Using jQuery from WebJars.</li>
-				<li>Using Dagre D3 from WebJars.</li>
-				<li>Using D3 from WebJars.</li>
-				<li>Error pages moved to theme.</li>
-				<li>Using HTML5Shiv from WebJars.</li>
-				<li>Teach old browsers how to style CSS.</li>
-				<li>Moving more scripts into theme where belong.</li>
-				<li>Navigation based on centrally registered views more.</li>
-				<li>Added required CSS files and images, making sure all images licensed correctly in the process.</li>
-				<li>CSS links may now be registered for global use.</li>
-				<li>Default style moved to separate package.</li>
-			</ul>
-		</changelog:release>
-	</core:page>
+    <changelog:release
+      projectName="@{documented.name}"
+      version="1.0"
+      datePublished="2016-08-19T16:47:00-05:00"
+      groupId="@{project.groupId}"
+      artifactId="@{documented.artifactId}"
+      scmUrl="@{project.scm.url}"
+    >
+      <ul>
+        <li>Project moved to GitHub and Maven.</li>
+        <li>May now exclude robots from specific views.</li>
+        <li>Moved frameset implementation into theme.</li>
+        <li>Renaming JavaScript objects to avoid likely name conflicts.</li>
+        <li>Added YUI dependency for frameset tree.</li>
+        <li>Using jQuery from WebJars.</li>
+        <li>Using Dagre D3 from WebJars.</li>
+        <li>Using D3 from WebJars.</li>
+        <li>Error pages moved to theme.</li>
+        <li>Using HTML5Shiv from WebJars.</li>
+        <li>Teach old browsers how to style CSS.</li>
+        <li>Moving more scripts into theme where belong.</li>
+        <li>Navigation based on centrally registered views more.</li>
+        <li>Added required CSS files and images, making sure all images licensed correctly in the process.</li>
+        <li>CSS links may now be registered for global use.</li>
+        <li>Default style moved to separate package.</li>
+      </ul>
+    </changelog:release>
+  </core:page>
 </jsp:root>

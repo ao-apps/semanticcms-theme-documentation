@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2013, 2014, 2015, 2016, 2019, 2020, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2013, 2014, 2015, 2016, 2019, 2020, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-theme-documentation.
 
@@ -26,121 +26,121 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
 The left navigation frame.
 
 Arguments:
-	arg.page  The page that should be opened by default in the navigation tree.
+  arg.page  The page that should be opened by default in the navigation tree.
 -->
 <jsp:root
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:core="https://semanticcms.com/core/taglib/"
-	xmlns:encoding="https://oss.aoapps.com/encoding/taglib/"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:wr="https://oss.aoapps.com/web-resources/taglib/"
-	version="2.1"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:core="https://semanticcms.com/core/taglib/"
+  xmlns:encoding="https://oss.aoapps.com/encoding/taglib/"
+  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  xmlns:wr="https://oss.aoapps.com/web-resources/taglib/"
+  version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<c:set var="contentRoot" value="${core:captureContentRoot('meta')}" />
-	<c:set var="pageRef" value="${contentRoot.pageRef}" />
-	<c:set var="book" value="${pageRef.book}" />
-	<c:set var="servletPath" value="${pageRef.servletPath}" />
-	<ao:html doctype="HTML5">
-		<head>
-			<c:choose>
-				<c:when test="${encoding:getDoctype() == 'HTML5'}">
-					<ao:meta charset="${pageContext.response.characterEncoding}" />
-				</c:when>
-				<c:otherwise>
-					<ao:meta httpEquiv="content-type" content="${pageContext.response.contentType}" />
-					<ao:meta httpEquiv="content-style-type" content="text/css" />
-					<ao:meta httpEquiv="content-script-type" content="text/javascript" />
-				</c:otherwise>
-			</c:choose>
-			<!-- Mobile support -->
-			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
-			<ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
-			<!-- Authors -->
-			<ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${book.copyright}" />
-			<ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
-			<title>Navigation - <ao:out value="${book.title}" /></title>
-			<!-- TODO: Review HTML 4/HTML 5 differences from here -->
-			<!-- ao-web-resources -->
-			<wr:renderStyles activate="semanticcms-theme-documentation-style/navigation semanticcms-theme-documentation/yui-2.9.0" />
-			<!-- TODO:
-				Move yui activate to the head.inc.jspx
-				Along with defining the group via JSP?
-				Maybe only once it also registers scripts, too.
-				Alternatively, no head.inc.jspx, just do via activation.
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <c:set var="contentRoot" value="${core:captureContentRoot('meta')}" />
+  <c:set var="pageRef" value="${contentRoot.pageRef}" />
+  <c:set var="book" value="${pageRef.book}" />
+  <c:set var="servletPath" value="${pageRef.servletPath}" />
+  <ao:html doctype="HTML5">
+    <head>
+      <c:choose>
+        <c:when test="${encoding:getDoctype() == 'HTML5'}">
+          <ao:meta charset="${pageContext.response.characterEncoding}" />
+        </c:when>
+        <c:otherwise>
+          <ao:meta httpEquiv="content-type" content="${pageContext.response.contentType}" />
+          <ao:meta httpEquiv="content-style-type" content="text/css" />
+          <ao:meta httpEquiv="content-script-type" content="text/javascript" />
+        </c:otherwise>
+      </c:choose>
+      <!-- Mobile support -->
+      <ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <ao:meta name="apple-mobile-web-app-capable" content="yes" />
+      <ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      <!-- Authors -->
+      <ao:include page="/semanticcms-core-theme-base/copyright.inc.jspx" arg.copyright="${book.copyright}" />
+      <ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
+      <title>Navigation - <ao:out value="${book.title}" /></title>
+      <!-- TODO: Review HTML 4/HTML 5 differences from here -->
+      <!-- ao-web-resources -->
+      <wr:renderStyles activate="semanticcms-theme-documentation-style/navigation semanticcms-theme-documentation/yui-2.9.0" />
+      <!-- TODO:
+        Move yui activate to the head.inc.jspx
+        Along with defining the group via JSP?
+        Maybe only once it also registers scripts, too.
+        Alternatively, no head.inc.jspx, just do via activation.
 
-				Could do jquery, and other scripts, via activations only, too.
-			-->
-			<ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
-			<ao:script src="navigation.js" />
-			<ao:script src="/webjars/jquery/${ao:encodeURIComponent(applicationScope['com.semanticcms.theme.documentation.Maven'].jqueryVersion)}/dist/jquery.min.js" />
-			<ao:script>jQuery.noConflict();</ao:script>
-			<!-- No search index left navigation frame -->
-			<ao:meta name="robots" content="noindex, nofollow" />
-		</head>
-		<body class="yui-skin-sam">
-			<main>
-				<div id="semanticcms-theme-documentation-navigation-logo">
-					<ao:a target="contentFrame" href="${servletPath}" param.view="what-to-do"><ao:img src="${book.pathPrefix}${book.param.logoSrc}" width="${book.param.logoWidth}" height="${book.param.logoHeight}" alt="${book.param.logoAlt}" /></ao:a>
-				</div>
-				<c:if test="${!core:isExporting()}">
-					<div id="semanticcms-theme-documentation-navigation-search">
-						<ao:form target="contentFrame" action="search.jsp" style="display:inline">
-							<div>
-								<ao:input type="search" name="q" size="12"/>
-								<ao:input type="submit" value="Search" />
-							</div>
-						</ao:form>
-					</div>
-				</c:if>
+        Could do jquery, and other scripts, via activations only, too.
+      -->
+      <ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
+      <ao:script src="navigation.js" />
+      <ao:script src="/webjars/jquery/${ao:encodeURIComponent(applicationScope['com.semanticcms.theme.documentation.Maven'].jqueryVersion)}/dist/jquery.min.js" />
+      <ao:script>jQuery.noConflict();</ao:script>
+      <!-- No search index left navigation frame -->
+      <ao:meta name="robots" content="noindex, nofollow" />
+    </head>
+    <body class="yui-skin-sam">
+      <main>
+        <div id="semanticcms-theme-documentation-navigation-logo">
+          <ao:a target="contentFrame" href="${servletPath}" param.view="what-to-do"><ao:img src="${book.pathPrefix}${book.param.logoSrc}" width="${book.param.logoWidth}" height="${book.param.logoHeight}" alt="${book.param.logoAlt}" /></ao:a>
+        </div>
+        <c:if test="${!core:isExporting()}">
+          <div id="semanticcms-theme-documentation-navigation-search">
+            <ao:form target="contentFrame" action="search.jsp" style="display:inline">
+              <div>
+                <ao:input type="search" name="q" size="12"/>
+                <ao:input type="submit" value="Search" />
+              </div>
+            </ao:form>
+          </div>
+        </c:if>
 
-				<c:set var="views" value="${applicationScope.semanticCMS.views}" />
-				<c:forEach var="viewGroup" items="${applicationScope.semanticCMS.viewGroups}">
-					<c:set var="hasApplicableView" value="false" />
-					<c:forEach var="view" items="${views}">
-						<c:if test="${!hasApplicableView and view.group==viewGroup and view.appliesGlobally and core:isViewApplicable(view, contentRoot)}">
-							<c:set var="hasApplicableView" value="true" />
-						</c:if>
-					</c:forEach>
-					<c:if test="${hasApplicableView}">
-						<div class="semanticcms-theme-documentation-navigation-views">
-							<ul>
-								<c:forEach var="view" items="${views}">
-									<c:if test="${view.group==viewGroup and view.appliesGlobally and core:isViewApplicable(view, contentRoot)}">
-										<!-- Note: entire frame is nofollow -->
-										<li><ao:a
-											target="contentFrame"
-											href="${servletPath}"
-											param.view="${view.isDefault() ? null : view.name}"
-										><ao:out value="${view}" /></ao:a></li>
-									</c:if>
-								</c:forEach>
-							</ul>
-						</div>
-					</c:if>
-				</c:forEach>
+        <c:set var="views" value="${applicationScope.semanticCMS.views}" />
+        <c:forEach var="viewGroup" items="${applicationScope.semanticCMS.viewGroups}">
+          <c:set var="hasApplicableView" value="false" />
+          <c:forEach var="view" items="${views}">
+            <c:if test="${!hasApplicableView and view.group == viewGroup and view.appliesGlobally and core:isViewApplicable(view, contentRoot)}">
+              <c:set var="hasApplicableView" value="true" />
+            </c:if>
+          </c:forEach>
+          <c:if test="${hasApplicableView}">
+            <div class="semanticcms-theme-documentation-navigation-views">
+              <ul>
+                <c:forEach var="view" items="${views}">
+                  <c:if test="${view.group == viewGroup and view.appliesGlobally and core:isViewApplicable(view, contentRoot)}">
+                    <!-- Note: entire frame is nofollow -->
+                    <li><ao:a
+                      target="contentFrame"
+                      href="${servletPath}"
+                      param.view="${view.isDefault() ? null : view.name}"
+                    ><ao:out value="${view}" /></ao:a></li>
+                  </c:if>
+                </c:forEach>
+              </ul>
+            </div>
+          </c:if>
+        </c:forEach>
 
-				<!-- Capture all pages recursively without headers (for fast traversal) -->
-				<nav id="semanticcms-theme-documentation-navigation-tree" class="ygtv-highlight">
-					<core:navigationTree yuiConfig="true" target="contentFrame" root="#{contentRoot}" />
-				</nav>
-			</main>
-			<ao:script>
-				semanticcms_theme_documentation_navigation.tree = new YAHOO.widget.TreeView("semanticcms-theme-documentation-navigation-tree");
-				// semanticcms_theme_documentation_navigation.tree.singleNodeHighlight = true;
-				semanticcms_theme_documentation_navigation.tree.subscribe("clickEvent", semanticcms_theme_documentation_navigation.treeClickEvent);
-				semanticcms_theme_documentation_navigation.tree.subscribe("enterKeyPressed", semanticcms_theme_documentation_navigation.treeEnterKeyPressed);
-				semanticcms_theme_documentation_navigation.tree.render();
-				// TODO: The tree is double-encoding things
-				//       See https://oss.aoapps.com/taglib/ao.tld/tags?navigation=true
-				jQuery(function() {
-					semanticcms_theme_documentation_navigation.highlightPage(<ao:out value="${core:encodeHexData(arg.page.pageRef)}" />);
-				});
-			</ao:script>
-		</body>
-	</ao:html>
+        <!-- Capture all pages recursively without headers (for fast traversal) -->
+        <nav id="semanticcms-theme-documentation-navigation-tree" class="ygtv-highlight">
+          <core:navigationTree yuiConfig="true" target="contentFrame" root="#{contentRoot}" />
+        </nav>
+      </main>
+      <ao:script>
+        semanticcms_theme_documentation_navigation.tree = new YAHOO.widget.TreeView("semanticcms-theme-documentation-navigation-tree");
+        // semanticcms_theme_documentation_navigation.tree.singleNodeHighlight = true;
+        semanticcms_theme_documentation_navigation.tree.subscribe("clickEvent", semanticcms_theme_documentation_navigation.treeClickEvent);
+        semanticcms_theme_documentation_navigation.tree.subscribe("enterKeyPressed", semanticcms_theme_documentation_navigation.treeEnterKeyPressed);
+        semanticcms_theme_documentation_navigation.tree.render();
+        // TODO: The tree is double-encoding things
+        //       See https://oss.aoapps.com/taglib/ao.tld/tags?navigation=true
+        jQuery(function() {
+          semanticcms_theme_documentation_navigation.highlightPage(<ao:out value="${core:encodeHexData(arg.page.pageRef)}" />);
+        });
+      </ao:script>
+    </body>
+  </ao:html>
 </jsp:root>
