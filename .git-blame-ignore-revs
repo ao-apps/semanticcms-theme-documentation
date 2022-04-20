@@ -1,2 +1,8 @@
 # Significant manual code formatting clean-up…
 34a59d5d4679927b8d35fd7335898323278ddabf
+# Removed trailing whitespace
+f116f1762d310128da4195fef2fc28224270549c
+# Created AnyContent interface and AnyDocument base implementation
+31c61a9851f4fc858631ac3bcd1d0674d5c340fc
+# Tab indent
+21e13a209f933969048b09bc25e2486a6a44fd13
