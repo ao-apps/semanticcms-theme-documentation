@@ -82,21 +82,21 @@ public final class DocumentationTheme extends Theme {
       Registry registry = RegistryEE.Application.get(servletContext);
 
       registry.getGroup(YUI_GROUP).styles
-        .add(
-          YUI_TREEVIEW,
-          // YUI_CALENDAR,
-          YUI_TREE
-        )
-        // treeview -> calendar -> tree
-        .addOrdering(
-          YUI_TREEVIEW,
-          // YUI_CALENDAR,
-          YUI_TREE
-        );
+          .add(
+              YUI_TREEVIEW,
+              // YUI_CALENDAR,
+              YUI_TREE
+          )
+          // treeview -> calendar -> tree
+          .addOrdering(
+              YUI_TREEVIEW,
+              // YUI_CALENDAR,
+              YUI_TREE
+          );
 
       registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles
-        // tree -> navigation
-        .addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
+          // tree -> navigation
+          .addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
 
       SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
       // TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
@@ -126,11 +126,11 @@ public final class DocumentationTheme extends Theme {
 
   @Override
   public void doTheme(
-    ServletContext servletContext,
-    HttpServletRequest request,
-    HttpServletResponse response,
-    View view,
-    Page page
+      ServletContext servletContext,
+      HttpServletRequest request,
+      HttpServletResponse response,
+      View view,
+      Page page
   ) throws ServletException, IOException, SkipPageException {
     Map<String, Object> args = new LinkedHashMap<>();
     args.put("page", page);
