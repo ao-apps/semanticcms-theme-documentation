@@ -99,21 +99,21 @@ public final class DocumentationTheme extends Theme {
       Registry registry = RegistryEE.Application.get(servletContext);
 
       registry.getGroup(YUI_GROUP).styles
-        .add(
-          YUI_TREEVIEW,
-          // YUI_CALENDAR,
-          YUI_TREE
-        )
-        // treeview -> calendar -> tree
-        .addOrdering(
-          YUI_TREEVIEW,
-          // YUI_CALENDAR,
-          YUI_TREE
-        );
+          .add(
+              YUI_TREEVIEW,
+              // YUI_CALENDAR,
+              YUI_TREE
+          )
+          // treeview -> calendar -> tree
+          .addOrdering(
+              YUI_TREEVIEW,
+              // YUI_CALENDAR,
+              YUI_TREE
+          );
 
       registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles
-        // tree -> navigation
-        .addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
+          // tree -> navigation
+          .addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
 
       HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
       // TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
@@ -122,95 +122,95 @@ public final class DocumentationTheme extends Theme {
       // TODO: Move to /META-INF/semanticcms-servlet-space.xml?
       // TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
       FirewallPathSpace.getInstance(servletContext).add(
-        // /semanticcms-theme-documentation/*
-        FirewallComponent.newInstance(
-          valueOf(PREFIX + WILDCARD_SUFFIX),
-          // /navigation.js as GET on request only
-          isRequest(
-            // If ever have more than one .js file, could use endsWith .js, or "map" to avoid sequential scan
-            Rules.pathMatch.path.equals("/navigation.js",
-              constrain(GET),
-              doFilter
-            ),
-            // 404 everything else on "REQUEST" dispatcher
-            NOT_FOUND
+          // /semanticcms-theme-documentation/*
+          FirewallComponent.newInstance(
+              valueOf(PREFIX + WILDCARD_SUFFIX),
+              // /navigation.js as GET on request only
+              isRequest(
+                  // If ever have more than one .js file, could use endsWith .js, or "map" to avoid sequential scan
+                  Rules.pathMatch.path.equals("/navigation.js",
+                      constrain(GET),
+                      doFilter
+                  ),
+                  // 404 everything else on "REQUEST" dispatcher
+                  NOT_FOUND
+              ),
+              // *.inc.jspx as include only
+              isInclude(
+                  Rules.pathMatch.path.endsWith(".inc.jspx", doFilter)
+              ),
+              // *.jspx as forward only, but not including *.inc.jspx
+              isForward(
+                  Rules.pathMatch.path.endsWith(".jspx",
+                      Rules.pathMatch.path.endsWith(".inc.jspx", FORBIDDEN),
+                      doFilter
+                  )
+              ),
+              // Drop everything else
+              FORBIDDEN
           ),
-          // *.inc.jspx as include only
-          isInclude(
-            Rules.pathMatch.path.endsWith(".inc.jspx", doFilter)
+          // /semanticcms-theme-documentation/error-pages/*
+          FirewallComponent.newInstance(
+              valueOf(PREFIX + SEPARATOR_CHAR + "error-pages" + WILDCARD_SUFFIX),
+              // 404 everything on "REQUEST" dispatcher
+              isRequest(FORBIDDEN),
+              // Allow via "ERROR" dispatcher
+              isError(doFilter),
+              // Drop everything else
+              FORBIDDEN
           ),
-          // *.jspx as forward only, but not including *.inc.jspx
-          isForward(
-            Rules.pathMatch.path.endsWith(".jspx",
-              Rules.pathMatch.path.endsWith(".inc.jspx", FORBIDDEN),
-              doFilter
-            )
+          // /semanticcms-theme-documentation/error-pages/jslib/yui-(version)/*** (greedy)
+          FirewallComponent.newInstance(
+              valueOf(PREFIX + SEPARATOR_CHAR + "jslib" + SEPARATOR_CHAR + "yui-" + YUI_VERSION + GREEDY_SUFFIX),
+              // Limit file exensions served on request dispatcher
+              isRequest(
+                  // Block access to *.inc.jspx
+                  Rules.pathMatch.path.endsWith(".inc.jspx", NOT_FOUND),
+                  // Restrict all other to "GET"
+                  constrain(GET),
+                  doFilter
+              ),
+              // *.inc.jspx as include only (different style than above)
+              isInclude(
+                  Rules.pathMatch.path.endsWith(".inc.jspx", doFilter)
+              ),
+              // Drop everything else
+              FORBIDDEN
           ),
-          // Drop everything else
-          FORBIDDEN
-        ),
-        // /semanticcms-theme-documentation/error-pages/*
-        FirewallComponent.newInstance(
-          valueOf(PREFIX + SEPARATOR_CHAR + "error-pages" + WILDCARD_SUFFIX),
-          // 404 everything on "REQUEST" dispatcher
-          isRequest(FORBIDDEN),
-          // Allow via "ERROR" dispatcher
-          isError(doFilter),
-          // Drop everything else
-          FORBIDDEN
-        ),
-        // /semanticcms-theme-documentation/error-pages/jslib/yui-(version)/*** (greedy)
-        FirewallComponent.newInstance(
-          valueOf(PREFIX + SEPARATOR_CHAR + "jslib" + SEPARATOR_CHAR + "yui-" + YUI_VERSION + GREEDY_SUFFIX),
-          // Limit file exensions served on request dispatcher
-          isRequest(
-            // Block access to *.inc.jspx
-            Rules.pathMatch.path.endsWith(".inc.jspx", NOT_FOUND),
-            // Restrict all other to "GET"
-            constrain(GET),
-            doFilter
+          // /images/*
+          // TODO: Move to docs-taglib:
+          FirewallComponent.newInstance(
+              // TODO: Use String[] overload of newInstance, once it exists
+              new Prefix[]{
+                  valueOf("/images/*"),
+                  valueOf("/images/list-item/16x16/*"),
+                  valueOf("/styles/*")
+              },
+              // Constraint REQUEST dispatcher to GET only
+              isRequest(
+                  constrain(GET),
+                  doFilter
+              ),
+              // Drop everything else
+              FORBIDDEN
           ),
-          // *.inc.jspx as include only (different style than above)
-          isInclude(
-            Rules.pathMatch.path.endsWith(".inc.jspx", doFilter)
-          ),
-          // Drop everything else
-          FORBIDDEN
-        ),
-        // /images/*
-        // TODO: Move to docs-taglib:
-        FirewallComponent.newInstance(
-          // TODO: Use String[] overload of newInstance, once it exists
-          new Prefix[] {
-            valueOf("/images/*"),
-            valueOf("/images/list-item/16x16/*"),
-            valueOf("/styles/*")
-          },
-          // Constraint REQUEST dispatcher to GET only
-          isRequest(
-            constrain(GET),
-            doFilter
-          ),
-          // Drop everything else
-          FORBIDDEN
-        ),
-        // /semanticcms-theme-documentation/images/*
-        // /semanticcms-theme-documentation/styles/*
-        // TODO: Move to -styles project
-        FirewallComponent.newInstance(
-          // TODO: Use String[] overload of newInstance, once it exists
-          new Prefix[] {
-            valueOf(PREFIX + SEPARATOR_CHAR + "images" + WILDCARD_SUFFIX),
-            valueOf(PREFIX + SEPARATOR_CHAR + "styles" + WILDCARD_SUFFIX)
-          },
-          // Constraint REQUEST dispatcher to GET only
-          isRequest(
-            constrain(GET),
-            doFilter
-          ),
-          // Drop everything else
-          FORBIDDEN
-        )
+          // /semanticcms-theme-documentation/images/*
+          // /semanticcms-theme-documentation/styles/*
+          // TODO: Move to -styles project
+          FirewallComponent.newInstance(
+              // TODO: Use String[] overload of newInstance, once it exists
+              new Prefix[]{
+                  valueOf(PREFIX + SEPARATOR_CHAR + "images" + WILDCARD_SUFFIX),
+                  valueOf(PREFIX + SEPARATOR_CHAR + "styles" + WILDCARD_SUFFIX)
+              },
+              // Constraint REQUEST dispatcher to GET only
+              isRequest(
+                  constrain(GET),
+                  doFilter
+              ),
+              // Drop everything else
+              FORBIDDEN
+          )
       );
     }
 
@@ -236,11 +236,11 @@ public final class DocumentationTheme extends Theme {
 
   @Override
   public void doTheme(
-    ServletContext servletContext,
-    HttpServletRequest request,
-    HttpServletResponse response,
-    View view,
-    Page page
+      ServletContext servletContext,
+      HttpServletRequest request,
+      HttpServletResponse response,
+      View view,
+      Page page
   ) throws ServletException, IOException, SkipPageException {
     Map<String, Object> args = new LinkedHashMap<>();
     args.put("page", page);
