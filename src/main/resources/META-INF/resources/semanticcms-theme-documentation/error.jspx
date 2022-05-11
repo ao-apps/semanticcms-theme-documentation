@@ -92,9 +92,9 @@ Arguments:
       <c:set var="book" value="${core:getPublishedBook(pagePath)}" />
     </c:catch>
     <!-- Try to find root book -->
-    <c:if test="${(empty book or !book.accessible) and !empty applicationScope.semanticCMS}">
+    <c:if test="${(empty book or !book.accessible) and !empty applicationScope.semanticCms}">
       <c:catch>
-        <c:set var="book" value="${applicationScope.semanticCMS.rootBook}" />
+        <c:set var="book" value="${applicationScope.semanticCms.rootBook}" />
       </c:catch>
     </c:if>
     <head>

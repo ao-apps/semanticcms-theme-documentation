@@ -24,14 +24,9 @@
 package com.semanticcms.theme.documentation;
 
 import static com.aoapps.net.Path.SEPARATOR_CHAR;
-import com.aoapps.net.URIEncoder;
-import com.aoapps.net.pathspace.Prefix;
 import static com.aoapps.net.pathspace.Prefix.GREEDY_SUFFIX;
 import static com.aoapps.net.pathspace.Prefix.WILDCARD_SUFFIX;
 import static com.aoapps.net.pathspace.Prefix.valueOf;
-import com.aoapps.servlet.firewall.pathspace.FirewallComponent;
-import com.aoapps.servlet.firewall.pathspace.FirewallPathSpace;
-import com.aoapps.servlet.firewall.pathspace.Rules;
 import static com.aoapps.servlet.firewall.rules.Rules.chain.doFilter;
 import static com.aoapps.servlet.firewall.rules.Rules.request.dispatcherType.isError;
 import static com.aoapps.servlet.firewall.rules.Rules.request.dispatcherType.isForward;
@@ -41,6 +36,12 @@ import static com.aoapps.servlet.firewall.rules.Rules.request.method.GET;
 import static com.aoapps.servlet.firewall.rules.Rules.request.method.constrain;
 import static com.aoapps.servlet.firewall.rules.Rules.response.sendError.FORBIDDEN;
 import static com.aoapps.servlet.firewall.rules.Rules.response.sendError.NOT_FOUND;
+
+import com.aoapps.net.URIEncoder;
+import com.aoapps.net.pathspace.Prefix;
+import com.aoapps.servlet.firewall.pathspace.FirewallComponent;
+import com.aoapps.servlet.firewall.pathspace.FirewallPathSpace;
+import com.aoapps.servlet.firewall.pathspace.Rules;
 import com.aoapps.servlet.http.Dispatcher;
 import com.aoapps.web.resources.registry.Group;
 import com.aoapps.web.resources.registry.Registry;
@@ -89,6 +90,9 @@ public final class DocumentationTheme extends Theme {
   // public static final Style YUI_CALENDAR = new Style(YUI_PREFIX + "/build/calendar/assets/skins/sam/calendar.css");//
   public static final Style YUI_TREE     = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
 
+  /**
+   * Registers the "{@link #NAME}" theme and required scripts in {@link RegistryEE} and {@link HtmlRenderer}.
+   */
   @WebListener("Registers the \"" + NAME + "\" theme and required scripts in RegistryEE and HtmlRenderer.")
   public static class Initializer implements ServletContextListener {
 
@@ -104,12 +108,12 @@ public final class DocumentationTheme extends Theme {
               // YUI_CALENDAR,
               YUI_TREE
           )
-          // treeview -> calendar -> tree
-          .addOrdering(
-              YUI_TREEVIEW,
-              // YUI_CALENDAR,
-              YUI_TREE
-          );
+              // treeview -> calendar -> tree
+              .addOrdering(
+                YUI_TREEVIEW,
+                // YUI_CALENDAR,
+                YUI_TREE
+              );
 
       registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles
           // tree -> navigation

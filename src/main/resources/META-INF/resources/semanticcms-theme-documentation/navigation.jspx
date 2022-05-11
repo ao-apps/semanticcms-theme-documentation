@@ -98,8 +98,8 @@ Arguments:
           </div>
         </c:if>
 
-        <c:set var="views" value="${applicationScope.semanticCMS.views}" />
-        <c:forEach var="viewGroup" items="${applicationScope.semanticCMS.viewGroups}">
+        <c:set var="views" value="${applicationScope.semanticCms.views}" />
+        <c:forEach var="viewGroup" items="${applicationScope.semanticCms.viewGroups}">
           <c:set var="hasApplicableView" value="false" />
           <c:forEach var="view" items="${views}">
             <c:if test="${!hasApplicableView and view.group == viewGroup and view.appliesGlobally and core:isViewApplicable(view, contentRoot)}">

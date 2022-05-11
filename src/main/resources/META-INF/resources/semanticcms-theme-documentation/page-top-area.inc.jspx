@@ -51,7 +51,7 @@ Arguments:
     <c:if test="${!empty arg.page}">
       <c:set var="page" value="${arg.page}" />
       <div id="semanticcms-theme-documentation-page-top-links1">
-        <c:set var="views" value="${applicationScope.semanticCMS.views}" />
+        <c:set var="views" value="${applicationScope.semanticCms.views}" />
 
         <!-- FIRST views -->
         <c:forEach var="view" items="${views}">
