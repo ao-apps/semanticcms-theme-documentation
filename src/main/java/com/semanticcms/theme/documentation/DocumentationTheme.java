@@ -72,6 +72,9 @@ public final class DocumentationTheme extends Theme {
   // public static final Style YUI_CALENDAR = new Style(YUI_PREFIX + "/build/calendar/assets/skins/sam/calendar.css");//
   public static final Style YUI_TREE     = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
 
+  /**
+   * Registers the "{@link #NAME}" theme and required scripts in {@link RegistryEE} and {@link SemanticCMS}.
+   */
   @WebListener("Registers the \"" + NAME + "\" theme and required scripts in RegistryEE and SemanticCMS.")
   public static class Initializer implements ServletContextListener {
 
@@ -87,21 +90,21 @@ public final class DocumentationTheme extends Theme {
               // YUI_CALENDAR,
               YUI_TREE
           )
-          // treeview -> calendar -> tree
-          .addOrdering(
-              YUI_TREEVIEW,
-              // YUI_CALENDAR,
-              YUI_TREE
-          );
+              // treeview -> calendar -> tree
+              .addOrdering(
+                YUI_TREEVIEW,
+                // YUI_CALENDAR,
+                YUI_TREE
+              );
 
       registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles
           // tree -> navigation
           .addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
 
-      SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
+      SemanticCMS semanticCms = SemanticCMS.getInstance(servletContext);
       // TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
-      semanticCMS.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/dist/jquery.min.js");
-      semanticCMS.addTheme(new DocumentationTheme());
+      semanticCms.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/dist/jquery.min.js");
+      semanticCms.addTheme(new DocumentationTheme());
     }
 
     @Override

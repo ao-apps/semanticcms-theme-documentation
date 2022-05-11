@@ -91,7 +91,7 @@ Arguments:
         </c:if>
       </c:forEach>
       <!-- Application-wide head includes -->
-      <c:forEach var="headInclude" items="${applicationScope.semanticCMS.headIncludes}">
+      <c:forEach var="headInclude" items="${applicationScope.semanticCms.headIncludes}">
         <ao:include page="${headInclude}" />
       </c:forEach>
       <ao:include page="update-nav.inc.jspx" arg.page="${page}" />

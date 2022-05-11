@@ -41,7 +41,7 @@ Arguments:
   <jsp:directive.page language="java" pageEncoding="UTF-8" />
   <jsp:directive.page session="false" />
   <c:set var="pageRef" value="${arg.page.pageRef}" />
-  <c:set var="book" value="${applicationScope.semanticCMS.rootBook}" />
+  <c:set var="book" value="${applicationScope.semanticCms.rootBook}" />
   <ao:html doctype="FRAMESET"><!-- HTML5 does not support framesets -->
     <head>
       <c:choose>

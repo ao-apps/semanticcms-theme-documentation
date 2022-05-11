@@ -32,11 +32,16 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 /**
+ * Access to <code>Maven.properties</code>.
+ *
  * @author  AO Industries, Inc.
  */
 public final class Maven {
 
-  @WebListener
+  /**
+   * Loads <code>Maven.properties</code> during {@linkplain ServletContextListener application start-up}.
+   */
+  @WebListener("Loads Maven.properties during application start-up.")
   public static class Initializer implements ServletContextListener {
 
     @Override

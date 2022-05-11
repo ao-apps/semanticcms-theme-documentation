@@ -92,9 +92,9 @@ Arguments:
       <c:set var="book" value="${core:getBook(pagePath)}" />
     </c:catch>
     <!-- Try to find root book -->
-    <c:if test="${empty book and !empty applicationScope.semanticCMS}">
+    <c:if test="${empty book and !empty applicationScope.semanticCms}">
       <c:catch>
-        <c:set var="book" value="${applicationScope.semanticCMS.rootBook}" />
+        <c:set var="book" value="${applicationScope.semanticCms.rootBook}" />
       </c:catch>
     </c:if>
     <head>
@@ -140,7 +140,7 @@ Arguments:
         </c:if>
       </c:forEach>
       <!-- Application-wide head includes -->
-      <c:forEach var="headInclude" items="${applicationScope.semanticCMS.headIncludes}">
+      <c:forEach var="headInclude" items="${applicationScope.semanticCms.headIncludes}">
         <ao:include page="${headInclude}" />
       </c:forEach>
       <ao:meta name="robots" content="noindex, nofollow" />
