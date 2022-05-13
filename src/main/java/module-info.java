@@ -40,4 +40,4 @@ module com.semanticcms.theme.documentation {
   requires com.semanticcms.file.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId>
   requires com.semanticcms.theme.documentation.style; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId>
   requires taglibs.standard.spec; // <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId>
-} // TODO: Avoiding rewrite-maven-plugin-4.22.2 truncation
+}
