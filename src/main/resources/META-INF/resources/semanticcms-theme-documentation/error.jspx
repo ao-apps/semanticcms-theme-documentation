@@ -111,8 +111,6 @@ Arguments:
       <core:doComponents view="${null}" page="${null}" position="HEAD_START" />
       <!-- Mobile support -->
       <ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <ao:meta name="apple-mobile-web-app-capable" content="yes" />
-      <ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
       <ao:choose>
         <ao:when test="#{empty book or !book.accessible}">
           <title><ao:out value="${arg.message}" /></title>
