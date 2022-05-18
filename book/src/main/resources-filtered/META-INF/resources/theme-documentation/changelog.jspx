@@ -37,7 +37,7 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
     shortTitle="Changelog"
     tocLevels="1"
     datePublished="2016-10-31T02:51:43-05:00"
-    dateModified="2022-02-16T20:30:04-06:00"
+    dateModified="2022-05-18T16:49:17-05:00"
   >
     <c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
       <changelog:release
@@ -47,7 +47,11 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
         artifactId="@{documented.artifactId}"
         repository="@{nexusUrl}content/repositories/snapshots/"
         scmUrl="@{project.scm.url}"
-      />
+      >
+        <ul>
+          <li>Removed <code>apple-mobile-web-app-capable-*</code> meta tags, since this is not a web application.</li>
+        </ul>
+      </changelog:release>
     </c:if>
 
     <changelog:release
