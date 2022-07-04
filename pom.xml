@@ -51,7 +51,7 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
     <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
   </properties>
 
-  <name>SemanticCMS Theme Documentation²</name>
+  <name>SemanticCMS Theme Documentation</name>
   <url>https://semanticcms.com/theme-documentation/</url>
   <description>SemanticCMS theme tailored for technical documentation.</description>
   <inceptionYear>2013</inceptionYear>
