@@ -10,18 +10,24 @@
 
 # Significant manual code formatting clean-up…
 930c1f85001b12f846658b3083372f4caae058bc
+34a59d5d4679927b8d35fd7335898323278ddabf
 
 # Removed trailing whitespace
 d2636aefcbc28fa8b62c65621290c8c800094a11
+f116f1762d310128da4195fef2fc28224270549c
 
 # Created AnyContent interface and AnyDocument base implementation
 b06de548c0530c80151f635bf4d8b202e88701c0
+31c61a9851f4fc858631ac3bcd1d0674d5c340fc
 
 # Tab indent
 7c5c24b540721c87f71750ff45d31fbb74d0d2b9
+21e13a209f933969048b09bc25e2486a6a44fd13
 
 # Performed automatic source code clean-up with rewrite-maven-plugin
 da5a7f0951a09985d61e823e4e294f3494fd9433
+6c19209facc9c12a0d943418b6f7ed2e06bed3a0
 
 # Performed manual checkstyle clean-up
 d5e072c84e27bb971ca854295bee77c6f58eecfc
+3735c2a43daefcaeeaf9cc9d025ce001ff67f690
