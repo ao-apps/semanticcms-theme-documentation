@@ -78,7 +78,9 @@ semanticcms_theme_documentation_navigation = {
     } else {
       for (index in traverseNode.children) {
         semanticcms_theme_documentation_navigation._getNodeIndex(node, traverseNode.children[index]);
-        if (semanticcms_theme_documentation_navigation._getNodeIndexPos !== -1) break;
+        if (semanticcms_theme_documentation_navigation._getNodeIndexPos !== -1) {
+          break;
+        }
       }
     }
   },
