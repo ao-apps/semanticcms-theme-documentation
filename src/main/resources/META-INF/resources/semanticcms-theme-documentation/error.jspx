@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8"?><!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022  AO Industries, Inc.
+Copyright (C) 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -20,16 +19,13 @@ GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
 along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/licenses/>.
--->
-
-<!--
+--><!--
 Shared handler forwarded to by all the individual error handlers.
 
 Arguments:
   arg.code     The error code
   arg.message  The human readable error message
--->
-<jsp:root
+--><jsp:root
   xmlns:ao="https://oss.aoapps.com/taglib/"
   xmlns:c="http://java.sun.com/jsp/jstl/core"
   xmlns:core="https://semanticcms.com/core/taglib/"
@@ -38,53 +34,52 @@ Arguments:
   xmlns:jsp="http://java.sun.com/JSP/Page"
   xmlns:wr="https://oss.aoapps.com/web-resources/taglib/"
   version="2.1"
->
-  <jsp:directive.page language="java" pageEncoding="UTF-8" />
-  <jsp:directive.page session="false" />
-  <jsp:directive.page isErrorPage="true" />
-
-  <c:set var="code" value="${empty arg.code ? 500 : arg.code}" />
-  <jsp:scriptlet><![CDATA[
-    if(exception != null) log(null, exception);
-    // Set the error status
+  ><jsp:directive.page language="java" pageEncoding="UTF-8"
+  /><jsp:directive.page session="false"
+  /><jsp:directive.page isErrorPage="true"
+  /><c:set var="code" value="${empty arg.code ? 500 : arg.code}"
+  /><jsp:scriptlet><![CDATA[
+    if(exception != null) {
+      log(null, exception);
+    }
     if(!response.isCommitted()) {
+      // Set the error status
       Object code = pageContext.getAttribute("code");
       response.setStatus((code instanceof Integer) ? (Integer)code : Integer.parseInt(code.toString()));
-    }
 
-    // Find the request URL in context-relative form
-    String requestUri = (String)request.getAttribute("javax.servlet.error.request_uri");
-    String contextPath = com.aoapps.net.URIEncoder.encodeURI(request.getContextPath());
-    int cpLen = contextPath.length();
-    String pagePath;
-    if(cpLen > 0) {
-      assert requestUri.startsWith(contextPath);
-      pagePath = requestUri.substring(cpLen);
-    } else {
-      pagePath = requestUri;
-    }
-    pageContext.setAttribute("pagePath", pagePath);
+      // Find the request URL in context-relative form
+      String requestUri = (String)request.getAttribute("javax.servlet.error.request_uri");
+      String contextPath = com.aoapps.net.URIEncoder.encodeURI(request.getContextPath());
+      int cpLen = contextPath.length();
+      String pagePath;
+      if(cpLen > 0) {
+        assert requestUri.startsWith(contextPath);
+        pagePath = requestUri.substring(cpLen);
+      } else {
+        pagePath = requestUri;
+      }
+      pageContext.setAttribute("pagePath", pagePath);
 
-    // Determine if in a development mode
-    // Using reflection to avoid hard dependency on semanticcms-openfile-servlet.
-    // TODO: A better centrally defined "devMode" or other profile mechanism.
-    boolean isDev = true;
-    try {
-      Class<?> openFileClass = Class.forName("com.semanticcms.openfile.servlet.OpenFile");
-      java.lang.reflect.Method isAllowedMethod = openFileClass.getMethod("isAllowed", ServletContext.class, ServletRequest.class);
-      isDev = (Boolean)isAllowedMethod.invoke(null, getServletContext(), request);
-    } catch(ClassNotFoundException e) {
-      isDev = false;
-    } catch(NoSuchMethodException e) {
-      throw new ServletException(e);
-    } catch(IllegalAccessException e) {
-      throw new ServletException(e);
-    } catch(java.lang.reflect.InvocationTargetException e) {
-      throw new ServletException(e);
-    }
-    pageContext.setAttribute("isDev", isDev);
-  ]]></jsp:scriptlet>
-  <ao:html doctype="HTML5">
+      // Determine if in a development mode
+      // Using reflection to avoid hard dependency on semanticcms-openfile-servlet.
+      // TODO: A better centrally defined "devMode" or other profile mechanism.
+      boolean isDev = true;
+      try {
+        Class<?> openFileClass = Class.forName("com.semanticcms.openfile.servlet.OpenFile");
+        java.lang.reflect.Method isAllowedMethod = openFileClass.getMethod("isAllowed", ServletContext.class, ServletRequest.class);
+        isDev = (Boolean)isAllowedMethod.invoke(null, getServletContext(), request);
+      } catch(ClassNotFoundException e) {
+        isDev = false;
+      } catch(NoSuchMethodException e) {
+        throw new ServletException(e);
+      } catch(IllegalAccessException e) {
+        throw new ServletException(e);
+      } catch(java.lang.reflect.InvocationTargetException e) {
+        throw new ServletException(e);
+      }
+      pageContext.setAttribute("isDev", isDev);
+    ]]></jsp:scriptlet
+  ><ao:html doctype="HTML5">
     <!-- Find the book that best matches the incoming request -->
     <c:set var="book" value="" />
     <!-- Try to find book for request -->
@@ -204,5 +199,8 @@ Arguments:
       </div>
       <core:doComponents view="${null}" page="${null}" position="BODY_END" reverse="true" />
     </body>
-  </ao:html>
-</jsp:root>
+  </ao:html
+  ><jsp:scriptlet><![CDATA[
+    }
+  ]]></jsp:scriptlet
+></jsp:root>
