@@ -126,13 +126,6 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
             <dependency>com.semanticcms:semanticcms-core-theme-base</dependency>
             <dependency>com.semanticcms:semanticcms-file-taglib</dependency>
             <dependency>org.apache.taglibs:taglibs-standard-spec</dependency>
-            <!-- Runtime Direct -->
-            <dependency>com.aoapps:ao-servlet-firewall-webjars</dependency>
-            <dependency>com.aoapps:ao-style</dependency>
-            <dependency>org.webjars.npm:jquery</dependency>
-            <dependency>com.semanticcms:semanticcms-openfile-servlet</dependency>
-            <dependency>com.semanticcms:semanticcms-pagegraph</dependency>
-            <dependency>org.apache.taglibs:taglibs-standard-impl</dependency>
           </usedDependencies>
           <ignoredDependencies>
             <!-- No "module-info.java" in some release builds -->
@@ -521,9 +514,9 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
       <dependency>
         <groupId>org.webjars.npm</groupId><artifactId>lodash</artifactId><version>4.17.21</version>
       </dependency>
-      <!-- BOM -->
+      <!-- Imports -->
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.1${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.1-POST-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -622,6 +615,12 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
     <dependency>
       <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId>
       <scope>runtime</scope>
+    </dependency>
+    <!-- Imports (Reactor build order only) -->
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.1-POST-SNAPSHOT</version>
+      <type>pom</type>
+      <exclusions><exclusion><artifactId>*</artifactId><groupId>*</groupId></exclusion></exclusions>
     </dependency>
   </dependencies>
 </project>
