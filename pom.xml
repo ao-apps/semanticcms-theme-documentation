@@ -33,6 +33,8 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
   <packaging>jar</packaging>
 
   <properties>
+    <!-- Must be set to ${git.commit.time} for snapshots or ISO 8601 timestamp for releases. -->
+    <project.build.outputTimestamp>${git.commit.time}</project.build.outputTimestamp>
     <module.name>com.semanticcms.theme.documentation</module.name>
     <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
 / <a target="${javadoc.target}" href="${project.url}">Theme Documentation</a>]]></javadoc.breadcrumbs>
