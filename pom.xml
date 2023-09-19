@@ -38,13 +38,14 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
     <module.name>com.semanticcms.theme.documentation</module.name>
     <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
 / <a target="${javadoc.target}" href="${project.url}">Theme Documentation</a>]]></javadoc.breadcrumbs>
-    <description.html><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> theme tailored for technical documentation.]]></description.html>
     <javadoc.modules><![CDATA[<div>
       <h2>Modules</h2>
       <ul>
         <li><a target="${javadoc.target}" href="https://semanticcms.com/theme-documentation/style/">SemanticCMS Theme Documentation Style</a></li>
       </ul>
     </div>]]></javadoc.modules>
+    
+    <description.html><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> theme tailored for technical documentation.]]></description.html>
     <!-- TODO: Implement tests -->
     <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
   </properties>
