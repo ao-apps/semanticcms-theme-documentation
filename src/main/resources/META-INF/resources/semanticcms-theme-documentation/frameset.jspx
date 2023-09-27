@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2013, 2014, 2015, 2016, 2019, 2020, 2021, 2022  AO Industries, Inc.
+Copyright (C) 2013, 2014, 2015, 2016, 2019, 2020, 2021, 2022, 2023  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -43,6 +43,8 @@ Arguments:
   <c:set var="pageRef" value="${arg.page.pageRef}" />
   <c:set var="book" value="${applicationScope.semanticCms.rootBook}" />
   <ao:html doctype="FRAMESET"><!-- HTML5 does not support framesets -->
+    <!-- Scripts and styles activated by this page -->
+    <c:set var="wrActivate" value="semanticcms-theme-documentation-style/frameset" />
     <head>
       <c:choose>
         <c:when test="${encoding:getDoctype() == 'HTML5'}">
@@ -54,6 +56,7 @@ Arguments:
           <ao:meta httpEquiv="content-script-type" content="text/javascript" />
         </c:otherwise>
       </c:choose>
+      <wr:renderScripts position="HEAD_START" registered="false" activate="${wrActivate}" />
       <!-- Mobile support -->
       <ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <!-- Authors -->
@@ -61,10 +64,10 @@ Arguments:
       <ao:include page="/semanticcms-core-theme-base/authors.inc.jspx" arg.authors="${book.authors}" />
       <title><!--Frames - --><ao:out value="${book.title}" /></title>
       <!-- TODO: Review HTML 4/HTML 5 differences from here -->
-      <!-- ao-web-resources -->
-      <wr:renderStyles registered="false" activate="semanticcms-theme-documentation-style/frameset" />
+      <wr:renderStyles registered="false" activate="${wrActivate}" />
       <!-- No search index framesets -->
       <ao:meta name="robots" content="noindex, nofollow" />
+      <wr:renderScripts position="HEAD_END" registered="false" activate="${wrActivate}" />
     </head>
     <frameset cols="${fn:escapeXml(book.param.navigationFrameWidth)},*">
       <c:set var="navigationSrc" value="${pageContext.request.contextPath}${pageRef}?navigation=true" />
