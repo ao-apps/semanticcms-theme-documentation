@@ -1,6 +1,6 @@
 /*
  * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
- * Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021, 2022  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -37,7 +37,6 @@ import static com.aoapps.servlet.firewall.rules.Rules.request.method.constrain;
 import static com.aoapps.servlet.firewall.rules.Rules.response.sendError.FORBIDDEN;
 import static com.aoapps.servlet.firewall.rules.Rules.response.sendError.NOT_FOUND;
 
-import com.aoapps.net.URIEncoder;
 import com.aoapps.net.pathspace.Prefix;
 import com.aoapps.servlet.firewall.pathspace.FirewallComponent;
 import com.aoapps.servlet.firewall.pathspace.FirewallPathSpace;
@@ -120,8 +119,6 @@ public final class DocumentationTheme extends Theme {
           .addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
 
       HtmlRenderer htmlRenderer = HtmlRenderer.getInstance(servletContext);
-      // TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
-      htmlRenderer.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/dist/jquery.min.js");
       htmlRenderer.addTheme(new DocumentationTheme());
       // TODO: Move to /META-INF/semanticcms-servlet-space.xml?
       // TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?

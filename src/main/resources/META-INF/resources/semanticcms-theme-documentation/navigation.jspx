@@ -73,12 +73,10 @@ Arguments:
         Maybe only once it also registers scripts, too.
         Alternatively, no head.inc.jspx, just do via activation.
 
-        Could do jquery, and other scripts, via activations only, too.
+        Could do scripts via activations only, too.
       -->
       <ao:include page="jslib/yui-2.9.0/head.inc.jspx" />
       <ao:script src="navigation.js" />
-      <ao:script src="/webjars/jquery/${ao:encodeURIComponent(applicationScope['com.semanticcms.theme.documentation.Maven'].jqueryVersion)}/dist/jquery.min.js" />
-      <ao:script>jQuery.noConflict();</ao:script>
       <!-- No search index left navigation frame -->
       <ao:meta name="robots" content="noindex, nofollow" />
       <wr:renderScripts position="HEAD_END" activate="${wrActivate}" />
@@ -139,9 +137,20 @@ Arguments:
         semanticcms_theme_documentation_navigation.tree.render();
         // TODO: The tree is double-encoding things
         //       See https://oss.aoapps.com/taglib/ao.tld/tags?navigation=true
-        jQuery(function() {
-          semanticcms_theme_documentation_navigation.highlightPage(<ao:out value="${core:encodeHexData(arg.page.pageRef)}" />);
-        });
+
+        (function() {
+          // See https://youmightnotneedjquery.com/#ready
+          function ready(fn) {
+            if (document.readyState !== 'loading') {
+              fn();
+            } else {
+              document.addEventListener('DOMContentLoaded', fn);
+            }
+          }
+          ready(function() {
+            semanticcms_theme_documentation_navigation.highlightPage(<ao:out value="${core:encodeHexData(arg.page.pageRef)}" />);
+          });
+        })();
       </ao:script>
       <wr:renderScripts position="BODY_END" activate="${wrActivate}" />
     </body>

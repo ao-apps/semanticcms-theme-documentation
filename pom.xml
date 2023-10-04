@@ -155,11 +155,6 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
                     <!-- Direct -->
                     <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier> -->
                     <artifactItem>
-                      <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><classifier>javadoc</classifier>
-                      <includes>element-list, package-list</includes>
-                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</outputDirectory>
-                    </artifactItem>
-                    <artifactItem>
                       <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><classifier>javadoc</classifier>
                       <includes>element-list, package-list</includes>
                       <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-net-path-space</outputDirectory>
@@ -233,10 +228,6 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
               <offlineLinks combine.children="append">
                 <!-- Direct -->
                 <!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier> -->
-                <offlineLink>
-                  <url>https://oss.aoapps.com/lang/apidocs/</url>
-                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-lang</location>
-                </offlineLink>
                 <offlineLink>
                   <url>https://oss.aoapps.com/net-path-space/apidocs/</url>
                   <location>${project.build.directory}/offlineLinks/com.aoapps/ao-net-path-space</location>
@@ -351,9 +342,6 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
         <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><version>5.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-      </dependency>
-      <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
@@ -430,6 +418,9 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
         <groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>4.1.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>3.0.3${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
@@ -492,9 +483,6 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
         <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId><version>3.7.1</version>
-      </dependency>
-      <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
@@ -530,9 +518,6 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
     <!-- Direct -->
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId>
@@ -600,10 +585,6 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId>
       <scope>runtime</scope>
     </dependency>
     <dependency>

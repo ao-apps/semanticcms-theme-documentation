@@ -29,7 +29,6 @@ def upstreamProjects = [
 
   // Direct
   '../oss/encoding-taglib', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
-  '../oss/lang', // <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
   '../oss/net-path-space', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId>
   '../oss/net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
   '../oss/servlet-firewall/api', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId>
@@ -53,7 +52,6 @@ def upstreamProjects = [
   // Runtime Direct
   '../oss/servlet-firewall/webjars', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
   '../oss/style', // <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId>
-  // No Jenkins: <groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId>
   'openfile/servlet', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId>
   'pagegraph', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
   // No Jenkins: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId>
