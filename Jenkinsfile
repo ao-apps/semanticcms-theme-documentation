@@ -28,8 +28,6 @@ def upstreamProjects = [
   'parent', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId>
 
   // Direct
-  '../oss/lang', // <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
-  '../oss/net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
   '../oss/servlet-util', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
   '../oss/taglib', // <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
   '../oss/web-resources/registry', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId>
@@ -47,7 +45,6 @@ def upstreamProjects = [
 
   // Runtime Direct
   '../oss/style', // <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId>
-  // No Jenkins: <groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId>
   'openfile/servlet', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId>
   'pagegraph', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
   // No Jenkins: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId>

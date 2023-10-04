@@ -86,10 +86,6 @@ Arguments:
       <!-- Application-wide scripts merged with view-specific scripts -->
       <c:forEach var="script" items="${core:mergeGlobalAndViewScripts(view)}">
         <ao:script src="${script.value}" />
-        <!-- TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();" -->
-        <c:if test="${script.key == 'jquery'}">
-          <ao:script>jQuery.noConflict();</ao:script>
-        </c:if>
       </c:forEach>
       <!-- Application-wide head includes -->
       <c:forEach var="headInclude" items="${applicationScope.semanticCms.headIncludes}">

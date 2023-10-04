@@ -1,6 +1,6 @@
 /*
  * semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
- * Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021, 2022  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -23,7 +23,6 @@
 
 package com.semanticcms.theme.documentation;
 
-import com.aoapps.net.URIEncoder;
 import com.aoapps.servlet.http.Dispatcher;
 import com.aoapps.web.resources.registry.Group;
 import com.aoapps.web.resources.registry.Registry;
@@ -102,8 +101,6 @@ public final class DocumentationTheme extends Theme {
           .addOrdering(YUI_TREE, DocumentationThemeStyle.NAVIGATION);
 
       SemanticCMS semanticCms = SemanticCMS.getInstance(servletContext);
-      // TODO: Return a Script object type instead, with a follow-up of "jQuery.noConflict();"
-      semanticCms.addScript("jquery", "/webjars/jquery/" + URIEncoder.encodeURIComponent(Maven.jqueryVersion) + "/dist/jquery.min.js");
       semanticCms.addTheme(new DocumentationTheme());
     }
 
