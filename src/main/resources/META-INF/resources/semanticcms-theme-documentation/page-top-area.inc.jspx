@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022  AO Industries, Inc.
+Copyright (C) 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -127,6 +127,7 @@ Arguments:
       <jsp:text><!-- Newline required before googleon, doing on googleoff just to be clear and safe -->
 &lt;!--googleoff: all--&gt;
 </jsp:text>
+      <!-- TODO: Incorrect path (duplicated book.pathPrefix) on 404 handler: https://pragmatickm.com/task/view/apidocs/deprecated-list.html -->
       <ao:a target="_top" rel="nofollow" href="${arg.book.bookRef.prefix}${arg.view}" param.frames="true">Frames</ao:a>
       <ao:a target="_top" rel="nofollow" href="${arg.book.bookRef.prefix}${arg.view}">No Frames</ao:a>
       <jsp:text><!--Newline required before googleon -->
