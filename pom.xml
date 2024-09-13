@@ -300,7 +300,7 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>5.3.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><version>8.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+        <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><version>9.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.6.0${POST-SNAPSHOT}</version>
@@ -361,7 +361,7 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
         <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.6.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>3.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>3.0.3${POST-SNAPSHOT}</version>
