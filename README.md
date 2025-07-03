@@ -23,7 +23,7 @@
 * [Project Home](https://semanticcms.com/theme-documentation/)
 * [Changelog](https://semanticcms.com/theme-documentation/changelog)
 * [API Docs](https://semanticcms.com/theme-documentation/apidocs/)
-* [Maven Central Repository](https://central.sonatype.com/artifact/com.semanticcms/semanticcms-theme-documentation)
+* [Central Repository](https://central.sonatype.com/artifact/com.semanticcms/semanticcms-theme-documentation)
 * [GitHub](https://github.com/ao-apps/semanticcms-theme-documentation)
 
 ## Modules
