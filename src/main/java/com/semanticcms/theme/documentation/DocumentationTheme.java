@@ -112,7 +112,7 @@ public final class DocumentationTheme extends Theme {
                 YUI_TREEVIEW,
                 // YUI_CALENDAR,
                 YUI_TREE
-              );
+          );
 
       registry.getGroup(DocumentationThemeStyle.NAVIGATION_GROUP).styles
           // tree -> navigation
