@@ -28,11 +28,11 @@ def upstreamProjects = [
   'parent', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-parent</artifactId>
 
   // Direct
-  '../oss/servlet-util', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
-  '../oss/taglib', // <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
+  '../oss/servlet-util-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
+  '../oss/taglib-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
   '../oss/web-resources/registry', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId>
-  '../oss/web-resources/servlet', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId>
-  '../oss/web-resources/taglib', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId>
+  '../oss/web-resources/servlet-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId>
+  '../oss/web-resources/taglib-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId>
   // No Jenkins: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
   // No Jenkins: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId>
   'core/model', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId>
@@ -44,7 +44,7 @@ def upstreamProjects = [
   // No Jenkins: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId>
 
   // Runtime Direct
-  '../oss/style', // <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId>
+  '../oss/style-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId>
   'openfile/servlet', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId>
   'pagegraph', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
   // No Jenkins: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId>
