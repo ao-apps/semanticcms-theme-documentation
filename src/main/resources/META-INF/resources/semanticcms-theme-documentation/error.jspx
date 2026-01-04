@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!--
 semanticcms-theme-documentation - SemanticCMS theme tailored for technical documentation.
-Copyright (C) 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023  AO Industries, Inc.
+Copyright (C) 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2025, 2026  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -27,10 +27,10 @@ Arguments:
   arg.message  The human readable error message
 --><jsp:root
   xmlns:ao="https://oss.aoapps.com/taglib/"
-  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:c="jakarta.tags.core"
   xmlns:core="https://semanticcms.com/core/taglib/"
   xmlns:encoding="https://oss.aoapps.com/encoding/taglib/"
-  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:fn="jakarta.tags.functions"
   xmlns:jsp="http://java.sun.com/JSP/Page"
   xmlns:wr="https://oss.aoapps.com/web-resources/taglib/"
   version="2.1"
@@ -48,7 +48,7 @@ Arguments:
       response.setStatus((code instanceof Integer) ? (Integer)code : Integer.parseInt(code.toString()));
 
       // Find the request URL in context-relative form
-      String requestUri = (String)request.getAttribute("javax.servlet.error.request_uri");
+      String requestUri = (String)request.getAttribute("jakarta.servlet.error.request_uri");
       String contextPath = com.aoapps.net.URIEncoder.encodeURI(request.getContextPath());
       int cpLen = contextPath.length();
       String pagePath;
@@ -160,31 +160,31 @@ Arguments:
               <tbody>
                 <tr>
                   <th>Request URI</th>
-                  <td><ao:out value="${requestScope['javax.servlet.error.request_uri']}" /></td>
+                  <td><ao:out value="${requestScope['jakarta.servlet.error.request_uri']}" /></td>
                 </tr>
                 <tr>
                   <th>Servlet Name</th>
-                  <td><ao:out value="${requestScope['javax.servlet.error.servlet_name']}" /></td>
+                  <td><ao:out value="${requestScope['jakarta.servlet.error.servlet_name']}" /></td>
                 </tr>
                 <tr>
                   <th>Status Code</th>
-                  <td><ao:out value="${requestScope['javax.servlet.error.status_code']}" /></td>
+                  <td><ao:out value="${requestScope['jakarta.servlet.error.status_code']}" /></td>
                 </tr>
-                <c:set var="errorMessage" value="${requestScope['javax.servlet.error.message']}" />
+                <c:set var="errorMessage" value="${requestScope['jakarta.servlet.error.message']}" />
                 <c:if test="${!empty errorMessage}">
                   <tr>
                     <th>Error Message</th>
                     <td><ao:out value="${errorMessage}" /></td>
                   </tr>
                 </c:if>
-                <c:set var="exceptionType" value="${requestScope['javax.servlet.error.exception_type']}" />
+                <c:set var="exceptionType" value="${requestScope['jakarta.servlet.error.exception_type']}" />
                 <c:if test="${!empty exceptionType}">
                   <tr>
                     <th>Exception Type</th>
                     <td><ao:out value="${exceptionType}" /></td>
                   </tr>
                 </c:if>
-                <c:set var="exception" value="${requestScope['javax.servlet.error.exception']}" />
+                <c:set var="exception" value="${requestScope['jakarta.servlet.error.exception']}" />
                 <c:if test="${!empty exception}">
                   <tr>
                     <th>Exception</th>
