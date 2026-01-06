@@ -53,6 +53,10 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
     <location>/semanticcms-theme-documentation/error-pages/500.jspx</location>
   </error-page>
   <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/semanticcms-theme-documentation/error-pages/500.jspx</location>
+  </error-page>
+  <error-page>
     <error-code>503</error-code>
     <location>/semanticcms-theme-documentation/error-pages/503.jspx</location>
   </error-page>
