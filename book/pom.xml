@@ -128,6 +128,7 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
         <configuration>
           <usedDependencies>
             <!-- JSP Only -->
+            <dependency>com.aoapps:ao-badges</dependency>
             <dependency>com.aoapps:ao-taglib</dependency>
             <dependency>com.semanticcms:semanticcms-changelog-taglib</dependency>
             <dependency>com.semanticcms:semanticcms-core-taglib</dependency>
@@ -136,11 +137,6 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
             <!-- Direct -->
             <dependency>javax.servlet.jsp:javax.servlet.jsp-api</dependency>
           </usedDependencies>
-          <ignoredDependencies>
-            <!-- No "module-info.java" in some release builds -->
-            <dependency>com.aoapps:ao-badges</dependency>
-            <dependency>com.aoapps:ao-web-resources-registry</dependency>
-          </ignoredDependencies>
         </configuration>
       </plugin>
     </plugins>

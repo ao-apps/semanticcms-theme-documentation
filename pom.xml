@@ -123,6 +123,7 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
         <configuration>
           <usedDependencies>
             <!-- JSP Only -->
+            <dependency>com.aoapps:ao-encoding-taglib</dependency>
             <dependency>com.aoapps:ao-taglib</dependency>
             <dependency>com.aoapps:ao-web-resources-taglib</dependency>
             <dependency>com.semanticcms:semanticcms-core-taglib</dependency>
@@ -130,11 +131,6 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
             <dependency>com.semanticcms:semanticcms-file-taglib</dependency>
             <dependency>org.apache.taglibs:taglibs-standard-spec</dependency>
           </usedDependencies>
-          <ignoredDependencies>
-            <!-- No "module-info.java" in some release builds -->
-            <dependency>com.aoapps:ao-collections</dependency>
-            <dependency>com.aoapps:ao-encoding-taglib</dependency>
-          </ignoredDependencies>
         </configuration>
       </plugin>
     </plugins>
