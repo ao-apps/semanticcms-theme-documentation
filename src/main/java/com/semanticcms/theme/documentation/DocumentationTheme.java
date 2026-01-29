@@ -72,7 +72,7 @@ public final class DocumentationTheme extends Theme {
   public static final Style YUI_TREE     = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
 
   /**
-   * Registers the "{@link #NAME}" theme and required scripts in {@link RegistryEE} and {@link SemanticCMS}.
+   * Registers the "{@link DocumentationTheme#NAME}" theme and required scripts in {@link RegistryEE} and {@link SemanticCMS}.
    */
   @WebListener("Registers the \"" + NAME + "\" theme and required scripts in RegistryEE and SemanticCMS.")
   public static class Initializer implements ServletContextListener {
