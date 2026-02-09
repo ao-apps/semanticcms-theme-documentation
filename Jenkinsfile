@@ -52,7 +52,6 @@ binding.setVariable('upstreamProjects', [
   // Runtime Direct
   '../oss/servlet-firewall/webjars', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
   '../oss/style', // <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId>
-  // No Jenkins: <groupId>org.glassfish.web</groupId><artifactId>jakarta.servlet.jsp.jstl</artifactId>
   'openfile/servlet', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-servlet</artifactId>
   'pagegraph', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId>
 
