@@ -29,12 +29,12 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
     <relativePath>../../parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-book</artifactId><version>2.0.1</version>
+  <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-book</artifactId><version>2.0.1-POST-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <properties>
     <!-- Must be set to ${git.commit.time} for snapshots or ISO 8601 timestamp for releases. -->
-    <project.build.outputTimestamp>2026-02-10T00:53:38Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>${git.commit.time}</project.build.outputTimestamp>
     <module.name>com.semanticcms.theme.documentation.book</module.name>
     <subproject.subpath>book/</subproject.subpath>
     <!-- These values are copied from the project being documented -->
@@ -87,7 +87,7 @@ along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/li
     <connection>scm:git:git://github.com/ao-apps/semanticcms-theme-documentation.git</connection>
     <developerConnection>scm:git:git@github.com:ao-apps/semanticcms-theme-documentation.git</developerConnection>
     <url>https://github.com/ao-apps/semanticcms-theme-documentation</url>
-    <tag>semanticcms-theme-documentation-book-2.0.1</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <issueManagement>
