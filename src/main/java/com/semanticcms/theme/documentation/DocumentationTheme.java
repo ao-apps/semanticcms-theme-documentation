@@ -54,8 +54,8 @@ public final class DocumentationTheme extends Theme {
 
   private static final String PREFIX = "/" + NAME;
 
-  private static final String THEME_JSPX      = PREFIX + "/theme.inc.jspx";
-  private static final String FRAMESET_JSPX   = PREFIX + "/frameset.inc.jspx";
+  private static final String THEME_JSPX = PREFIX + "/theme.inc.jspx";
+  private static final String FRAMESET_JSPX = PREFIX + "/frameset.inc.jspx";
   private static final String NAVIGATION_JSPX = PREFIX + "/navigation.inc.jspx";
 
   // TODO: Version from filtered .xml with maven properties
@@ -69,7 +69,7 @@ public final class DocumentationTheme extends Theme {
 
   public static final Style YUI_TREEVIEW = new Style(YUI_PREFIX + "/build/treeview/assets/skins/sam/treeview.css");
   // public static final Style YUI_CALENDAR = new Style(YUI_PREFIX + "/build/calendar/assets/skins/sam/calendar.css");//
-  public static final Style YUI_TREE     = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
+  public static final Style YUI_TREE = new Style(YUI_PREFIX + "/examples/treeview/assets/css/folders/tree.css");
 
   /**
    * Registers the "{@link DocumentationTheme#NAME}" theme and required scripts in {@link RegistryEE} and {@link SemanticCMS}.
