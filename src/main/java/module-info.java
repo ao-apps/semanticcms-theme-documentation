@@ -21,7 +21,6 @@
  * along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/licenses/>.
  */
 module com.semanticcms.theme.documentation {
-  exports com.semanticcms.theme.documentation;
   // Direct
   requires com.aoapps.encoding.taglib; // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
   requires com.aoapps.servlet.util; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
@@ -38,4 +37,6 @@ module com.semanticcms.theme.documentation {
   requires com.semanticcms.file.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId>
   requires com.semanticcms.theme.documentation.style; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId>
   requires jakarta.servlet.jsp.jstl; // <groupId>jakarta.servlet.jsp.jstl</groupId><artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+
+  exports com.semanticcms.theme.documentation;
 }

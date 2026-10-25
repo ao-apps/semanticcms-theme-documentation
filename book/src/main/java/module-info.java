@@ -21,7 +21,6 @@
  * along with semanticcms-theme-documentation.  If not, see <https://www.gnu.org/licenses/>.
  */
 module com.semanticcms.theme.documentation.book {
-  exports com.semanticcms.theme.documentation.book;
   // Direct
   requires com.aoapps.badges; // <groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId>
   requires com.aoapps.net.types; // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
@@ -33,4 +32,6 @@ module com.semanticcms.theme.documentation.book {
   requires com.semanticcms.changelog.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId>
   requires com.semanticcms.core.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
   requires com.semanticcms.section.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-taglib</artifactId>
+
+  exports com.semanticcms.theme.documentation.book;
 }
